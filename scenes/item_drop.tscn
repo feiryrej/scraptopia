@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://xhyc8dqn17gm"]
+
+[ext_resource type="Texture2D" uid="uid://cp83xa4uko17e" path="res://assets/wastes/powerful object.png" id="1_233tk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7unil"]
+radius = 13.0384
+
+[node name="item_drop" type="Area2D" groups=["item_drop"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7unil")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_233tk")
