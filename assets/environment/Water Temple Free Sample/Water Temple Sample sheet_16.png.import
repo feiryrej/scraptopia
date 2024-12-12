@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bato0uagf7g5r"
-path="res://.godot/imported/DesertSands.png-e055403912520369e680cd4c73fe139b.ctex"
+uid="uid://csh8sq4gins8e"
+path="res://.godot/imported/Water Temple Sample sheet_16.png-9aee9d30db74f75e58aba2a5b72ca03e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/DesertSands.png"
-dest_files=["res://.godot/imported/DesertSands.png-e055403912520369e680cd4c73fe139b.ctex"]
+source_file="res://assets/environment/Water Temple Free Sample/Water Temple Sample sheet_16.png"
+dest_files=["res://.godot/imported/Water Temple Sample sheet_16.png-9aee9d30db74f75e58aba2a5b72ca03e.ctex"]
 
 [params]
 
