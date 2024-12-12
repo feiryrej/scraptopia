@@ -1,47 +1,105 @@
 extends CharacterBody2D
 
+# Movement settings
 var speed = 100
+var movement_velocity = Vector2.ZERO  # Stores current velocity
+var character_direction = Vector2.DOWN # Tracks the last movement direction
 
-var player_state = "idle"
+var carrying_item = false
 
+enum Gender { MALE, FEMALE}
+var curr_gender = Gender.MALE
+
+var male_arms_down_frames = preload("res://male_arms_down.tres")
+var male_arms_up_frames = preload("res://male_arms_up.tres")
+var female_arms_down_frames = preload("res://female_arms_down.tres")
+var female_arms_up_frames = preload("res://female_arms_down.tres")
+
+func _ready():
+	_update_spritesheet()
+
+# Enum to define states
+enum States { IDLE, MOVE }
+var current_state = States.IDLE
 
 func _physics_process(delta):
-	var direction = Input.get_vector("left", "right", "up", "down")
+	handle_state_transitions()
+	perform_state_actions(delta)
+	velocity = movement_velocity  # Assign movement_velocity to the built-in velocity
+	move_and_slide()  # Move using the built-in velocity
 
-	# Reset direction if multiple inputs are detected
-	if direction.x != 0 and direction.y != 0:
-		direction = Vector2.ZERO
-
-	# Prioritize horizontal movement over vertical
-	elif direction.x != 0:
-		direction = Vector2(direction.x, 0)
-	elif direction.y != 0:
-		direction = Vector2(0, direction.y)
-
-	# Update player state based on direction
-	if direction == Vector2.ZERO:
-		player_state = "idle"
+func handle_state_transitions():
+	if Input.is_action_pressed("left") or Input.is_action_pressed("right") or Input.is_action_pressed("up") or Input.is_action_pressed("down"):
+		current_state = States.MOVE
 	else:
-		player_state = "walking"
+		current_state = States.IDLE
 
-	velocity = direction * speed
-	move_and_slide()
+func perform_state_actions(delta):
+	match current_state:
+		States.MOVE:
+			var horizontal_input = Input.get_axis("left", "right")
+			var vertical_input = Input.get_axis("up", "down")
 
-	_play_animation(direction)
+			# Prioritize horizontal movement over vertical
+			if horizontal_input != 0:
+				character_direction = Vector2(horizontal_input, 0)
+			elif vertical_input != 0:
+				character_direction = Vector2(0, vertical_input)
+			else:
+				character_direction = Vector2.ZERO
+
+			# Play walking animation based on direction
+			if character_direction.x < 0:
+				$body.play("w-walk")
+			elif character_direction.x > 0:
+				$body.play("e-walk")
+			elif character_direction.y > 0:
+				$body.play("s-walk")
+			elif character_direction.y < 0:
+				$body.play("n-walk")
+
+			# Calculate movement velocity
+			movement_velocity = character_direction * speed
+
+		States.IDLE:
+			# Stop the character immediately
+			movement_velocity = Vector2.ZERO
+
+			# Play idle animation based on last direction
+			if character_direction.y > 0:
+				$body.play("s-idle")
+			elif character_direction.y < 0:
+				$body.play("n-idle")
+			elif character_direction.x > 0:
+				$body.play("e-idle")
+			elif character_direction.x < 0:
+				$body.play("w-idle")
+
+func _update_spritesheet():
+	
+	if curr_gender == Gender.MALE:
+		if carrying_item == true:
+			$body.frames = male_arms_up_frames
+		else:
+			$body.frames = male_arms_down_frames
+	if curr_gender == Gender.FEMALE:
+		if carrying_item == true:
+			$body.frames = female_arms_up_frames
+		else:
+			$body.frames = female_arms_down_frames
 
 
-func _play_animation(dir):
-	# Match is like switch
-	match player_state:
-		"idle":
-			$AnimatedSprite2D.play("idle")
-		"walking":
-			match dir:
-				Vector2.UP:
-					$AnimatedSprite2D.play("n-walk")
-				Vector2.RIGHT:
-					$AnimatedSprite2D.play("e-walk")
-				Vector2.DOWN:
-					$AnimatedSprite2D.play("s-walk")
-				Vector2.LEFT:
-					$AnimatedSprite2D.play("w-walk")
+func _on_switch_gender_pressed():
+	if curr_gender == Gender.MALE:
+		curr_gender = Gender.FEMALE
+		print(curr_gender)
+	else:
+		curr_gender = Gender.MALE
+		print(curr_gender)
+	_update_spritesheet()
+
+
+func _on_switch_stance_pressed():
+	carrying_item = !carrying_item
+	print("Carrying item: ", carrying_item)
+	_update_spritesheet()
