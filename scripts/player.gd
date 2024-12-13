@@ -158,6 +158,17 @@ func is_facing_item(item: Area2D) -> bool:
 	return false
 
 
+func adjust_item_z_index(item_sprite: Sprite2D, is_picking_up: bool):
+	if item_sprite:
+		# Set z-index for the item
+		item_sprite.z_index = -2
+		
+		# Adjust character z-index accordingly
+		human_spr.z_index = 0 if is_picking_up else 1
+	else:
+		print("Item sprite not found")
+
+
 func pickup_item(item: Area2D):
 	item.queue_free()
 	carrying_item = true
@@ -165,24 +176,29 @@ func pickup_item(item: Area2D):
 	update_spritesheet()	
 	
 	item_spr.show()
+	var item_sprite = item.get_node("Sprite2D")
+	adjust_item_z_index(item_sprite, true)
 
 
 func drop_item():
 	item_spr.hide()
 	var item = item_drop.instantiate()
 	
-	# Calculate the drop position in front of the character based on direction
-	var drop_offset = dir * 20 # Multiply direction by a distance factor (e.g., 12)
+	# Calculate the next tile position based on the direction the character is facing
+	var drop_tile_position = (global_position / tile_size).floor() + dir
 	
-	drop_offset.y += 4
+	# Convert the tile position back to world coordinates
+	item.position = drop_tile_position * tile_size + Vector2(tile_size / 2, tile_size / 2)
 	
-	# Set the drop position relative to the character's position
-	item.position = position + drop_offset
-
+	# Ensure the item is added to the parent before adjusting z_index
 	get_parent().add_child(item)
+
+	var item_sprite = item.get_node("Sprite2D")
+	adjust_item_z_index(item_sprite, false)
+	
 	carrying_item = false
 	print("Carrying item: ", carrying_item)
-	update_spritesheet()	
+	update_spritesheet()
 
 
 func _on_pickup_range_area_entered(area: Area2D):

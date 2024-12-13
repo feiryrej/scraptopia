@@ -11,5 +11,6 @@ radius = 13.0384
 shape = SubResource("CircleShape2D_7unil")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -2
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_4chgt")
