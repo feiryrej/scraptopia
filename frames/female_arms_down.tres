@@ -145,7 +145,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"e-walk",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -176,7 +176,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"n-walk",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -207,7 +207,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"s-walk",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -238,5 +238,5 @@ animations = [{
 }],
 "loop": true,
 "name": &"w-walk",
-"speed": 5.0
+"speed": 8.0
 }]
