@@ -15,7 +15,7 @@ script = ExtResource("1_1ovfa")
 
 [node name="human_spr" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_dqbn0")
-animation = &"e-idle"
+animation = &"s-idle"
 
 [node name="item_spr" type="Sprite2D" parent="."]
 position = Vector2(-1, -11)
