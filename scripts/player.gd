@@ -79,30 +79,30 @@ func perform_state_actions(delta):
 
 				# Play walking animation
 				if dir.x < 0:
-					$human_spr.play("w-walk")
+					human_spr.play("w-walk")
 					item_spr.flip_h = true
-					item_spr.position.x = -3
+					item_spr.position.x = 8
 				elif dir.x > 0:
-					$human_spr.play("e-walk")
+					human_spr.play("e-walk")
 					item_spr.flip_h = false
-					item_spr.position.x = 3
+					item_spr.position.x = 8
 				elif dir.y > 0:
-					$human_spr.play("s-walk")
+					human_spr.play("s-walk")
 				elif dir.y < 0:
-					$human_spr.play("n-walk")
+					human_spr.play("n-walk")
 			States.IDLE:
 				# Snap character to nearest tile
 				global_position = (global_position / tile_size).round() * tile_size
 
 				# Play idle animation based on last direction
 				if dir.y > 0:
-					$human_spr.play("s-idle")
+					human_spr.play("s-idle")
 				elif dir.y < 0:
-					$human_spr.play("n-idle")
+					human_spr.play("n-idle")
 				elif dir.x > 0:
-					$human_spr.play("e-idle")
+					human_spr.play("e-idle")
 				elif dir.x < 0:
-					$human_spr.play("w-idle")
+					human_spr.play("w-idle")
 
 
 func update_spritesheet():
