@@ -9,6 +9,10 @@ extends CharacterBody2D
 var speed = 100
 var movement_velocity = Vector2.ZERO  # Stores current velocity
 var dir = Vector2.DOWN # Tracks the last movement direction
+var tile_size = 16 # Change depending on our game's tile size
+var movement_speed = 120 # Lower = slower, higher = faster
+var is_moving = false
+var movement_queue = Vector2.ZERO
 
 var carrying_item = false
 var drop_pos: Vector2
@@ -33,7 +37,7 @@ func _ready():
 	
 func _physics_process(delta):
 	handle_state_transitions()
-	perform_state_actions()
+	perform_state_actions(delta)
 	velocity = movement_velocity
 	move_and_slide()
 
@@ -45,51 +49,60 @@ func handle_state_transitions():
 		current_state = States.IDLE
 
 
-func perform_state_actions():
-	match current_state:
-		States.MOVE:
-			var horizontal_input = Input.get_axis("left", "right")
-			var vertical_input = Input.get_axis("up", "down")
+func perform_state_actions(delta):
+	# If already moving, continue toward the target position
+	if is_moving:
+		global_position = global_position.move_toward(movement_queue, movement_speed * delta)
+		
+		# Check if the player has reached the target tile
+		if global_position == movement_queue:
+			is_moving = false
+			global_position = movement_queue  # Snap to tile center
+	else:
+		match current_state:
+			States.MOVE:
+				var horizontal_input = Input.get_axis("left", "right")
+				var vertical_input = Input.get_axis("up", "down")
+				
+				# Prioritize horizontal movement over vertical
+				if horizontal_input != 0:
+					dir = Vector2(horizontal_input, 0)
+				elif vertical_input != 0:
+					dir = Vector2(0, vertical_input)
+				else:
+					dir = Vector2.ZERO
+				
+				if dir != Vector2.ZERO:
+					# Calculate the next target position based on the tile grid
+					movement_queue = (global_position / tile_size).floor() * tile_size + dir * tile_size
+					is_moving = true
 
-			# Prioritize horizontal movement over vertical
-			if horizontal_input != 0:
-				dir = Vector2(horizontal_input, 0)
-			elif vertical_input != 0:
-				dir = Vector2(0, vertical_input)
-			else:
-				dir = Vector2.ZERO
+				# Play walking animation
+				if dir.x < 0:
+					$human_spr.play("w-walk")
+					item_spr.flip_h = true
+					item_spr.position.x = -3
+				elif dir.x > 0:
+					$human_spr.play("e-walk")
+					item_spr.flip_h = false
+					item_spr.position.x = 3
+				elif dir.y > 0:
+					$human_spr.play("s-walk")
+				elif dir.y < 0:
+					$human_spr.play("n-walk")
+			States.IDLE:
+				# Snap character to nearest tile
+				global_position = (global_position / tile_size).round() * tile_size
 
-			# Play walking animation based on direction
-			if dir.x < 0:
-				$human_spr.play("w-walk")
-				item_spr.flip_h = true
-				item_spr.position.x = -3
-				drop_pos = Vector2(-12, 13)
-			elif dir.x > 0:
-				$human_spr.play("e-walk")
-				item_spr.flip_h = false
-				item_spr.position.x = 3
-				drop_pos = Vector2(12, 13)
-			elif dir.y > 0:
-				$human_spr.play("s-walk")
-			elif dir.y < 0:
-				$human_spr.play("n-walk")
-
-			# Calculate movement velocity
-			movement_velocity = dir * speed
-		States.IDLE:
-			# Stop the character immediately
-			movement_velocity = Vector2.ZERO
-
-			# Play idle animation based on last direction
-			if dir.y > 0:
-				$human_spr.play("s-idle")
-			elif dir.y < 0:
-				$human_spr.play("n-idle")
-			elif dir.x > 0:
-				$human_spr.play("e-idle")
-			elif dir.x < 0:
-				$human_spr.play("w-idle")
+				# Play idle animation based on last direction
+				if dir.y > 0:
+					$human_spr.play("s-idle")
+				elif dir.y < 0:
+					$human_spr.play("n-idle")
+				elif dir.x > 0:
+					$human_spr.play("e-idle")
+				elif dir.x < 0:
+					$human_spr.play("w-idle")
 
 
 func update_spritesheet():
