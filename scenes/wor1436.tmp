@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://df7bue7ges4vq" path="res://scenes/player.tscn" id="1_b0kix"]
 [ext_resource type="Texture2D" uid="uid://csh8sq4gins8e" path="res://assets/environment/Water Temple Free Sample/Water Temple Sample sheet_16.png" id="2_nla88"]
 [ext_resource type="Texture2D" uid="uid://55jnk4stydnc" path="res://assets/environment/Texture/TX Props.png" id="3_2cfkl"]
-[ext_resource type="PackedScene" uid="uid://b3hmexuw718dn" path="res://scenes/item_drop.tscn" id="4_gmtqb"]
+[ext_resource type="PackedScene" path="res://scenes/item_drop.tscn" id="4_gmtqb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wqq8x"]
 texture = ExtResource("3_2cfkl")
@@ -178,7 +178,7 @@ sources/0 = SubResource("TileSetAtlasSource_jg0su")
 
 [node name="world" type="Node2D"]
 
-[node name="tm_statues" type="TileMap" parent="."]
+[node name="tm-statues" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_4afkp")
 format = 2
 
@@ -196,6 +196,10 @@ position = Vector2(58, -29)
 [node name="player" parent="." instance=ExtResource("1_b0kix")]
 position = Vector2(0, -1)
 
+[node name="Camera2D2" type="Camera2D" parent="player"]
+zoom = Vector2(2.5, 2.5)
+position_smoothing_enabled = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
@@ -212,4 +216,14 @@ offset_bottom = 40.0
 text = "Gender Transition Surgery"
 icon = SubResource("ViewportTexture_iky4l")
 
+[node name="Node2D2" type="Node2D" parent="CanvasLayer/HBoxContainer"]
+position = Vector2(354, 52)
+
+[node name="switch_stance" type="Button" parent="CanvasLayer/HBoxContainer/Node2D2"]
+offset_right = 75.0
+offset_bottom = 40.0
+text = "Praise the Lord"
+icon = SubResource("ViewportTexture_iky4l")
+
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Node2D/switch_gender" to="player" method="_on_switch_gender_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Node2D2/switch_stance" to="player" method="_on_switch_stance_pressed"]
