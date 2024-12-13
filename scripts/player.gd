@@ -17,7 +17,7 @@ var items_in_range: Array = []
 var male_arms_down_frames = preload("res://frames/male_arms_down.tres")
 var male_arms_up_frames = preload("res://frames/male_arms_up.tres")
 var female_arms_down_frames = preload("res://frames/female_arms_down.tres")
-var female_arms_up_frames = preload("res://frames/female_arms_down.tres")
+var female_arms_up_frames = preload("res://frames/female_arms_up.tres")
 
 enum Gender { MALE, FEMALE}
 var curr_gender = Gender.MALE
