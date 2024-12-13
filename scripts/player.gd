@@ -146,13 +146,13 @@ func is_facing_item(item: Area2D) -> bool:
 	
 	# Check if the item is in the direction the player is facing
 	# Use a threshold to account for slight angle differences
-	if dir == Vector2.RIGHT and item_dir.dot(Vector2.RIGHT) > 0.7:
+	if dir == Vector2.RIGHT and item_dir.dot(Vector2.RIGHT) > 0.6:
 		return true
-	elif dir == Vector2.LEFT and item_dir.dot(Vector2.LEFT) > 0.7:
+	elif dir == Vector2.LEFT and item_dir.dot(Vector2.LEFT) > 0.6:
 		return true
-	elif dir == Vector2.UP and item_dir.dot(Vector2.UP) > 0.7:
+	elif dir == Vector2.UP and item_dir.dot(Vector2.UP) > 0.6:
 		return true
-	elif dir == Vector2.DOWN and item_dir.dot(Vector2.DOWN) > 0.7:
+	elif dir == Vector2.DOWN and item_dir.dot(Vector2.DOWN) > 0.6:
 		return true
 	
 	return false
