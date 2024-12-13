@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://df7bue7ges4vq" path="res://scenes/player.tscn" id="1_b0kix"]
 [ext_resource type="Texture2D" uid="uid://csh8sq4gins8e" path="res://assets/environment/Water Temple Free Sample/Water Temple Sample sheet_16.png" id="2_nla88"]
 [ext_resource type="Texture2D" uid="uid://55jnk4stydnc" path="res://assets/environment/Texture/TX Props.png" id="3_2cfkl"]
-[ext_resource type="PackedScene" uid="uid://xhyc8dqn17gm" path="res://scenes/item_drop.tscn" id="4_gmtqb"]
+[ext_resource type="PackedScene" path="res://scenes/item_drop.tscn" id="4_gmtqb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wqq8x"]
 texture = ExtResource("3_2cfkl")
