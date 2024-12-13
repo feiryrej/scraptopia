@@ -22,14 +22,13 @@ var female_arms_up_frames = preload("res://frames/female_arms_up.tres")
 enum Gender { MALE, FEMALE}
 var curr_gender = Gender.MALE
 
-# Enum to define states
 enum States { IDLE, MOVE }
 var current_state = States.IDLE
 
 
 func _ready():
 	item_spr.hide()
-	_update_spritesheet()
+	update_spritesheet()
 
 	
 func _physics_process(delta):
@@ -93,7 +92,7 @@ func perform_state_actions():
 				$human_spr.play("w-idle")
 
 
-func _update_spritesheet():
+func update_spritesheet():
 	if curr_gender == Gender.MALE:
 		if carrying_item == true:
 			human_spr.frames = male_arms_up_frames
@@ -113,13 +112,7 @@ func _on_switch_gender_pressed():
 	else:
 		curr_gender = Gender.MALE
 		print(curr_gender)
-	_update_spritesheet()
-
-
-func _on_switch_stance_pressed():
-	carrying_item = !carrying_item
-	print("Carrying item: ", carrying_item)
-	_update_spritesheet()	
+	update_spritesheet()
 
 
 func _input(event):
@@ -128,14 +121,35 @@ func _input(event):
 			drop_item()
 		else:
 			if !items_in_range.is_empty():
-				_pickup_item(items_in_range.pick_random())
+				for item in items_in_range:
+					if is_facing_item(item):
+						pickup_item(item)
+						break
 
 
-func _pickup_item(item: Area2D):
+func is_facing_item(item: Area2D) -> bool:
+	# Calculate the direction vector from the player to the item
+	var item_dir = (item.global_position - global_position).normalized()
+	
+	# Check if the item is in the direction the player is facing
+	# Use a threshold to account for slight angle differences
+	if dir == Vector2.RIGHT and item_dir.dot(Vector2.RIGHT) > 0.7:
+		return true
+	elif dir == Vector2.LEFT and item_dir.dot(Vector2.LEFT) > 0.7:
+		return true
+	elif dir == Vector2.UP and item_dir.dot(Vector2.UP) > 0.7:
+		return true
+	elif dir == Vector2.DOWN and item_dir.dot(Vector2.DOWN) > 0.7:
+		return true
+	
+	return false
+
+
+func pickup_item(item: Area2D):
 	item.queue_free()
 	carrying_item = true
 	print("Carrying item: ", carrying_item)
-	_update_spritesheet()	
+	update_spritesheet()	
 	
 	item_spr.show()
 
@@ -155,7 +169,7 @@ func drop_item():
 	get_parent().add_child(item)
 	carrying_item = false
 	print("Carrying item: ", carrying_item)
-	_update_spritesheet()	
+	update_spritesheet()	
 
 
 func _on_pickup_range_area_entered(area: Area2D):
