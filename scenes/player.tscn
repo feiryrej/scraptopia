@@ -38,7 +38,7 @@ zoom = Vector2(2.5, 2.5)
 limit_left = -551
 limit_top = -351
 limit_right = 839
-limit_bottom = 517
+limit_bottom = 711
 
 [connection signal="area_entered" from="pickup_range" to="." method="_on_pickup_range_area_entered"]
 [connection signal="area_exited" from="pickup_range" to="." method="_on_pickup_range_area_exited"]
