@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddxc2w6laf5q6"]
+
+[ext_resource type="Texture2D" uid="uid://cbj5lv66vd28p" path="res://assets/environment/Pearl/Water Temple Sample sheet_32.png" id="1_5esqm"]
+[ext_resource type="Texture2D" uid="uid://cdiff6aa7ahns" path="res://assets/environment/Pearl/treasure-chest.png" id="2_yl1n8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1t4ao"]
+texture = ExtResource("1_5esqm")
+texture_region_size = Vector2i(32, 32)
+3:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+11:0/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+11:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+3:4/0 = 0
+5:4/0 = 0
+7:4/0 = 0
+9:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+3:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+9:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+5:7/0 = 0
+7:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+3:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u4egg"]
+texture = ExtResource("2_yl1n8")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_yqy4s"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_1t4ao")
+sources/2 = SubResource("TileSetAtlasSource_u4egg")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_yqy4s")
+format = 2
+layer_0/name = "Base Layer"
+layer_1/name = "Top Layer"
