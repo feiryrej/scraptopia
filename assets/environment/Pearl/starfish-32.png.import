@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdiff6aa7ahns"
-path="res://.godot/imported/treasure-chest.png-7bd8f996626796040730bef38827f96d.ctex"
+uid="uid://cfq1qdgda4cuv"
+path="res://.godot/imported/starfish-32.png-d09c6fcfbb476c3242677b615c01aee5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/Pearl/treasure-chest.png"
-dest_files=["res://.godot/imported/treasure-chest.png-7bd8f996626796040730bef38827f96d.ctex"]
+source_file="res://assets/environment/Pearl/starfish-32.png"
+dest_files=["res://.godot/imported/starfish-32.png-d09c6fcfbb476c3242677b615c01aee5.ctex"]
 
 [params]
 
