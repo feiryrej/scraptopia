@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c7ej5om686om4"
+path="res://.godot/imported/Character_Idle.aseprite-ff9f4912cbb59bc949eec65cf935ab53.res"
+
+[deps]
+
+source_file="res://assets/environment/africa/The Fan-tasy Tileset - Desert Oasis 1.4.0/The Fan-tasy Tileset - Desert Oasis/desert/Character/Character/Character_Idle.aseprite"
+dest_files=["res://.godot/imported/Character_Idle.aseprite-ff9f4912cbb59bc949eec65cf935ab53.res"]
+
+[params]
+

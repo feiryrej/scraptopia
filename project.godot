@@ -26,6 +26,10 @@ window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 mouse_cursor/custom_image="res://assets/cursor.png"
 
+[dotnet]
+
+project/assembly_name="Scraptopia"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
