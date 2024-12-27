@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://d1gt363pf4fhi"
+path="res://.godot/imported/Character_Idle.aseprite-3f2124d99a168bcb7776ad378a81af95.res"
+
+[deps]
+
+source_file="res://assets/environment/Regina/The Fan-tasy Tileset (Free)/Art/Characters/Character/Character_Idle.aseprite"
+dest_files=["res://.godot/imported/Character_Idle.aseprite-3f2124d99a168bcb7776ad378a81af95.res"]
+
+[params]
+
