@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=37 format=3 uid="uid://gwoav7cvderm"]
+[gd_resource type="TileSet" load_steps=43 format=3 uid="uid://gwoav7cvderm"]
 
 [ext_resource type="Texture2D" uid="uid://b5dcyuilahswr" path="res://assets/environment/Virethariel/Barrels and crates/spr_crate4.png" id="1_31ats"]
 [ext_resource type="Texture2D" uid="uid://dkyide77xlubo" path="res://assets/environment/Virethariel/Chest/spr_small_chest.png" id="1_m7ja5"]
@@ -7,10 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://cj823ehtvufyl" path="res://assets/environment/Virethariel/Barrels and crates/spr_crate3.png" id="3_lvlxc"]
 [ext_resource type="Texture2D" uid="uid://bwhkpsmmu0ngl" path="res://assets/environment/Virethariel/Barrels and crates/spr_crate1.png" id="4_qb0k7"]
 [ext_resource type="Texture2D" uid="uid://2pc8lnnpfwyn" path="res://assets/environment/Virethariel/Barrels and crates/spr_barrel1.png" id="5_7phbr"]
+[ext_resource type="Texture2D" uid="uid://cygbqo8fqpvn4" path="res://assets/bins and wastes/dead_plant_leaves.png" id="5_sk1st"]
 [ext_resource type="Texture2D" uid="uid://dpw5rqgvaspc0" path="res://assets/environment/Virethariel/Barrels and crates/spr_barrel2.png" id="6_07bfq"]
 [ext_resource type="Texture2D" uid="uid://b8p0i043b4bh4" path="res://assets/environment/Virethariel/Flowers/frog.png" id="7_qwquw"]
 [ext_resource type="Texture2D" uid="uid://bhn5sx53oopiy" path="res://assets/environment/Virethariel/Tileset.png" id="9_kdlvu"]
 [ext_resource type="Texture2D" uid="uid://c5hpp6kpe5xh" path="res://assets/environment/Virethariel/Flowers/duck.png" id="10_d0bst"]
+[ext_resource type="Texture2D" uid="uid://bib634jwwofk2" path="res://assets/bins and wastes/bins-spritesheet.png" id="10_jb0b5"]
+[ext_resource type="Texture2D" uid="uid://c7j3fhp5syusf" path="res://assets/bins and wastes/wastes-spritesheet.png" id="12_4emsx"]
 [ext_resource type="Texture2D" uid="uid://cpscugml4n3k3" path="res://assets/environment/Virethariel/Objects.png" id="12_wkoyy"]
 [ext_resource type="Texture2D" uid="uid://cugr5bpuwej4v" path="res://assets/environment/Virethariel/Chest/spr_chest.png" id="15_akjbb"]
 [ext_resource type="Texture2D" uid="uid://ddnasem8unpqt" path="res://assets/environment/Virethariel/TX Props.png" id="15_ikr0t"]
@@ -39,6 +42,11 @@ texture = ExtResource("2_i16o7")
 0:0/size_in_atlas = Vector2i(2, 2)
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x4ow3"]
+texture = ExtResource("5_sk1st")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kulnq"]
 texture = ExtResource("3_lvlxc")
 0:0/size_in_atlas = Vector2i(2, 2)
@@ -60,9 +68,276 @@ texture = ExtResource("6_07bfq")
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_138xk"]
+texture = ExtResource("10_jb0b5")
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+2:0/size_in_atlas = Vector2i(2, 2)
+2:0/0 = 0
+4:0/size_in_atlas = Vector2i(2, 2)
+4:0/0 = 0
+6:0/size_in_atlas = Vector2i(2, 2)
+6:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qokkr"]
 texture = ExtResource("7_qwquw")
 0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihd35"]
+texture = ExtResource("12_4emsx")
+0:0/0 = 0
+1:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+22:0/0 = 0
+23:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+22:1/0 = 0
+23:1/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+26:4/0 = 0
+27:4/0 = 0
+28:4/0 = 0
+29:4/0 = 0
+30:4/0 = 0
+31:4/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+26:5/0 = 0
+27:5/0 = 0
+28:5/0 = 0
+29:5/0 = 0
+30:5/0 = 0
+31:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+16:10/0 = 0
+17:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+16:11/0 = 0
+17:11/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+16:12/0 = 0
+17:12/0 = 0
+18:12/0 = 0
+19:12/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+16:13/0 = 0
+17:13/0 = 0
+18:13/0 = 0
+19:13/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+0:14/size_in_atlas = Vector2i(2, 2)
+0:14/0 = 0
+6:12/size_in_atlas = Vector2i(2, 2)
+6:12/0 = 0
+20:8/size_in_atlas = Vector2i(2, 2)
+20:8/0 = 0
+24:8/size_in_atlas = Vector2i(2, 2)
+24:8/0 = 0
+0:2/size_in_atlas = Vector2i(2, 2)
+0:2/0 = 0
+2:2/size_in_atlas = Vector2i(2, 2)
+2:2/0 = 0
+4:2/size_in_atlas = Vector2i(2, 2)
+4:2/0 = 0
+14:2/size_in_atlas = Vector2i(2, 2)
+14:2/0 = 0
+18:2/size_in_atlas = Vector2i(2, 2)
+18:2/0 = 0
+14:12/size_in_atlas = Vector2i(2, 2)
+14:12/0 = 0
+12:12/size_in_atlas = Vector2i(2, 2)
+12:12/0 = 0
+4:12/size_in_atlas = Vector2i(2, 2)
+4:12/0 = 0
+14:10/size_in_atlas = Vector2i(2, 2)
+14:10/0 = 0
+22:10/size_in_atlas = Vector2i(2, 2)
+22:10/0 = 0
+18:10/size_in_atlas = Vector2i(2, 2)
+18:10/0 = 0
+22:8/size_in_atlas = Vector2i(2, 2)
+22:8/0 = 0
+6:0/size_in_atlas = Vector2i(2, 2)
+6:0/0 = 0
+0:8/size_in_atlas = Vector2i(2, 2)
+0:8/0 = 0
+6:8/size_in_atlas = Vector2i(2, 2)
+6:8/0 = 0
+12:10/size_in_atlas = Vector2i(2, 2)
+12:10/0 = 0
+20:10/size_in_atlas = Vector2i(2, 2)
+20:10/0 = 0
+10:10/size_in_atlas = Vector2i(2, 2)
+10:10/0 = 0
+2:0/size_in_atlas = Vector2i(2, 2)
+2:0/0 = 0
+18:0/size_in_atlas = Vector2i(2, 2)
+18:0/0 = 0
+6:14/size_in_atlas = Vector2i(2, 2)
+6:14/0 = 0
+8:8/size_in_atlas = Vector2i(2, 2)
+8:8/0 = 0
+16:2/0 = 0
+16:3/0 = 0
+17:2/0 = 0
+17:3/0 = 0
+22:4/size_in_atlas = Vector2i(2, 2)
+22:4/0 = 0
+24:4/size_in_atlas = Vector2i(2, 2)
+24:4/0 = 0
+0:4/size_in_atlas = Vector2i(2, 2)
+0:4/0 = 0
+14:4/size_in_atlas = Vector2i(2, 2)
+14:4/0 = 0
+18:4/size_in_atlas = Vector2i(2, 2)
+18:4/0 = 0
+12:6/size_in_atlas = Vector2i(2, 2)
+12:6/0 = 0
+18:6/size_in_atlas = Vector2i(2, 2)
+18:6/0 = 0
+4:6/size_in_atlas = Vector2i(2, 2)
+4:6/0 = 0
+8:12/size_in_atlas = Vector2i(2, 2)
+8:12/0 = 0
+2:14/size_in_atlas = Vector2i(2, 2)
+2:14/0 = 0
+16:6/size_in_atlas = Vector2i(2, 2)
+16:6/0 = 0
+8:0/size_in_atlas = Vector2i(2, 2)
+8:0/0 = 0
+4:0/size_in_atlas = Vector2i(2, 2)
+4:0/0 = 0
+14:0/size_in_atlas = Vector2i(2, 2)
+14:0/0 = 0
+2:10/size_in_atlas = Vector2i(2, 2)
+2:10/0 = 0
+2:12/size_in_atlas = Vector2i(2, 2)
+2:12/0 = 0
+0:12/size_in_atlas = Vector2i(2, 2)
+0:12/0 = 0
+16:8/size_in_atlas = Vector2i(2, 2)
+16:8/0 = 0
+2:4/size_in_atlas = Vector2i(2, 2)
+2:4/0 = 0
+8:4/size_in_atlas = Vector2i(2, 2)
+8:4/0 = 0
+4:4/size_in_atlas = Vector2i(2, 2)
+4:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uvexg"]
 texture = ExtResource("9_kdlvu")
@@ -2554,3 +2829,6 @@ sources/6 = SubResource("TileSetAtlasSource_vqkca")
 sources/7 = SubResource("TileSetAtlasSource_0pnq2")
 sources/8 = SubResource("TileSetAtlasSource_3dhyi")
 sources/9 = SubResource("TileSetAtlasSource_iclt7")
+sources/12 = SubResource("TileSetAtlasSource_x4ow3")
+sources/17 = SubResource("TileSetAtlasSource_138xk")
+sources/19 = SubResource("TileSetAtlasSource_ihd35")
