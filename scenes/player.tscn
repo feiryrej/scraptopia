@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1ovfa"]
 [ext_resource type="SpriteFrames" uid="uid://cjwrm1swmjr24" path="res://frames/male_arms_up.tres" id="2_3ha0h"]
-[ext_resource type="Texture2D" uid="uid://cygbqo8fqpvn4" path="res://assets/wastes/dead_plant_leaves.png" id="3_ng2k1"]
+[ext_resource type="Texture2D" uid="uid://cygbqo8fqpvn4" path="res://assets/bins and wastes/dead_plant_leaves.png" id="3_ng2k1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2cb0"]
 radius = 6.0
@@ -35,9 +35,9 @@ shape = SubResource("RectangleShape2D_pvu5g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.5, 2.5)
-limit_left = -551
-limit_top = -351
-limit_right = 839
+limit_left = -750
+limit_top = -470
+limit_right = 880
 limit_bottom = 711
 
 [connection signal="area_entered" from="pickup_range" to="." method="_on_pickup_range_area_entered"]

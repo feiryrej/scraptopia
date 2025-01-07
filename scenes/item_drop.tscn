@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3hmexuw718dn"]
 
-[ext_resource type="Texture2D" uid="uid://cygbqo8fqpvn4" path="res://assets/wastes/dead_plant_leaves.png" id="1_4chgt"]
+[ext_resource type="Texture2D" uid="uid://cygbqo8fqpvn4" path="res://assets/bins and wastes/dead_plant_leaves.png" id="1_4chgt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7unil"]
 radius = 13.0384
