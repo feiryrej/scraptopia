@@ -41,7 +41,6 @@ func _physics_process(delta):
 	velocity = movement_velocity
 	move_and_slide()
 
-
 func handle_state_transitions():
 	if Input.is_action_pressed("left") or Input.is_action_pressed("right") or Input.is_action_pressed("up") or Input.is_action_pressed("down"):
 		current_state = States.MOVE
@@ -64,7 +63,7 @@ func perform_state_actions(delta):
 				var horizontal_input = Input.get_axis("left", "right")
 				var vertical_input = Input.get_axis("up", "down")
 				
-				# Prioritize horizontal movement over vertical
+				 #Prioritize horizontal movement over vertical
 				if horizontal_input != 0:
 					dir = Vector2(horizontal_input, 0)
 				elif vertical_input != 0:
@@ -75,8 +74,8 @@ func perform_state_actions(delta):
 				if dir != Vector2.ZERO:
 					# Calculate the next target position based on the tile grid
 					movement_queue = (global_position / tile_size).floor() * tile_size + dir * tile_size
-					is_moving = true
-
+					is_moving = true 
+					
 				# Play walking animation
 				if dir.x < 0:
 					human_spr.play("w-walk")
