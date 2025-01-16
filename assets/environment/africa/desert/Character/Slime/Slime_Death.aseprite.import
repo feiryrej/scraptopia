@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dtuf3gsq2fron"
+path="res://.godot/imported/Slime_Death.aseprite-0641f8c5a152a27d032eede0199a8fc3.res"
+
+[deps]
+
+source_file="res://assets/environment/africa/desert/Character/Slime/Slime_Death.aseprite"
+dest_files=["res://.godot/imported/Slime_Death.aseprite-0641f8c5a152a27d032eede0199a8fc3.res"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://d0ts7gdtwnhk7"
+path="res://.godot/imported/Character_Walk.aseprite-9aa0b20dfe0f76d5df1ec8aa5eba1741.res"
+
+[deps]
+
+source_file="res://assets/environment/africa/Art/Characters/Character/Character_Walk.aseprite"
+dest_files=["res://.godot/imported/Character_Walk.aseprite-9aa0b20dfe0f76d5df1ec8aa5eba1741.res"]
+
+[params]
+

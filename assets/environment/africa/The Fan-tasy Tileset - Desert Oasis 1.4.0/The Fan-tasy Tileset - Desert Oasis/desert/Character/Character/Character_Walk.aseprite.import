@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://xwkp1ufqpohj"
+path="res://.godot/imported/Character_Walk.aseprite-dc747a3d25a0abd595b4a26d4afe9762.res"
+
+[deps]
+
+source_file="res://assets/environment/africa/The Fan-tasy Tileset - Desert Oasis 1.4.0/The Fan-tasy Tileset - Desert Oasis/desert/Character/Character/Character_Walk.aseprite"
+dest_files=["res://.godot/imported/Character_Walk.aseprite-dc747a3d25a0abd595b4a26d4afe9762.res"]
+
+[params]
+
