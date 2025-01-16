@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://df7bue7ges4vq"]
+[gd_scene load_steps=9 format=3 uid="uid://df7bue7ges4vq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1ovfa"]
 [ext_resource type="SpriteFrames" uid="uid://cjwrm1swmjr24" path="res://frames/male_arms_up.tres" id="2_3ha0h"]
-[ext_resource type="Texture2D" uid="uid://cygbqo8fqpvn4" path="res://assets/bins and wastes/dead_plant_leaves.png" id="3_ng2k1"]
+[ext_resource type="Texture2D" uid="uid://berwtqi8fpko8" path="res://assets/character/shadow.png" id="2_4ybkx"]
+[ext_resource type="Texture2D" uid="uid://c7j3fhp5syusf" path="res://assets/bins and wastes/wastes-spritesheet.png" id="3_p88wk"]
+[ext_resource type="AudioStream" uid="uid://cpcgiflvffaeu" path="res://sounds/boink.mp3" id="5_6kj76"]
+[ext_resource type="AudioStream" uid="uid://1fwqbx2fo8k1" path="res://sounds/ahhh.mp3" id="6_mi1no"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2cb0"]
 radius = 6.0
@@ -15,15 +18,26 @@ z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_1ovfa")
 
+[node name="shadow_spr" type="Sprite2D" parent="."]
+z_index = 2
+z_as_relative = false
+position = Vector2(8.35714, 1)
+scale = Vector2(1.45982, 0.9375)
+texture = ExtResource("2_4ybkx")
+
 [node name="human_spr" type="AnimatedSprite2D" parent="."]
+z_index = 1
 sprite_frames = ExtResource("2_3ha0h")
 animation = &"s-idle"
 offset = Vector2(8, 0)
 
 [node name="item_spr" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(8, -12)
 scale = Vector2(0.619972, 0.619972)
-texture = ExtResource("3_ng2k1")
+texture = ExtResource("3_p88wk")
+hframes = 16
+vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, 6)
@@ -32,15 +46,23 @@ shape = SubResource("CircleShape2D_g2cb0")
 [node name="pickup_range" type="Area2D" parent="." groups=["item_drop"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_range"]
-position = Vector2(7, 6)
+position = Vector2(7, 3)
 shape = SubResource("RectangleShape2D_pvu5g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.5, 2.5)
+position = Vector2(7, 0)
+zoom = Vector2(2, 2)
 limit_left = -750
 limit_top = -470
 limit_right = 880
 limit_bottom = 711
+position_smoothing_enabled = true
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_6kj76")
+
+[node name="DropSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_mi1no")
 
 [connection signal="area_entered" from="pickup_range" to="." method="_on_pickup_range_area_entered"]
 [connection signal="area_exited" from="pickup_range" to="." method="_on_pickup_range_area_exited"]

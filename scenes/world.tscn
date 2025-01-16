@@ -1,10 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://cscxsgrju7in0"]
+[gd_scene load_steps=20 format=3 uid="uid://cscxsgrju7in0"]
 
 [ext_resource type="PackedScene" uid="uid://df7bue7ges4vq" path="res://scenes/player.tscn" id="1_b0kix"]
 [ext_resource type="Texture2D" uid="uid://cp7224ix8l0yj" path="res://assets/environment/Texture/TX Plant.png" id="1_x3jmi"]
 [ext_resource type="Texture2D" uid="uid://c8l20v8o02tmy" path="res://assets/environment/Texture/TX Shadow Plant.png" id="2_lil03"]
 [ext_resource type="Texture2D" uid="uid://55jnk4stydnc" path="res://assets/environment/Texture/TX Props.png" id="3_2cfkl"]
-[ext_resource type="PackedScene" uid="uid://b3hmexuw718dn" path="res://scenes/item_drop.tscn" id="4_gmtqb"]
 [ext_resource type="Texture2D" uid="uid://v3amuc6eeev5" path="res://assets/environment/Texture/TX Shadow.png" id="4_ncasv"]
 [ext_resource type="Texture2D" uid="uid://dupyvds2kbi2k" path="res://assets/environment/Texture/TX Struct.png" id="5_xrg1u"]
 [ext_resource type="Texture2D" uid="uid://d1hly0y70new3" path="res://assets/environment/Texture/TX Tileset Grass.png" id="6_1shy4"]
@@ -641,15 +640,9 @@ layer_2/tile_data = PackedInt32Array(-327689, 327682, 0, 786434, 589826, 2, 8519
 layer_3/name = "4"
 layer_3/tile_data = PackedInt32Array(393202, 524290, 3, 458738, 524290, 4, 655355, 196610, 0, 720891, 196610, 1, -10, 524290, 6, -9, 196608, 6, 65525, 196608, 6, 262134, 262144, 6, 196599, 327680, 5, 262135, 327680, 6, 917526, 327682, 6, 983062, 327682, 7, 917516, 327682, 6, 983052, 327682, 7, 983053, 589824, 3, 1376281, 524290, 6, 917529, 524290, 6, 1376269, 524290, 6, 983056, 196610, 2, 1048592, 196610, 3, 1310744, 196610, 0, 1376280, 196610, 1, 1310734, 327682, 2, 1376270, 327682, 3, 983064, 327682, 2, 1048600, 327682, 3, 1048597, 589826, 2, 1114133, 589826, 3, 1048598, 655362, 2, 1114134, 655362, 3, 983060, 196610, 7, 1179664, 2, 13, 1245200, 2, 14, 1179665, 65538, 13, 1245201, 65538, 14, 1310732, 196610, 15, 1179661, 131074, 15, 1376278, 65538, 15, 1114137, 65538, 15, 1310745, 196608, 6, 983065, 196608, 6, 983063, 196608, 6, 1048593, 196608, 6, 1245197, 196608, 6, 1114124, 196608, 6, 65553, 196610, 0, 131089, 196610, 1, -720898, 524290, 3, -655362, 524290, 4, -655363, 196608, 6, -524293, 65536, 6)
 
-[node name="item_drop" parent="." instance=ExtResource("4_gmtqb")]
-position = Vector2(-45, -31)
-
-[node name="item_drop2" parent="." instance=ExtResource("4_gmtqb")]
-position = Vector2(57, -25)
-
 [node name="player" parent="." instance=ExtResource("1_b0kix")]
 z_index = -2
-position = Vector2(618, 648)
+position = Vector2(84, 289)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
