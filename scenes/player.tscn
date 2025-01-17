@@ -14,7 +14,6 @@ radius = 6.0
 size = Vector2(10, 10)
 
 [node name="player" type="CharacterBody2D"]
-z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_1ovfa")
 
