@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2q0lr77owjh"]
+[gd_scene load_steps=6 format=3 uid="uid://b2q0lr77owjh"]
 
 [ext_resource type="TileSet" uid="uid://gwoav7cvderm" path="res://assets/environment/Virethariel/virethariel.tres" id="1_3cj6b"]
 [ext_resource type="PackedScene" uid="uid://dbww74p66mexa" path="res://scenes/npc_luxanna.tscn" id="3_k57n8"]
 [ext_resource type="PackedScene" uid="uid://df7bue7ges4vq" path="res://scenes/player.tscn" id="3_nd4xc"]
 [ext_resource type="PackedScene" uid="uid://bl130gk6pq7y1" path="res://scenes/npc_ixiol.tscn" id="3_p37um"]
+[ext_resource type="PackedScene" uid="uid://c4o2w5cg8uvd8" path="res://scenes/npc_avalciel.tscn" id="5_p5p18"]
 
 [node name="Node2D" type="Node2D"]
 y_sort_enabled = true
@@ -51,4 +52,7 @@ position = Vector2(1068, 568)
 
 [node name="luxanna" parent="." instance=ExtResource("3_k57n8")]
 z_index = 1
-position = Vector2(1034, 616)
+position = Vector2(1025, 631)
+
+[node name="avalciel" parent="." instance=ExtResource("5_p5p18")]
+position = Vector2(940, 584)

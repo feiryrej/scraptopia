@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7ldyvqtmfxla"
-path="res://.godot/imported/ixiol_mod.png-c4ea359476ad52ffe72c83ef4fae65be.ctex"
+uid="uid://bis5r8mpjp22c"
+path="res://.godot/imported/avalciel_mod.png-9658c8fff5b15deff961326b297e680f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/npc/ixiol/ixiol_mod.png"
-dest_files=["res://.godot/imported/ixiol_mod.png-c4ea359476ad52ffe72c83ef4fae65be.ctex"]
+source_file="res://assets/character/npc/avalciel/avalciel_mod.png"
+dest_files=["res://.godot/imported/avalciel_mod.png-9658c8fff5b15deff961326b297e680f.ctex"]
 
 [params]
 

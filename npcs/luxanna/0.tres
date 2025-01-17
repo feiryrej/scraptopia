@@ -9,7 +9,5 @@ script = ExtResource("1_6gmfi")
 texture = ExtResource("2_whpvr")
 name = "Luxanna"
 dialogue = "tiktok tayo beh"
-texture_scale = Vector2(2, 2)
-texture_position = Vector2(4.015, 0)
 path_options = ""
 options = Array[ExtResource("1_6gmfi")]([ExtResource("2_xb3by")])

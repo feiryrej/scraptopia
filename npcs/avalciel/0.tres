@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://bqhl8my8k6ia5"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_d0axl"]
+[ext_resource type="Resource" uid="uid://bo1adkgp8pfem" path="res://npcs/avalciel/1.tres" id="2_4w6vo"]
+[ext_resource type="Texture2D" uid="uid://bis5r8mpjp22c" path="res://assets/character/npc/avalciel/avalciel_mod.png" id="2_ys8q7"]
+
+[resource]
+script = ExtResource("1_d0axl")
+texture = ExtResource("2_ys8q7")
+name = "Avalciel"
+dialogue = "Ad astra abyssosque!"
+path_options = ""
+options = Array[ExtResource("1_d0axl")]([ExtResource("2_4w6vo")])
