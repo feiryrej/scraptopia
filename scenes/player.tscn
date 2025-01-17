@@ -14,26 +14,21 @@ radius = 6.0
 size = Vector2(10, 10)
 
 [node name="player" type="CharacterBody2D"]
-z_index = 2
-y_sort_enabled = true
+z_index = 1
 script = ExtResource("1_1ovfa")
 
 [node name="shadow_spr" type="Sprite2D" parent="."]
-z_index = 1
-z_as_relative = false
 position = Vector2(8.35714, 1)
 scale = Vector2(1.45982, 0.9375)
 texture = ExtResource("2_4ybkx")
 
 [node name="human_spr" type="AnimatedSprite2D" parent="."]
-z_index = 1
 sprite_frames = ExtResource("2_3ha0h")
 animation = &"s-idle"
 offset = Vector2(8, 0)
 
 [node name="item_spr" type="Sprite2D" parent="."]
-z_index = 2
-position = Vector2(8, -12)
+position = Vector2(7, -10)
 scale = Vector2(0.619972, 0.619972)
 texture = ExtResource("3_p88wk")
 hframes = 16

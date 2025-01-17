@@ -100,7 +100,7 @@ func spawn_item(position: Vector2, frame_coords: Vector2i, scale_factor: Vector2
 
 	var item_sprite = new_item.get_node("Sprite2D")
 	if item_sprite:
-		item_sprite.z_index = 1
+		item_sprite.z_index = 0
 
 	# writes scale_factor to new_item's metadata
 	new_item.set_meta("initial_scale", scale_factor)
@@ -243,7 +243,7 @@ func pickup_item(item: Area2D):
 	# writes frame_coords and scale to item_spr metadata
 	item_spr.set_meta("frame_coords", item_sprite.frame_coords)
 	item_spr.set_meta("initial_scale", item_sprite.scale)
-	adjust_item_z_index(item_sprite, true)
+	#adjust_item_z_index(item_sprite, true)
 
 
 
