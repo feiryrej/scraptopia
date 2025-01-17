@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://pjt5gs78i51"
+path="res://.godot/imported/luxanna.aseprite-24704268b28941d2e42e3960e682ee3b.res"
+
+[deps]
+
+source_file="res://assets/character/npc/luxanna/luxanna.aseprite"
+dest_files=["res://.godot/imported/luxanna.aseprite-24704268b28941d2e42e3960e682ee3b.res"]
+
+[params]
+

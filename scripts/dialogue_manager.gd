@@ -1,0 +1,53 @@
+extends Node2D
+
+@export var next_button : PackedScene
+
+var dialogue : Dialogue:
+	set(value):
+		# Check if the value is null before accessing its properties
+		if value == null:
+			print("Error: Dialogue object is null!")
+			return
+
+		dialogue = value
+		
+		# Check if the texture exists and handle the case where it might be null
+		if value.texture != null:
+			%Icon.texture = value.texture
+		else:
+			print("Warning: Dialogue texture is null")
+
+		%Name.text = value.name
+		%Dialogue.text = value.dialogue
+		
+		reset_options()
+		add_buttons(value.options)
+		
+		await get_tree().create_timer(0.5).timeout
+		%Options.show()
+
+func reset_options():
+	# Remove all existing buttons from the options container
+	for child in %Options.get_children():
+		child.queue_free()
+	%Options.hide()
+
+func add_buttons(options):
+	# Add buttons for each option in the dialogue options
+	for option in options:
+		var button = next_button.instantiate()
+		button.dialogue = option
+		%Options.add_child(button)
+
+func hide_dialogue():
+	%UI.hide()
+
+func show_dialogue():
+	%UI.show()
+
+func _ready():
+	# Debugging: Check if dialogue is assigned correctly
+	if dialogue == null:
+		print("Warning: Dialogue is not assigned to this node!")
+	else:
+		print("Dialogue assigned correctly.")
