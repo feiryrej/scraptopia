@@ -7,6 +7,7 @@
 radius = 13.0384
 
 [node name="item_drop" type="Area2D" groups=["item_drop"]]
+position = Vector2(95, 230)
 script = ExtResource("1_ptr6y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

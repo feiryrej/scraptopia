@@ -37,7 +37,7 @@ var current_state = States.IDLE
 func _ready():
 	item_spr.hide()
 	update_spritesheet()
-
+	
 	# wastes list     |     position   |      frame      |     scale
 	spawn_item(Vector2(984, 615), Vector2i(0, 7), Vector2(0.62, 0.62))		# banana
 	spawn_item(Vector2(807, 652), Vector2i(7, 4), Vector2(0.62, 0.62))		# plastic bag
