@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bnho4u0p6slhv" path="res://scenes/npc_tsuchiruz.tscn" id="6_a8cew"]
 [ext_resource type="PackedScene" uid="uid://djr66j8u3w1ry" path="res://scenes/npc_ignis.tscn" id="7_mwx23"]
 
-[node name="Node2D" type="Node2D"]
+[node name="map" type="Node2D"]
 y_sort_enabled = true
 position = Vector2(-529, -64)
 
@@ -72,3 +72,8 @@ position = Vector2(1020, -254)
 [node name="ignis" parent="." instance=ExtResource("7_mwx23")]
 z_index = 1
 position = Vector2(1117, 115)
+
+[node name="collisions" type="StaticBody2D" parent="."]
+
+[node name="limit" type="CollisionPolygon2D" parent="collisions"]
+polygon = PackedVector2Array(-283, -408, 1433, -412, 1437, 824, -283, 832, -283, -358, -401, -325, -503, 103, -539, 1078, 1711, 1105, 1700, -585, -524, -555, -402, -325, -283, -358)
