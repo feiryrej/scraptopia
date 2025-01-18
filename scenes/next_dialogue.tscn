@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cglsgn0cl2omg"]
+
+[ext_resource type="FontFile" uid="uid://coqneoienhrf" path="res://fonts/ChiKareGo2.ttf" id="1_0rdhn"]
+[ext_resource type="Script" path="res://scripts/next_dialogue.gd" id="1_u43n7"]
+
+[node name="NextDialogue" type="Button"]
+offset_right = 14.0
+offset_bottom = 13.0
+theme_override_fonts/font = ExtResource("1_0rdhn")
+theme_override_font_sizes/font_size = 24
+script = ExtResource("1_u43n7")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

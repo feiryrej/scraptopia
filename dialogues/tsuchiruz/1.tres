@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://1y38do6v415x"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_ixkbp"]
+[ext_resource type="Texture2D" uid="uid://bgh800o2fwm3q" path="res://assets/character/npc/tsuchiruz/tsuchiruz_mod.png" id="2_m7uus"]
+[ext_resource type="Resource" uid="uid://cx2pq2vcfji4m" path="res://dialogues/tsuchiruz/bye.tres" id="2_yi2r2"]
+
+[resource]
+script = ExtResource("1_ixkbp")
+texture = ExtResource("2_m7uus")
+name = "Tsuchiruz"
+dialogue = "mama mo mist"
+path_options = "okay mist"
+options = Array[ExtResource("1_ixkbp")]([ExtResource("2_yi2r2")])

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://hkdmk05so8gd"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_bommu"]
+[ext_resource type="Texture2D" uid="uid://hasu0q4rl1p" path="res://assets/character/npc/luxanna/luxanna_alter.png" id="2_47x75"]
+[ext_resource type="Resource" uid="uid://dfsxx8qpu3vy6" path="res://dialogues/luxanna/ok.tres" id="2_j5i6a"]
+
+[resource]
+script = ExtResource("1_bommu")
+texture = ExtResource("2_47x75")
+name = "Luxanna"
+dialogue = "edi wag"
+path_options = "no"
+options = Array[ExtResource("1_bommu")]([ExtResource("2_j5i6a")])

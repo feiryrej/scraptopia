@@ -104,7 +104,7 @@ func spawn_item(position: Vector2, frame_coords: Vector2i, scale_factor: Vector2
 
 	# writes scale_factor to new_item's metadata
 	new_item.set_meta("initial_scale", scale_factor)
-	get_parent().get_node("tm_virethariel").add_child(new_item)
+	get_parent().get_node("waste_spawner").add_child(new_item)
 
 	print("Item added to parent at position: ", new_item.position)
 
@@ -294,7 +294,8 @@ func drop_item():
 		print("No initial_scale metadata found.") # for debugging purposes
 		item.scale = Vector2(1, 1)
 
-	get_parent().add_child(item)
+	#get_parent().add_child(item)
+	get_parent().get_node("waste_spawner").add_child(item)
 	item.visible = true
 
 	var item_sprite = item.get_node("Sprite2D")

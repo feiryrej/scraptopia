@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://dmsm03sm5vt1g"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_8l7a2"]
+[ext_resource type="Resource" uid="uid://df3l0nc1tja8e" path="res://dialogues/ixiol/dialogues/Ok.tres" id="2_fcqum"]
+[ext_resource type="Texture2D" uid="uid://d0t6x667olggp" path="res://assets/character/npc/ixiol/ixiol_alter.png" id="3_u3840"]
+
+[resource]
+script = ExtResource("1_8l7a2")
+texture = ExtResource("3_u3840")
+name = "Ixiol"
+dialogue = "bading ka anong tinitingin tingin mo"
+path_options = "bilat ka rin"
+options = Array[ExtResource("1_8l7a2")]([ExtResource("2_fcqum")])

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://dfsxx8qpu3vy6"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_87j3x"]
+
+[resource]
+script = ExtResource("1_87j3x")
+name = "Luxanna"
+dialogue = ""
+path_options = "ok bye"
+options = Array[ExtResource("1_87j3x")]([])

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://0tudl4hlw3p6"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_ykmxb"]
+
+[resource]
+script = ExtResource("1_ykmxb")
+name = "Avalciel"
+dialogue = ""
+path_options = "Goodbye.."
+options = Array[ExtResource("1_ykmxb")]([])

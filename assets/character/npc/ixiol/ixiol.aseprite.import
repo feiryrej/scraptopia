@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dge82yv1oet6l"
+path="res://.godot/imported/ixiol.aseprite-ab046a2ee5cfd8ab9dc8854ca7ce1595.res"
+
+[deps]
+
+source_file="res://assets/character/npc/ixiol/ixiol.aseprite"
+dest_files=["res://.godot/imported/ixiol.aseprite-ab046a2ee5cfd8ab9dc8854ca7ce1595.res"]
+
+[params]
+
