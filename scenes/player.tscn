@@ -47,10 +47,10 @@ shape = SubResource("RectangleShape2D_pvu5g")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(7, 0)
 zoom = Vector2(2, 2)
-limit_left = -750
-limit_top = -470
-limit_right = 880
-limit_bottom = 711
+limit_left = -813
+limit_top = -486
+limit_right = 909
+limit_bottom = 760
 position_smoothing_enabled = true
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
