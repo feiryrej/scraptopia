@@ -51,6 +51,7 @@ limit_left = -813
 limit_top = -486
 limit_right = 909
 limit_bottom = 760
+limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
