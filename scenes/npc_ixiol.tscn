@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/npc_ixiol.gd" id="1_ga3fh"]
 [ext_resource type="Texture2D" uid="uid://dsrxyp0qkdi7" path="res://assets/character/npc/ixiol/ixiol.png" id="1_jwqaw"]
 [ext_resource type="Texture2D" uid="uid://berwtqi8fpko8" path="res://assets/character/shadow.png" id="1_ogsnv"]
-[ext_resource type="Resource" uid="uid://bpm6iiktjsxqj" path="res://npcs/ixiol/dialogues/0.tres" id="2_rkjaw"]
+[ext_resource type="Resource" uid="uid://bpm6iiktjsxqj" path="res://dialogues/ixiol/dialogues/0.tres" id="2_rkjaw"]
 [ext_resource type="PackedScene" uid="uid://bdbgr61wtj4l7" path="res://scenes/interaction.tscn" id="4_q2w1s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvopw"]

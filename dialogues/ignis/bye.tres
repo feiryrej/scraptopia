@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://culfe57c60gqb"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_olgjg"]
+
+[resource]
+script = ExtResource("1_olgjg")
+name = "Ignis"
+dialogue = ""
+path_options = "goodbye billie fucking ellisha"
+options = Array[ExtResource("1_olgjg")]([])

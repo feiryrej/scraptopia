@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_6gmfi"]
 [ext_resource type="Texture2D" uid="uid://ddspni4gef6v6" path="res://assets/character/npc/luxanna/luxanna_mod.png" id="2_whpvr"]
-[ext_resource type="Resource" uid="uid://hkdmk05so8gd" path="res://npcs/luxanna/1.tres" id="2_xb3by"]
+[ext_resource type="Resource" uid="uid://hkdmk05so8gd" path="res://dialogues/luxanna/1.tres" id="2_xb3by"]
 
 [resource]
 script = ExtResource("1_6gmfi")

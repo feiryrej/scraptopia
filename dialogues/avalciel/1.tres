@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://bo1adkgp8pfem"]
 
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_6c835"]
-[ext_resource type="Resource" uid="uid://0tudl4hlw3p6" path="res://npcs/avalciel/bye.tres" id="2_5tgut"]
+[ext_resource type="Resource" uid="uid://0tudl4hlw3p6" path="res://dialogues/avalciel/bye.tres" id="2_5tgut"]
 [ext_resource type="Texture2D" uid="uid://lkkm2qfojk1u" path="res://assets/character/npc/avalciel/avalciel_alter.png" id="2_kuc0f"]
 
 [resource]
