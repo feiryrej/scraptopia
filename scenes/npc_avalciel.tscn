@@ -1,7 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://c4o2w5cg8uvd8"]
 
 [ext_resource type="Texture2D" uid="uid://berwtqi8fpko8" path="res://assets/character/shadow.png" id="1_605y4"]
-[ext_resource type="Texture2D" uid="uid://8dardddkwgyo" path="res://scenes/avalciel.png" id="1_fwcvo"]
+[ext_resource type="Texture2D" uid="uid://8dardddkwgyo" path="res://assets/character/npc/avalciel/avalciel.png" id="1_fwcvo"]
 [ext_resource type="Script" path="res://scenes/npc_avalciel.gd" id="1_w6lx0"]
 [ext_resource type="Resource" uid="uid://bqhl8my8k6ia5" path="res://dialogues/avalciel/0.tres" id="2_7mgg5"]
 [ext_resource type="PackedScene" uid="uid://bdbgr61wtj4l7" path="res://scenes/interaction.tscn" id="4_nma6k"]

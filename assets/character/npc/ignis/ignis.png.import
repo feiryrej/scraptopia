@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ph60pib6f4ja"
-path="res://.godot/imported/luxanna.png-397eeb3a18c3577ccdaa6b2cc2bea2e5.ctex"
+uid="uid://bqekb6645nxgy"
+path="res://.godot/imported/ignis.png-17d35f0133913f4059efcdd571cd2dd8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/luxanna.png"
-dest_files=["res://.godot/imported/luxanna.png-397eeb3a18c3577ccdaa6b2cc2bea2e5.ctex"]
+source_file="res://assets/character/npc/ignis/ignis.png"
+dest_files=["res://.godot/imported/ignis.png-17d35f0133913f4059efcdd571cd2dd8.ctex"]
 
 [params]
 

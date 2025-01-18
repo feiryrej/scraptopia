@@ -1,6 +1,6 @@
 [gd_scene load_steps=27 format=3 uid="uid://djr66j8u3w1ry"]
 
-[ext_resource type="Texture2D" uid="uid://bqekb6645nxgy" path="res://scenes/ignis.png" id="1_en0km"]
+[ext_resource type="Texture2D" uid="uid://bqekb6645nxgy" path="res://assets/character/npc/ignis/ignis.png" id="1_en0km"]
 [ext_resource type="Texture2D" uid="uid://berwtqi8fpko8" path="res://assets/character/shadow.png" id="1_ig8ww"]
 [ext_resource type="Script" path="res://scripts/npc_ignis.gd" id="1_vbu5a"]
 [ext_resource type="Resource" uid="uid://do7v5inoceq74" path="res://dialogues/ignis/0.tres" id="2_eyaqw"]

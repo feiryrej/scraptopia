@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqekb6645nxgy"
-path="res://.godot/imported/ignis.png-678c69548897cbc120f21517f4b88c80.ctex"
+uid="uid://8dardddkwgyo"
+path="res://.godot/imported/avalciel.png-cfa0bc055ee90267d539d1b39c1a3864.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/ignis.png"
-dest_files=["res://.godot/imported/ignis.png-678c69548897cbc120f21517f4b88c80.ctex"]
+source_file="res://assets/character/npc/avalciel/avalciel.png"
+dest_files=["res://.godot/imported/avalciel.png-cfa0bc055ee90267d539d1b39c1a3864.ctex"]
 
 [params]
 
