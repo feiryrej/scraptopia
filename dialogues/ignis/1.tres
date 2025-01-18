@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://duoe8hjcqdigg"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_5aqjj"]
+[ext_resource type="Resource" uid="uid://culfe57c60gqb" path="res://dialogues/ignis/bye.tres" id="2_6i57p"]
+[ext_resource type="Texture2D" uid="uid://dioxvk28bqaqd" path="res://assets/character/npc/ignis/ignis_mod.png" id="2_ddiuw"]
+
+[resource]
+script = ExtResource("1_5aqjj")
+texture = ExtResource("2_ddiuw")
+name = "Ignis"
+dialogue = "BIRDS OF THE FUCKING FEATHER"
+path_options = "hello rin pre!"
+options = Array[ExtResource("1_5aqjj")]([ExtResource("2_6i57p")])

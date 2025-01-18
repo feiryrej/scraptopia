@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://4blegtaet0rh"
+path="res://.godot/imported/Character_Walk.aseprite-5a68333309e37a3fc4c76f4dd5d259c1.res"
+
+[deps]
+
+source_file="res://assets/environment/africa/desert/Character/Character/Character_Walk.aseprite"
+dest_files=["res://.godot/imported/Character_Walk.aseprite-5a68333309e37a3fc4c76f4dd5d259c1.res"]
+
+[params]
+

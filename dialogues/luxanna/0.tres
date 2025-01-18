@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://de0rlux604w7v"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_6gmfi"]
+[ext_resource type="Texture2D" uid="uid://ddspni4gef6v6" path="res://assets/character/npc/luxanna/luxanna_mod.png" id="2_whpvr"]
+[ext_resource type="Resource" uid="uid://hkdmk05so8gd" path="res://dialogues/luxanna/1.tres" id="2_xb3by"]
+
+[resource]
+script = ExtResource("1_6gmfi")
+texture = ExtResource("2_whpvr")
+name = "Luxanna"
+dialogue = "tiktok tayo beh"
+path_options = ""
+options = Array[ExtResource("1_6gmfi")]([ExtResource("2_xb3by")])

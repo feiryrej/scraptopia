@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dhrwqlesq8144"
+path="res://.godot/imported/Character_Idle.aseprite-7c8bc8dfd972914f6fc93e4d68d7739d.res"
+
+[deps]
+
+source_file="res://assets/environment/africa/Art/Characters/Character/Character_Idle.aseprite"
+dest_files=["res://.godot/imported/Character_Idle.aseprite-7c8bc8dfd972914f6fc93e4d68d7739d.res"]
+
+[params]
+

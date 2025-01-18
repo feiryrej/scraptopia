@@ -1,16 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3hmexuw718dn"]
+[gd_scene load_steps=4 format=3 uid="uid://b3hmexuw718dn"]
 
-[ext_resource type="Texture2D" uid="uid://cygbqo8fqpvn4" path="res://assets/bins and wastes/dead_plant_leaves.png" id="1_4chgt"]
+[ext_resource type="Script" path="res://scripts/item_drop.gd" id="1_ptr6y"]
+[ext_resource type="Texture2D" uid="uid://c7j3fhp5syusf" path="res://assets/bins and wastes/wastes-spritesheet.png" id="1_ubvaw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7unil"]
 radius = 13.0384
 
 [node name="item_drop" type="Area2D" groups=["item_drop"]]
+position = Vector2(95, 230)
+script = ExtResource("1_ptr6y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.6, 1.6)
 shape = SubResource("CircleShape2D_7unil")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+show_behind_parent = true
 z_index = -2
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("1_4chgt")
+texture = ExtResource("1_ubvaw")
+hframes = 16
+vframes = 8
