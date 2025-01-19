@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*res://scenes/dialogue_manager.tscn"
+Global="*res://scripts/global.gd"
 
 [display]
 

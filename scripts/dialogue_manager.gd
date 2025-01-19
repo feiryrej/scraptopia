@@ -4,14 +4,12 @@ extends Node2D
 
 var dialogue : Dialogue:
 	set(value):
-		# Check if the value is null before accessing its properties
 		if value == null:
 			print("Error: Dialogue object is null!")
 			return
 
 		dialogue = value
 		
-		# Check if the texture exists and handle the case where it might be null
 		if value.texture != null:
 			%Icon.texture = value.texture
 		else:
