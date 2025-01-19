@@ -20,6 +20,7 @@ var movement_queue = Vector2.ZERO
 var carrying_item = false
 var drop_pos: Vector2
 var items_in_range: Array = []
+var small_scale = Vector2(0.62, 0.62)
 
 var male_arms_down_frames = preload("res://frames/male_arms_down.tres")
 var male_arms_up_frames = preload("res://frames/male_arms_up.tres")
@@ -97,13 +98,13 @@ func spawn_item(position: Vector2, frame_coords: Vector2i, scale_factor: Vector2
 	new_item.position = position
 	new_item.frame_coords = frame_coords
 	new_item.scale = scale_factor
+	
+	new_item.set_meta("original_scale", scale_factor)
 
 	var item_sprite = new_item.get_node("Sprite2D")
 	if item_sprite:
+		item_sprite.scale = small_scale
 		item_sprite.z_index = 0
-
-	# writes scale_factor to new_item's metadata
-	new_item.set_meta("initial_scale", scale_factor)
 	get_parent().get_node("waste_spawner").add_child(new_item)
 
 	print("Item added to parent at position: ", new_item.position)
@@ -225,6 +226,8 @@ func adjust_item_z_index(item_sprite: Sprite2D, is_picking_up: bool):
 
 
 func pickup_item(item: Area2D):
+	var original_scale = item.get_meta("original_scale") if item.has_meta("original_scale") else Vector2(0.62, 0.62)
+	
 	item.queue_free()
 	carrying_item = true
 	print("Carrying item: ", carrying_item)
@@ -236,6 +239,8 @@ func pickup_item(item: Area2D):
 	if item_sprite:
 		item_spr.texture = item_sprite.texture
 		item_spr.frame_coords = item_sprite.frame_coords
+		
+		item_spr.set_meta("original_scale", original_scale)
 		print("Item texture and frame updated.")
 	else:
 		print("Error: Sprite2D not found in item.")
@@ -288,11 +293,11 @@ func drop_item():
 		print("No frame_coords metadata found") # for debugging purposes
 
 	# should supposedly get the scale from item_spr metadata
-	if item_spr.has_meta("initial_scale"):
-		item.scale = item_spr.get_meta("initial_scale")
+	if item_spr.has_meta("original_scale"):
+		item.scale = item_spr.get_meta("original_scale")
 	else:
 		print("No initial_scale metadata found.") # for debugging purposes
-		item.scale = Vector2(1, 1)
+		item.scale = Vector2(0.62, 0.62)
 
 	#get_parent().add_child(item)
 	get_parent().get_node("waste_spawner").add_child(item)
