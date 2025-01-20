@@ -8,6 +8,6 @@
 script = ExtResource("1_6gmfi")
 texture = ExtResource("2_whpvr")
 name = "Luxanna"
-dialogue = "tiktok tayo beh"
+dialogue = "Oh, for the love of gears, goggles, and elegance, help me! The city is being swallowed whole by waste! Yes, you heard me—swallowed!"
 path_options = ""
 options = Array[ExtResource("1_6gmfi")]([ExtResource("2_xb3by")])

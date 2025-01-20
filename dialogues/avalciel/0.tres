@@ -8,6 +8,6 @@
 script = ExtResource("1_d0axl")
 texture = ExtResource("2_ys8q7")
 name = "Avalciel"
-dialogue = "Ad astra abyssosque!"
+dialogue = "Once, these trees stood silent witnesses to my reign—where ice met the earth, and every breeze carried the chill of my presence. Now, they groan beneath the weight of man’s forgotten ambition."
 path_options = ""
 options = Array[ExtResource("1_d0axl")]([ExtResource("2_4w6vo")])

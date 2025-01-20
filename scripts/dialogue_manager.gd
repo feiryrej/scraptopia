@@ -42,6 +42,12 @@ func hide_dialogue():
 
 func show_dialogue():
 	%UI.show()
+	
+#	signal dialogue_closed
+
+# func close_dialogue():
+#	hide_dialogue()  # Hide dialogue UI
+#	emit_signal("dialogue_closed")  # Emit signal when dialogue is closed
 
 func _ready():
 	# Debugging: Check if dialogue is assigned correctly

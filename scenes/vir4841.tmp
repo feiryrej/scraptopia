@@ -58,7 +58,7 @@ script = ExtResource("2_oyc11")
 bin_scene = ExtResource("8_yhddt")
 
 [node name="player" parent="." instance=ExtResource("3_nd4xc")]
-position = Vector2(849, 654)
+position = Vector2(860, 658)
 
 [node name="ixiol" parent="." instance=ExtResource("3_p37um")]
 position = Vector2(13, -258)
@@ -73,14 +73,13 @@ position = Vector2(6, 173)
 
 [node name="tsuchiruz" parent="." instance=ExtResource("6_a8cew")]
 z_index = 1
-position = Vector2(1005, -263)
+position = Vector2(1022, 612)
 
 [node name="ignis" parent="." instance=ExtResource("7_mwx23")]
 z_index = 1
 position = Vector2(1117, 115)
 
 [node name="npc" parent="." instance=ExtResource("11_53e0u")]
-visible = false
 position = Vector2(917, 606)
 
 [node name="collisions" type="StaticBody2D" parent="."]
