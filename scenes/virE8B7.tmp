@@ -1,19 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://b2q0lr77owjh"]
+[gd_scene load_steps=12 format=3 uid="uid://b2q0lr77owjh"]
 
 [ext_resource type="TileSet" uid="uid://gwoav7cvderm" path="res://assets/environment/Virethariel/virethariel.tres" id="1_3cj6b"]
 [ext_resource type="Script" path="res://scripts/bins_spawner.gd" id="2_oyc11"]
-[ext_resource type="PackedScene" path="res://scenes/npc_luxanna.tscn" id="3_k57n8"]
+[ext_resource type="PackedScene" uid="uid://dbww74p66mexa" path="res://scenes/npc_luxanna.tscn" id="3_k57n8"]
 [ext_resource type="PackedScene" uid="uid://df7bue7ges4vq" path="res://scenes/player.tscn" id="3_nd4xc"]
-[ext_resource type="PackedScene" path="res://scenes/npc_ixiol.tscn" id="3_p37um"]
-[ext_resource type="PackedScene" path="res://scenes/npc_avalciel.tscn" id="5_p5p18"]
-[ext_resource type="PackedScene" path="res://scenes/npc_tsuchiruz.tscn" id="6_a8cew"]
-[ext_resource type="PackedScene" path="res://scenes/npc_ignis.tscn" id="7_mwx23"]
+[ext_resource type="PackedScene" uid="uid://bl130gk6pq7y1" path="res://scenes/npc_ixiol.tscn" id="3_p37um"]
+[ext_resource type="PackedScene" uid="uid://c4o2w5cg8uvd8" path="res://scenes/npc_avalciel.tscn" id="5_p5p18"]
+[ext_resource type="PackedScene" uid="uid://bnho4u0p6slhv" path="res://scenes/npc_tsuchiruz.tscn" id="6_a8cew"]
+[ext_resource type="PackedScene" uid="uid://djr66j8u3w1ry" path="res://scenes/npc_ignis.tscn" id="7_mwx23"]
 [ext_resource type="PackedScene" uid="uid://btie6i06sguat" path="res://scenes/bin.tscn" id="8_yhddt"]
-[ext_resource type="PackedScene" uid="uid://drcticolub6en" path="res://scenes/lives.tscn" id="10_c134h"]
+[ext_resource type="PackedScene" uid="uid://drcticolub6en" path="res://lives.tscn" id="10_c134h"]
 [ext_resource type="PackedScene" uid="uid://dlduotq7sqyck" path="res://npc.tscn" id="11_53e0u"]
-[ext_resource type="PackedScene" uid="uid://ciy7tco6egwyl" path="res://scenes/menu.tscn" id="11_aqgrx"]
-[ext_resource type="PackedScene" uid="uid://byt6tiititreo" path="res://scenes/settings_panel.tscn" id="12_kdj48"]
-[ext_resource type="AudioStream" uid="uid://bp6gki32bprl3" path="res://assets/Adventures RJ Pasin.mp3" id="13_mj8la"]
 
 [node name="map" type="Node2D"]
 y_sort_enabled = true
@@ -61,7 +58,7 @@ script = ExtResource("2_oyc11")
 bin_scene = ExtResource("8_yhddt")
 
 [node name="player" parent="." instance=ExtResource("3_nd4xc")]
-position = Vector2(849, 654)
+position = Vector2(860, 658)
 
 [node name="ixiol" parent="." instance=ExtResource("3_p37um")]
 position = Vector2(13, -258)
@@ -76,14 +73,13 @@ position = Vector2(6, 173)
 
 [node name="tsuchiruz" parent="." instance=ExtResource("6_a8cew")]
 z_index = 1
-position = Vector2(1005, -263)
+position = Vector2(1022, 612)
 
 [node name="ignis" parent="." instance=ExtResource("7_mwx23")]
 z_index = 1
 position = Vector2(1117, 115)
 
 [node name="npc" parent="." instance=ExtResource("11_53e0u")]
-visible = false
 position = Vector2(917, 606)
 
 [node name="collisions" type="StaticBody2D" parent="."]
@@ -92,19 +88,3 @@ position = Vector2(917, 606)
 polygon = PackedVector2Array(-283, -408, 1433, -412, 1437, 824, -283, 832, -283, -358, -401, -325, -503, 103, -539, 1078, 1711, 1105, 1700, -585, -524, -555, -402, -325, -283, -358)
 
 [node name="lives" parent="." instance=ExtResource("10_c134h")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Menu" parent="CanvasLayer" instance=ExtResource("11_aqgrx")]
-offset_bottom = -2.0
-
-[node name="SettingsPanel" parent="CanvasLayer" instance=ExtResource("12_kdj48")]
-offset_left = 3.0
-offset_top = -1.0
-offset_right = -2.0
-offset_bottom = -1.0
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_mj8la")
-volume_db = -10.0
-autoplay = true

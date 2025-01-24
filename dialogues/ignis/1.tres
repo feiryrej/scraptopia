@@ -8,6 +8,6 @@
 script = ExtResource("1_5aqjj")
 texture = ExtResource("2_ddiuw")
 name = "Ignis"
-dialogue = "BIRDS OF THE FUCKING FEATHER"
-path_options = "hello rin pre!"
+dialogue = "But beware—our light is not without its cost. Will you be a beacon of hope?"
+path_options = "Next"
 options = Array[ExtResource("1_5aqjj")]([ExtResource("2_6i57p")])

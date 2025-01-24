@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=2 format=3 uid="uid://df3l0nc1tja8e"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_t0lrd"]
+
+[resource]
+script = ExtResource("1_t0lrd")
+name = "Ixiol"
+dialogue = ""
+path_options = "Go back to the map!"
+options = Array[ExtResource("1_t0lrd")]([])
