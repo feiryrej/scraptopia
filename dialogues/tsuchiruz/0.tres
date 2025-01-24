@@ -8,6 +8,6 @@
 script = ExtResource("1_5r88q")
 texture = ExtResource("2_fv5w7")
 name = "Tsuchiruz"
-dialogue = "aaralin ko muna rin paano 'yung structure ni hens sa basura kasi 'di pala sya as assets or nodes or layer sa map"
+dialogue = "A traveler... This is Viretharial, a once-vibrant cradle of earth's essence. Look around—this abandoned paradise were once a sanctuary of harmony, but now it is choked by humanity's neglect."
 path_options = ""
 options = Array[ExtResource("1_5r88q")]([ExtResource("2_pa5r6")])

@@ -6,5 +6,5 @@
 script = ExtResource("1_ykmxb")
 name = "Avalciel"
 dialogue = ""
-path_options = "Goodbye.."
+path_options = "Go back to the map!"
 options = Array[ExtResource("1_ykmxb")]([])

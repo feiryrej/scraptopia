@@ -8,6 +8,6 @@
 script = ExtResource("1_26t82")
 texture = ExtResource("2_2f3oy")
 name = "Ignis"
-dialogue = "Hello pre"
+dialogue = "Ah, a traveler seeks us in the midst of these wastes. You walk into the heart of the ruins, where every flame has a story, every spark a lesson. "
 path_options = ""
 options = Array[ExtResource("1_26t82")]([ExtResource("2_co3db")])

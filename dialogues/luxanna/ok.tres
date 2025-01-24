@@ -6,5 +6,5 @@
 script = ExtResource("1_87j3x")
 name = "Luxanna"
 dialogue = ""
-path_options = "ok bye"
+path_options = "Go back to the map!"
 options = Array[ExtResource("1_87j3x")]([])

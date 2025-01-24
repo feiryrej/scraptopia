@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://btie6i06sguat"]
+
+[ext_resource type="Texture2D" uid="uid://dxrn4go7w8pux" path="res://assets/bins and wastes/bins.png" id="1_8hm5s"]
+[ext_resource type="Script" path="res://scripts/bin.gd" id="1_70bll"]
+[ext_resource type="Texture2D" uid="uid://berwtqi8fpko8" path="res://assets/character/shadow.png" id="1_ku5rp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dcrwt"]
+radius = 26.0192
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m0iyw"]
+radius = 9.0
+
+[node name="Node2D" type="StaticBody2D"]
+script = ExtResource("1_70bll")
+
+[node name="dropping_range" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dropping_range"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_dcrwt")
+
+[node name="shadow_spr" type="Sprite2D" parent="."]
+position = Vector2(1, -5)
+scale = Vector2(2.3125, 1.78125)
+texture = ExtResource("1_ku5rp")
+
+[node name="bins_spr" type="Sprite2D" parent="."]
+texture = ExtResource("1_8hm5s")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_m0iyw")
+
+[connection signal="body_entered" from="dropping_range" to="." method="_on_dropping_range_body_entered"]
+[connection signal="body_exited" from="dropping_range" to="." method="_on_dropping_range_body_exited"]

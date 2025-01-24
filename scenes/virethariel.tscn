@@ -1,12 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2q0lr77owjh"]
+[gd_scene load_steps=15 format=3 uid="uid://b2q0lr77owjh"]
 
 [ext_resource type="TileSet" uid="uid://gwoav7cvderm" path="res://assets/environment/Virethariel/virethariel.tres" id="1_3cj6b"]
-[ext_resource type="PackedScene" uid="uid://dbww74p66mexa" path="res://scenes/npc_luxanna.tscn" id="3_k57n8"]
+[ext_resource type="Script" path="res://scripts/bins_spawner.gd" id="2_oyc11"]
+[ext_resource type="PackedScene" path="res://scenes/npc_luxanna.tscn" id="3_k57n8"]
 [ext_resource type="PackedScene" uid="uid://df7bue7ges4vq" path="res://scenes/player.tscn" id="3_nd4xc"]
 [ext_resource type="PackedScene" uid="uid://bl130gk6pq7y1" path="res://scenes/npc_ixiol.tscn" id="3_p37um"]
 [ext_resource type="PackedScene" uid="uid://c4o2w5cg8uvd8" path="res://scenes/npc_avalciel.tscn" id="5_p5p18"]
 [ext_resource type="PackedScene" uid="uid://bnho4u0p6slhv" path="res://scenes/npc_tsuchiruz.tscn" id="6_a8cew"]
 [ext_resource type="PackedScene" uid="uid://djr66j8u3w1ry" path="res://scenes/npc_ignis.tscn" id="7_mwx23"]
+[ext_resource type="PackedScene" uid="uid://btie6i06sguat" path="res://scenes/bin.tscn" id="8_yhddt"]
+[ext_resource type="PackedScene" uid="uid://drcticolub6en" path="res://scenes/lives.tscn" id="10_c134h"]
+[ext_resource type="PackedScene" uid="uid://dlduotq7sqyck" path="res://npc.tscn" id="11_53e0u"]
+[ext_resource type="PackedScene" uid="uid://ciy7tco6egwyl" path="res://scenes/menu.tscn" id="11_aqgrx"]
+[ext_resource type="PackedScene" uid="uid://byt6tiititreo" path="res://scenes/settings_panel.tscn" id="12_kdj48"]
+[ext_resource type="AudioStream" uid="uid://bp6gki32bprl3" path="res://assets/Adventures RJ Pasin.mp3" id="13_mj8la"]
 
 [node name="map" type="Node2D"]
 y_sort_enabled = true
@@ -38,21 +45,23 @@ layer_7/z_index = 1
 layer_7/tile_data = PackedInt32Array(1900633, 1179654, 0, 1310805, 1179654, 0, 262228, 1179654, 0, -131001, 1179654, 0, 720953, 1179654, 0, 327693, 1179654, 0, 983034, 1179654, 0, 327667, 1179654, 0, -458764, 1179654, 0, 1310708, 1179654, 0, 2293763, 1179654, 0, 1048599, 1179654, 0, -851945, 1179654, 0, -524272, 1179654, 0, -1376229, 1179654, 0, -1769454, 1179654, 0, -786343, 1179654, 0, -655302, 1179654, 0, -917429, 1179654, 0, -1703945, 1179654, 0, -1572878, 1179654, 0, -1900541, 1179654, 0, -1900547, 1179654, 0, -1835000, 1179654, 0, -1900530, 1179654, 0, -1834971, 1179654, 0, -1966051, 1179654, 0, -1834975, 1179654, 0, -1572819, 1179654, 0, -1703888, 1179654, 0, -1966024, 1179654, 0, -1966019, 1179654, 0, -1966014, 1179654, 0, -1966008, 1179654, 0, -2031538, 1179654, 0, -2031528, 1179654, 0, -1703873, 3, 0, 3145796, 1179654, 0, 3080277, 1179654, 0, 3080267, 1179654, 0, 3080248, 1179654, 0, 3080237, 1179654, 0, 3211285, 1179654, 0, 3211277, 1179654, 0, 3276799, 1179654, 0, 3145735, 1179654, 0, 3211252, 1179654, 0, -1310671, 3, 0)
 layer_8/name = "Objects3"
 layer_8/tile_data = PackedInt32Array(2687027, 786435, 3, 2424877, 786435, 3, 1900603, 786435, 3, 1572930, 786435, 3, -458756, 131080, 2, -1245193, 131080, 2, -1572866, 131080, 2, -1441786, 131080, 2, -1048569, 131080, 2, -917510, 131081, 4, -1114124, 131081, 4, -851962, 131081, 4, -1310715, 131081, 4, -1572863, 131081, 4, -786436, 131081, 4, -720895, 262153, 4, -458748, 262153, 4, -1179642, 262153, 4, -1245196, 262153, 4, -1507332, 262153, 4, -786427, 65545, 4, -983047, 65545, 4, -1507324, 65545, 4, -1179603, 9, 4, 2752584, 196616, 3, 2162742, 196616, 3, 2359344, 196616, 3, 2818098, 196616, 3, 1376321, 196616, 3, 720970, 196616, 3, 131145, 131080, 3, 1245244, 131080, 3, 1900606, 131080, 3, 2097234, 327689, 5, 1638486, 327689, 5, 1376333, 65543, 1, 1966163, 7, 1, 2228276, 65543, 0, 917558, 65543, 0, 327714, 262146, 6, 262192, 262146, 6, 589859, 262146, 6, 1507345, 262146, 6, 1638412, 262146, 6, 2031644, 262146, 6, -196552, 131080, 3, 458782, 131080, 3, -458730, 131080, 3, -458727, 196616, 3, -131041, 196616, 3, -655323, 196616, 3, 2293771, 196616, 3, 2359313, 131080, 3, 983101, 786435, 3, -262120, 786435, 3, -196584, 786435, 3, -262119, 786435, 3, 1703953, 786435, 3, 1638405, 786435, 3, 1703941, 786435, 3)
-layer_9/name = "Bins"
-layer_9/y_sort_enabled = true
-layer_9/z_index = 1
-layer_9/tile_data = PackedInt32Array(2097221, 262161, 0, 2162759, 393233, 0, 2162749, 17, 0, 2097215, 131089, 0)
-layer_10/name = "Wastes"
+layer_9/name = "Wastes"
+layer_9/enabled = false
+layer_9/tile_data = PackedInt32Array(1769542, 12, 0, 2162741, 12, 0, -1245102, 12, 0, 1245210, 12, 0, 1900570, 12, 0, 2818051, 12, 0, 1834997, 12, 0, 1376249, 12, 0, 851971, 12, 0, 458747, 12, 0, -524285, 12, 0, 2228221, 12, 0, 524321, 12, 0, -1114114, 12, 0, 2555966, 19, 14, 2621489, 262163, 12, 2752584, 917523, 12, 1572929, 786451, 10, 524360, 1179667, 10, 1179721, 1310739, 8, 327742, 917523, 2, -393154, 1179667, 2, -65503, 262163, 2, 262191, 131091, 2, -1179577, 19, 2, -1376197, 393235, 0, -917457, 786451, 12, -786404, 917523, 10, -458718, 1572883, 8)
+layer_10/name = "Wastes2"
 layer_10/enabled = false
-layer_10/tile_data = PackedInt32Array(1769542, 12, 0, 2162741, 12, 0, -1245102, 12, 0, 1245210, 12, 0, 1900570, 12, 0, 2818051, 12, 0, 1834997, 12, 0, 1376249, 12, 0, 851971, 12, 0, 458747, 12, 0, -524285, 12, 0, 2228221, 12, 0, 524321, 12, 0, -1114114, 12, 0, 2555966, 19, 14, 2621489, 262163, 12, 2752584, 917523, 12, 1572929, 786451, 10, 524360, 1179667, 10, 1179721, 1310739, 8, 327742, 917523, 2, -393154, 1179667, 2, -65503, 262163, 2, 262191, 131091, 2, -1179577, 19, 2, -1376197, 393235, 0, -917457, 786451, 12, -786404, 917523, 10, -458718, 1572883, 8)
-layer_11/name = "Wastes2"
-layer_11/enabled = false
-layer_11/tile_data = PackedInt32Array(-786404, 917523, 10, -327655, 1179667, 10, 458783, 655379, 10, 262214, 393235, 0, 655434, 1441811, 10, 1114179, 131091, 0, 1572936, 1179667, 0, 2490429, 19, 14, 2621490, 393235, 14, -1114040, 917523, 12, -1376196, 786451, 12, -851921, 262163, 12, -786365, 393235, 12, 2621444, 393235, 8, 2228235, 1572883, 8, -1179644, 19, 2, -458748, 917523, 2, -786438, 1179667, 4, 917506, 19, 4, 1703953, 786451, 6, 2031643, 262163, 6, 2424854, 131091, 2, 65578, 1441811, 8, 2818119, 131091, 14, -327618, 1310739, 8, 2686971, 19, 1610612744, 2162685, 524307, 1342177288, 1310715, 1441811, 4, 458758, 917523, 4, 262139, 1572883, 4, 1179674, 1048595, 6, -327642, 786451, 10, 1835069, 262163, 0, 196661, 524307, 0, -65503, 1310739, 10, 589888, 131091, 10, -1179566, 524307, 12, -1048521, 19, 12, 720965, 131091, 4, 1441858, 1048595, 8, 131136, 917523, 0, 589822, 262163, 4, 1703927, 524307, 1342177284, -1245189, 1179667, 2)
+layer_10/tile_data = PackedInt32Array(-786404, 917523, 10, -327655, 1179667, 10, 458783, 655379, 10, 262214, 393235, 0, 655434, 1441811, 10, 1114179, 131091, 0, 1572936, 1179667, 0, 2490429, 19, 14, 2621490, 393235, 14, -1114040, 917523, 12, -1376196, 786451, 12, -851921, 262163, 12, -786365, 393235, 12, 2621444, 393235, 8, 2228235, 1572883, 8, -1179644, 19, 2, -458748, 917523, 2, -786438, 1179667, 4, 917506, 19, 4, 1703953, 786451, 6, 2031643, 262163, 6, 2424854, 131091, 2, 65578, 1441811, 8, 2818119, 131091, 14, -327618, 1310739, 8, 2686971, 19, 1610612744, 2162685, 524307, 1342177288, 1310715, 1441811, 4, 458758, 917523, 4, 262139, 1572883, 4, 1179674, 1048595, 6, -327642, 786451, 10, 1835069, 262163, 0, 196661, 524307, 0, -65503, 1310739, 10, 589888, 131091, 10, -1179566, 524307, 12, -1048521, 19, 12, 720965, 131091, 4, 1441858, 1048595, 8, 131136, 917523, 0, 589822, 262163, 4, 1703927, 524307, 1342177284, -1245189, 1179667, 2)
 
 [node name="waste_spawner" type="Node2D" parent="."]
 
+[node name="bins_spawner" type="Node2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("2_oyc11")
+bin_scene = ExtResource("8_yhddt")
+
 [node name="player" parent="." instance=ExtResource("3_nd4xc")]
-position = Vector2(930, -16)
+position = Vector2(849, 654)
 
 [node name="ixiol" parent="." instance=ExtResource("3_p37um")]
 position = Vector2(13, -258)
@@ -67,13 +76,35 @@ position = Vector2(6, 173)
 
 [node name="tsuchiruz" parent="." instance=ExtResource("6_a8cew")]
 z_index = 1
-position = Vector2(1020, -254)
+position = Vector2(1005, -263)
 
 [node name="ignis" parent="." instance=ExtResource("7_mwx23")]
 z_index = 1
 position = Vector2(1117, 115)
 
+[node name="npc" parent="." instance=ExtResource("11_53e0u")]
+visible = false
+position = Vector2(917, 606)
+
 [node name="collisions" type="StaticBody2D" parent="."]
 
 [node name="limit" type="CollisionPolygon2D" parent="collisions"]
 polygon = PackedVector2Array(-283, -408, 1433, -412, 1437, 824, -283, 832, -283, -358, -401, -325, -503, 103, -539, 1078, 1711, 1105, 1700, -585, -524, -555, -402, -325, -283, -358)
+
+[node name="lives" parent="." instance=ExtResource("10_c134h")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Menu" parent="CanvasLayer" instance=ExtResource("11_aqgrx")]
+offset_bottom = -2.0
+
+[node name="SettingsPanel" parent="CanvasLayer" instance=ExtResource("12_kdj48")]
+offset_left = 3.0
+offset_top = -1.0
+offset_right = -2.0
+offset_bottom = -1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_mj8la")
+volume_db = -10.0
+autoplay = true
