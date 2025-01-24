@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://bpm6iiktjsxqj"]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_iwifq"]
+[ext_resource type="Resource" uid="uid://dmsm03sm5vt1g" path="res://dialogues/ixiol/1.tres" id="2_njafw"]
+[ext_resource type="Texture2D" uid="uid://b7ldyvqtmfxla" path="res://assets/character/npc/ixiol/ixiol_mod.png" id="3_cxt4p"]
+
+[resource]
+script = ExtResource("1_iwifq")
+texture = ExtResource("3_cxt4p")
+name = "Ixiol"
+dialogue = "Ah, you have arrived… Your presence stirs like a breeze on still waters. This land once thrived with life—green, blooming, and vibrant. Now, it withers under a heavy silence where songs once flourished."
+path_options = ""
+options = Array[ExtResource("1_iwifq")]([ExtResource("2_njafw")])

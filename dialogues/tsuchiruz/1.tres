@@ -8,6 +8,6 @@
 script = ExtResource("1_ixkbp")
 texture = ExtResource("2_m7uus")
 name = "Tsuchiruz"
-dialogue = "mama mo mist"
-path_options = "okay mist"
+dialogue = "Separate the refuse, return it to its rightful place, and prove that the Earth still has protectors. Will you rise to the challenge? "
+path_options = "Next"
 options = Array[ExtResource("1_ixkbp")]([ExtResource("2_yi2r2")])

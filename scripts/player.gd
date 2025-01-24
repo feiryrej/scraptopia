@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 # References
 @onready var item_drop = load("res://scenes/item_drop.tscn")
+@onready var menu = load("res://scenes/menu.tscn")
 @onready var human_spr = $human_spr
 @onready var item_spr = $item_spr
 @onready var correct_spr = $correct_spr
@@ -345,6 +346,10 @@ func dispose_item(bin_type: String):
 			
 		else:		
 			Global.lives -= 1
+			
+			if Global.lives <= 0:
+				restart_game()
+			
 			var interface = $"../lives"
 			interface.update_lives()
 			print("Total lives left: ", Global.lives)
@@ -357,14 +362,19 @@ func dispose_item(bin_type: String):
 			await get_tree().create_timer(1.0).timeout
 			wrong_spr.hide()
 
-
+func restart_game():
+	Global.lives = 5
+	var menu_instance = menu.instantiate()
+	add_child(menu_instance)
+	if menu:
+		menu_instance._on_restart_pressed()
+	else:
+		print("NO HERE")
 
 func _on_pickup_range_area_entered(area: Area2D):
 	if area.is_in_group("item_drop"):
 		items_in_range.append(area)
 		print(items_in_range)
-
-
 
 func _on_pickup_range_area_exited(area: Area2D):
 	if area.is_in_group("item_drop"):

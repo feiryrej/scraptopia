@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bp6gki32bprl3"
+path="res://.godot/imported/Adventures RJ Pasin.mp3-b83a7434b3ea3fdc924e22e9482a2c73.mp3str"
+
+[deps]
+
+source_file="res://assets/Adventures RJ Pasin.mp3"
+dest_files=["res://.godot/imported/Adventures RJ Pasin.mp3-b83a7434b3ea3fdc924e22e9482a2c73.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

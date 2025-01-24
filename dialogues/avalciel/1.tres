@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_6c835"]
 [ext_resource type="Resource" uid="uid://0tudl4hlw3p6" path="res://dialogues/avalciel/bye.tres" id="2_5tgut"]
-[ext_resource type="Texture2D" uid="uid://lkkm2qfojk1u" path="res://assets/character/npc/avalciel/avalciel_alter.png" id="2_kuc0f"]
+[ext_resource type="Texture2D" uid="uid://bis5r8mpjp22c" path="res://assets/character/npc/avalciel/avalciel_mod.png" id="3_mfvxm"]
 
 [resource]
 script = ExtResource("1_6c835")
-texture = ExtResource("2_kuc0f")
+texture = ExtResource("3_mfvxm")
 name = "Avalciel"
-dialogue = "Thank you for completing today's commission. Here is your reward."
-path_options = "Claim Daily Commission Reward"
+dialogue = "Meltharith waits, but the frost in my heart is not eternal. Time, like the ice, is melting. Will you be its savior—or its final decay?"
+path_options = "Next"
 options = Array[ExtResource("1_6c835")]([ExtResource("2_5tgut")])
