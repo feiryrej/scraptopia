@@ -4,22 +4,30 @@ extends CharacterBody2D
 @onready var item_drop = load("res://scenes/item_drop.tscn")
 @onready var human_spr = $human_spr
 @onready var item_spr = $item_spr
+@onready var correct_spr = $correct_spr
+@onready var wrong_spr = $wrong_spr
 
 @onready var pickup_sound: AudioStreamPlayer2D = $PickupSound
 @onready var drop_sound: AudioStreamPlayer2D = $DropSound
+@onready var correct_sound: AudioStreamPlayer2D = $CorrectSound
+@onready var wrong_sound: AudioStreamPlayer2D = $WrongSound
 
 # Variables
 var speed = 100
-var movement_velocity = Vector2.ZERO  # Stores current velocity
-var dir = Vector2.DOWN # Tracks the last movement direction
-var tile_size = 16 # Change depending on our game's tile size
-var movement_speed = 120 # Lower = slower, higher = faster
+var movement_velocity = Vector2.ZERO
+var dir = Vector2.DOWN
+var tile_size = 16
+var movement_speed = 120
 var is_moving = false
 var movement_queue = Vector2.ZERO
 
 var carrying_item = false
 var drop_pos: Vector2
 var items_in_range: Array = []
+var bins_in_range = []
+
+var small_scale = Vector2(0.62, 0.62)
+var curr_waste_type = null
 
 var male_arms_down_frames = preload("res://frames/male_arms_down.tres")
 var male_arms_up_frames = preload("res://frames/male_arms_up.tres")
@@ -33,77 +41,75 @@ enum States { IDLE, MOVE }
 var current_state = States.IDLE
 
 
-
 func _ready():
 	item_spr.hide()
 	update_spritesheet()
 	
 	# wastes list     |     position   |      frame      |     scale
-	spawn_item(Vector2(984, 615), Vector2i(0, 7), Vector2(0.62, 0.62))		# banana
-	spawn_item(Vector2(807, 652), Vector2i(7, 4), Vector2(0.62, 0.62))		# plastic bag
-	spawn_item(Vector2(1144, 696), Vector2i(1, 7), Vector2(0.62, 0.62))		# facemask
-	spawn_item(Vector2(983, 455), Vector2i(2, 0), Vector2(0.62, 0.62))		# pencil
-	spawn_item(Vector2(1159, 391), Vector2i(9, 0), Vector2(0.62, 0.62))		# wood plank
-	spawn_item(Vector2(1062, 358), Vector2i(8, 4), Vector2(0.62, 0.62))		# rusty nail
-	spawn_item(Vector2(1079, 280), Vector2i(1, 0), Vector2(1, 1))			# toxic pipe
-	spawn_item(Vector2(1111, 183), Vector2i(1, 2), Vector2(0.62, 0.62))		# battery
-	spawn_item(Vector2(1192, 169), Vector2i(6, 0), Vector2(1, 1))			# toxic barrel
-	spawn_item(Vector2(1032, 151), Vector2i(1, 5), Vector2(1, 1))			# umbrella
-	spawn_item(Vector2(1128, 72), Vector2i(3, 0), Vector2(0.62, 0.62))		# broken glass
-	
-	spawn_item(Vector2(1033, 42), Vector2i(7, 0), Vector2(0.62, 0.62))		# fuel container
-	spawn_item(Vector2(999, -73), Vector2i(10, 4), Vector2(0.62, 0.62))		# wood
-	spawn_item(Vector2(855, 56), Vector2i(4, 0), Vector2(0.62, 0.62))		# broken mirror
-	spawn_item(Vector2(681, 25), Vector2i(11, 4), Vector2(0.62, 0.62))		# watermelon
-	spawn_item(Vector2(614, -74), Vector2i(6, 5), Vector2(0.62, 0.62))		# stopwatch
-	spawn_item(Vector2(537, -8), Vector2i(10, 5), Vector2(0.62, 0.62))		# feather
-	spawn_item(Vector2(407, -70), Vector2i(9, 5), Vector2(0.62, 0.62))		# withered rose
-	spawn_item(Vector2(456, -184), Vector2i(7, 5), Vector2(0.62, 0.62))		# broken helm
-	spawn_item(Vector2(502, 118), Vector2i(5, 5), Vector2(0.62, 0.62))		# raw meat
-	spawn_item(Vector2(761, -199), Vector2i(2, 6), Vector2(0.62, 0.62))		# broken shells
-	spawn_item(Vector2(887, -246), Vector2i(0, 6), Vector2(0.62, 0.62))		# glass jar
-	
-	spawn_item(Vector2(1080, -184), Vector2i(3, 6), Vector2(0.62, 0.62))	# shards
-	spawn_item(Vector2(1161, -266), Vector2i(7, 6), Vector2(0.62, 0.62))	# mask
-	spawn_item(Vector2(1320, -281), Vector2i(4, 6), Vector2(0.62, 0.62))	# stone slab
-	spawn_item(Vector2(967, -330), Vector2i(6, 6), Vector2(0.62, 0.62))		# leaf fan
-	spawn_item(Vector2(423, 294), Vector2i(8, 3), Vector2(0.62, 0.62))		# pizza box
-	spawn_item(Vector2(440, 504), Vector2i(8, 1), Vector2(0.62, 0.62))		# maple leaf
-	spawn_item(Vector2(281, 425), Vector2i(6, 3), Vector2(0.62, 0.62))		# metal can
-	spawn_item(Vector2(360, 602), Vector2i(1, 1), Vector2(0.62, 0.62))		# rotten fruits
-	spawn_item(Vector2(183, 552), Vector2i(12, 4), Vector2(0.62, 0.62))		# map
-	spawn_item(Vector2(72, 652), Vector2i(3, 4), Vector2(1, 1))				# black barrel
-	
-	spawn_item(Vector2(-69, 646), Vector2i(4, 0), Vector2(0.62, 0.62))		# broken bottle
-	spawn_item(Vector2(-42, 521), Vector2i(4, 4), Vector2(0.62, 0.62))		# plastic bottle
-	spawn_item(Vector2(-138, 408), Vector2i(4, 2), Vector2(0.62, 0.62))		# syringe
-	spawn_item(Vector2(-71, 313), Vector2i(11, 2), Vector2(1, 1))			# rope
-	spawn_item(Vector2(39, 232), Vector2i(0, 2), Vector2(0.62, 0.62))		# boots
-	spawn_item(Vector2(-25, 138), Vector2i(2, 2), Vector2(1, 1))			# satellite
-	spawn_item(Vector2(99, 119), Vector2i(7, 2), Vector2(0.62, 0.62))		# copper
-	spawn_item(Vector2(69, -104), Vector2i(7, 1), Vector2(0.62, 0.62))		# leather
-	spawn_item(Vector2(-88, -197), Vector2i(9, 2), Vector2(0.62, 0.62))		# glass flask
-	spawn_item(Vector2(74, -281), Vector2i(0, 1), Vector2(0.62, 0.62))		# animal bone
-	
-	spawn_item(Vector2(-74, -311), Vector2i(9, 1), Vector2(0.8, 0.8))		# Log
-	spawn_item(Vector2(-74, 58), Vector2i(12, 2), Vector2(0.4, 0.4))		# gloves
+	spawn_item(Vector2(984, 615), Vector2i(0, 7), Vector2(0.62, 0.62), "BIO")          # banana
+	spawn_item(Vector2(983, 455), Vector2i(2, 0), Vector2(0.62, 0.62), "BIO")          # pencil
+	spawn_item(Vector2(1159, 391), Vector2i(9, 0), Vector2(0.62, 0.62), "BIO")         # withered planks
+	spawn_item(Vector2(999, -73), Vector2i(10, 4), Vector2(0.62, 0.62), "BIO")         # ship wood
+	spawn_item(Vector2(681, 25), Vector2i(11, 4), Vector2(0.62, 0.62), "BIO")          # watermelon
+	spawn_item(Vector2(537, -8), Vector2i(10, 5), Vector2(0.62, 0.62), "BIO")          # wilted feather
+	spawn_item(Vector2(407, -70), Vector2i(9, 5), Vector2(0.62, 0.62), "BIO")          # withered rose garlands
+	spawn_item(Vector2(761, -199), Vector2i(2, 6), Vector2(0.62, 0.62), "BIO")         # broken clay pots
+	spawn_item(Vector2(440, 504), Vector2i(8, 1), Vector2(0.62, 0.62), "BIO")          # dead maple leaf
+	spawn_item(Vector2(360, 602), Vector2i(1, 1), Vector2(0.62, 0.62), "BIO")          # rotten fruits
+	spawn_item(Vector2(-71, 313), Vector2i(11, 2), Vector2(1, 1), "BIO")               # rope
+	spawn_item(Vector2(69, -104), Vector2i(7, 1), Vector2(0.62, 0.62), "BIO")          # leather
+	spawn_item(Vector2(74, -281), Vector2i(0, 1), Vector2(0.62, 0.62), "BIO")          # animal bone
+	spawn_item(Vector2(-74, -311), Vector2i(9, 1), Vector2(0.8, 0.8), "BIO")           # log
+	spawn_item(Vector2(967, -330), Vector2i(6, 6), Vector2(0.62, 0.62), "BIO")         # palm leaf fan
 
+	spawn_item(Vector2(807, 652), Vector2i(7, 4), Vector2(0.62, 0.62), "NONBIO")       # plastic bag
+	spawn_item(Vector2(1062, 358), Vector2i(8, 4), Vector2(0.62, 0.62), "NONBIO")      # rusty nail
+	spawn_item(Vector2(614, -74), Vector2i(0, 5), Vector2(0.62, 0.62), "NONBIO")       # broken pocket watch
+	spawn_item(Vector2(456, -184), Vector2i(7, 5), Vector2(0.62, 0.62), "NONBIO")      # broken brass gears
+	spawn_item(Vector2(502, 118), Vector2i(5, 5), Vector2(0.62, 0.62), "NONBIO")       # worn leather straps
+	spawn_item(Vector2(1080, -184), Vector2i(3, 6), Vector2(0.62, 0.62), "NONBIO")     # obsidian shards
+	spawn_item(Vector2(1320, -281), Vector2i(4, 6), Vector2(0.62, 0.62), "NONBIO")     # shattered temple tile
+	spawn_item(Vector2(39, 232), Vector2i(0, 2), Vector2(0.62, 0.62), "NONBIO")        # boots
+	spawn_item(Vector2(-74, 58), Vector2i(12, 2), Vector2(0.4, 0.4), "NONBIO")         # gloves
+	spawn_item(Vector2(-25, 138), Vector2i(2, 2), Vector2(1, 1), "NONBIO")             # satellite
+	
+	spawn_item(Vector2(1032, 151), Vector2i(1, 5), Vector2(1, 1), "RECYCLABLE")        # silk parasols
+	spawn_item(Vector2(1128, 72), Vector2i(3, 0), Vector2(0.62, 0.62), "RECYCLABLE")   # glass shards
+	spawn_item(Vector2(855, 56), Vector2i(4, 0), Vector2(0.62, 0.62), "RECYCLABLE")    # stainless steel
+	spawn_item(Vector2(1161, -266), Vector2i(7, 6), Vector2(0.62, 0.62), "RECYCLABLE") # ritual mask fragment
+	spawn_item(Vector2(423, 294), Vector2i(8, 3), Vector2(0.62, 0.62), "RECYCLABLE")   # pizza box
+	spawn_item(Vector2(281, 425), Vector2i(6, 3), Vector2(0.62, 0.62), "RECYCLABLE")   # metal can
+	spawn_item(Vector2(183, 552), Vector2i(12, 4), Vector2(0.62, 0.62), "RECYCLABLE")  # map
+	spawn_item(Vector2(-69, 646), Vector2i(4, 0), Vector2(0.62, 0.62), "RECYCLABLE")   # broken bottle
+	spawn_item(Vector2(-42, 521), Vector2i(4, 4), Vector2(0.62, 0.62), "RECYCLABLE")   # plastic bottle
+	spawn_item(Vector2(99, 119), Vector2i(7, 2), Vector2(0.62, 0.62), "RECYCLABLE")    # copper
+	spawn_item(Vector2(-88, -197), Vector2i(9, 2), Vector2(0.62, 0.62), "RECYCLABLE")  # glass flask
+	
+	spawn_item(Vector2(1144, 696), Vector2i(1, 7), Vector2(0.62, 0.62), "HAZARD")      # facemask
+	spawn_item(Vector2(1079, 280), Vector2i(1, 0), Vector2(1, 1), "HAZARD")            # mechanical component
+	spawn_item(Vector2(1111, 183), Vector2i(1, 2), Vector2(0.62, 0.62), "HAZARD")      # battery
+	spawn_item(Vector2(1192, 169), Vector2i(6, 0), Vector2(1, 1), "HAZARD")            # uranium fuel rod
+	spawn_item(Vector2(887, -246), Vector2i(0, 6), Vector2(0.62, 0.62), "HAZARD")      # ritual oil jar
+	spawn_item(Vector2(72, 652), Vector2i(3, 4), Vector2(1, 1), "HAZARD")              # black barrel
+	spawn_item(Vector2(-138, 408), Vector2i(4, 2), Vector2(0.62, 0.62), "HAZARD")      # syringe
 
 # for spawning wastes
-func spawn_item(position: Vector2, frame_coords: Vector2i, scale_factor: Vector2):
+func spawn_item(position: Vector2, frame_coords: Vector2i, scale_factor: Vector2, waste_type):
 	var new_item = item_drop.instantiate()
 	print("Instantiating item_drop at position: ", position)
 
 	new_item.position = position
 	new_item.frame_coords = frame_coords
 	new_item.scale = scale_factor
+	new_item.waste_type = waste_type
+	
+	new_item.set_meta("original_scale", scale_factor)
+	new_item.set_meta("waste_type", waste_type)
 
 	var item_sprite = new_item.get_node("Sprite2D")
 	if item_sprite:
+		item_sprite.scale = small_scale
 		item_sprite.z_index = 0
-
-	# writes scale_factor to new_item's metadata
-	new_item.set_meta("initial_scale", scale_factor)
 	get_parent().get_node("waste_spawner").add_child(new_item)
 
 	print("Item added to parent at position: ", new_item.position)
@@ -188,7 +194,12 @@ func _on_switch_gender_pressed():
 func _input(event):
 	if event.is_action_pressed("pickupthrow"):
 		if carrying_item:
-			drop_item()
+			
+			# checks if player is within the bin's range
+			if Global.is_near_bin and Global.near_bin_type != null: 
+				dispose_item(Global.near_bin_type)
+			else:
+				drop_item()
 		else:
 			if !items_in_range.is_empty():
 				for item in items_in_range:
@@ -225,6 +236,12 @@ func adjust_item_z_index(item_sprite: Sprite2D, is_picking_up: bool):
 
 
 func pickup_item(item: Area2D):
+	var original_scale = item.get_meta("original_scale") if item.has_meta("original_scale") else Vector2(0.62, 0.62)
+	
+	# Force the waste type to be an integer
+	curr_waste_type = item.get_meta("waste_type")
+	print("Picked up a " + str(curr_waste_type) + " waste.")  # Now printing it as an integer
+	
 	item.queue_free()
 	carrying_item = true
 	print("Carrying item: ", carrying_item)
@@ -236,6 +253,8 @@ func pickup_item(item: Area2D):
 	if item_sprite:
 		item_spr.texture = item_sprite.texture
 		item_spr.frame_coords = item_sprite.frame_coords
+		
+		item_spr.set_meta("original_scale", original_scale)
 		print("Item texture and frame updated.")
 	else:
 		print("Error: Sprite2D not found in item.")
@@ -243,7 +262,7 @@ func pickup_item(item: Area2D):
 	# writes frame_coords and scale to item_spr metadata
 	item_spr.set_meta("frame_coords", item_sprite.frame_coords)
 	item_spr.set_meta("initial_scale", item_sprite.scale)
-	#adjust_item_z_index(item_sprite, true)
+
 
 
 
@@ -288,12 +307,14 @@ func drop_item():
 		print("No frame_coords metadata found") # for debugging purposes
 
 	# should supposedly get the scale from item_spr metadata
-	if item_spr.has_meta("initial_scale"):
-		item.scale = item_spr.get_meta("initial_scale")
+	if item_spr.has_meta("original_scale"):
+		item.scale = item_spr.get_meta("original_scale")
 	else:
 		print("No initial_scale metadata found.") # for debugging purposes
-		item.scale = Vector2(1, 1)
+		item.scale = Vector2(0.62, 0.62)
 
+	item.set_meta("waste_type", curr_waste_type)
+	
 	#get_parent().add_child(item)
 	get_parent().get_node("waste_spawner").add_child(item)
 	item.visible = true
@@ -304,6 +325,37 @@ func drop_item():
 	carrying_item = false
 	update_spritesheet()
 	drop_sound.play()
+
+
+
+func dispose_item(bin_type: String):
+	if carrying_item:
+		if bin_type == curr_waste_type:
+			carrying_item = false
+			item_spr.hide()
+			update_spritesheet()
+			
+			wrong_spr.hide()
+			correct_spr.show()
+			correct_spr.play("correct")
+			correct_sound.play()
+			
+			await get_tree().create_timer(2.0).timeout
+			correct_spr.hide()
+			
+		else:		
+			Global.lives -= 1
+			var interface = $"../lives"
+			interface.update_lives()
+			print("Total lives left: ", Global.lives)
+
+			correct_spr.hide()
+			wrong_spr.show()
+			wrong_spr.play("wrong")
+			wrong_sound.play()
+
+			await get_tree().create_timer(1.0).timeout
+			wrong_spr.hide()
 
 
 

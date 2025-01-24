@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://df7bue7ges4vq"]
+[gd_scene load_steps=15 format=3 uid="uid://df7bue7ges4vq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1ovfa"]
 [ext_resource type="SpriteFrames" uid="uid://cjwrm1swmjr24" path="res://frames/male_arms_up.tres" id="2_3ha0h"]
@@ -6,12 +6,42 @@
 [ext_resource type="Texture2D" uid="uid://c7j3fhp5syusf" path="res://assets/bins and wastes/wastes-spritesheet.png" id="3_p88wk"]
 [ext_resource type="AudioStream" uid="uid://cpcgiflvffaeu" path="res://sounds/boink.mp3" id="5_6kj76"]
 [ext_resource type="AudioStream" uid="uid://1fwqbx2fo8k1" path="res://sounds/ahhh.mp3" id="6_mi1no"]
+[ext_resource type="AudioStream" uid="uid://d4spre0oui0k" path="res://sounds/correct.mp3" id="7_00xxj"]
+[ext_resource type="AudioStream" uid="uid://cjfdhk5t8b5ew" path="res://sounds/wrong.mp3" id="8_sfptr"]
+[ext_resource type="Texture2D" uid="uid://ch537u07wbdgx" path="res://assets/ui/ui_pack.png" id="9_5eek2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2cb0"]
 radius = 6.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvu5g"]
 size = Vector2(10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jer07"]
+atlas = ExtResource("9_5eek2")
+region = Rect2(240, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dltjp"]
+atlas = ExtResource("9_5eek2")
+region = Rect2(240, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gge0t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jer07")
+}],
+"loop": true,
+"name": &"correct",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dltjp")
+}],
+"loop": true,
+"name": &"wrong",
+"speed": 5.0
+}]
 
 [node name="player" type="CharacterBody2D"]
 z_index = 1
@@ -59,6 +89,26 @@ stream = ExtResource("5_6kj76")
 
 [node name="DropSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_mi1no")
+
+[node name="CorrectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_00xxj")
+
+[node name="WrongSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_sfptr")
+
+[node name="correct_spr" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(7, -29)
+scale = Vector2(1.375, 1.375)
+sprite_frames = SubResource("SpriteFrames_gge0t")
+animation = &"correct"
+
+[node name="wrong_spr" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(7, -29)
+scale = Vector2(1.375, 1.375)
+sprite_frames = SubResource("SpriteFrames_gge0t")
+animation = &"correct"
 
 [connection signal="area_entered" from="pickup_range" to="." method="_on_pickup_range_area_entered"]
 [connection signal="area_exited" from="pickup_range" to="." method="_on_pickup_range_area_exited"]
