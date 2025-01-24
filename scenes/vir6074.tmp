@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b2q0lr77owjh"]
+[gd_scene load_steps=12 format=3 uid="uid://b2q0lr77owjh"]
 
 [ext_resource type="TileSet" uid="uid://gwoav7cvderm" path="res://assets/environment/Virethariel/virethariel.tres" id="1_3cj6b"]
 [ext_resource type="Script" path="res://scripts/bins_spawner.gd" id="2_oyc11"]
@@ -11,8 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://btie6i06sguat" path="res://scenes/bin.tscn" id="8_yhddt"]
 [ext_resource type="PackedScene" uid="uid://drcticolub6en" path="res://scenes/lives.tscn" id="10_c134h"]
 [ext_resource type="PackedScene" uid="uid://ciy7tco6egwyl" path="res://scenes/menu.tscn" id="11_aqgrx"]
-[ext_resource type="PackedScene" uid="uid://byt6tiititreo" path="res://scenes/settings_panel.tscn" id="12_kdj48"]
-[ext_resource type="AudioStream" uid="uid://bp6gki32bprl3" path="res://assets/Adventures RJ Pasin.mp3" id="13_mj8la"]
 
 [node name="map" type="Node2D"]
 y_sort_enabled = true
@@ -91,15 +89,3 @@ polygon = PackedVector2Array(-283, -408, 1433, -412, 1437, 824, -283, 832, -283,
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Menu" parent="CanvasLayer" instance=ExtResource("11_aqgrx")]
-offset_bottom = -2.0
-
-[node name="SettingsPanel" parent="CanvasLayer" instance=ExtResource("12_kdj48")]
-offset_left = 3.0
-offset_top = -1.0
-offset_right = -2.0
-offset_bottom = -1.0
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_mj8la")
-volume_db = -10.0
-autoplay = true
