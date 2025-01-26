@@ -26,6 +26,8 @@ var carrying_item = false
 var drop_pos: Vector2
 var items_in_range: Array = []
 var bins_in_range = []
+var correct_count = 0
+const total_wastes = 43
 
 var small_scale = Vector2(0.62, 0.62)
 var curr_waste_type = null
@@ -35,7 +37,7 @@ var male_arms_up_frames = preload("res://frames/male_arms_up.tres")
 var female_arms_down_frames = preload("res://frames/female_arms_down.tres")
 var female_arms_up_frames = preload("res://frames/female_arms_up.tres")
 
-enum Gender { MALE, FEMALE}
+enum Gender { MALE, FEMALE }
 var curr_gender = Gender.MALE
 
 enum States { IDLE, MOVE }
@@ -45,6 +47,8 @@ var current_state = States.IDLE
 func _ready():
 	item_spr.hide()
 	update_spritesheet()
+	var timer = get_tree().create_timer(2.0)
+	timer.timeout.connect(Callable(self, "_on_timer_timeout"))
 	
 	# wastes list     |     position   |      frame      |     scale
 	spawn_item(Vector2(984, 615), Vector2i(0, 7), Vector2(0.62, 0.62), "BIO")          # banana
@@ -340,8 +344,22 @@ func dispose_item(bin_type: String):
 			correct_spr.show()
 			correct_spr.play("correct")
 			correct_sound.play()
+			correct_count += 1
+			print("Correctly placed item in bin: ", bin_type)
+			print("Total correct so far: ", correct_count, "/", total_wastes)
 			
-			await get_tree().create_timer(2.0).timeout
+			if correct_count == total_wastes:
+				print("You completed the game!")
+				get_tree().change_scene_to_file("res://scenes/ending.tscn")
+			else:
+				print("Keep going!")
+				
+		# Create and start the timer
+			var timer = Timer.new()
+			add_child(timer)  # Add Timer to the scene
+			timer.start(2.0)  # Start the timer for 2 seconds
+			timer.timeout.connect(Callable(self, "_on_timer_timeout"))
+		#	await get_tree().create_timer(2.0).timeout
 			correct_spr.hide()
 			
 		else:		
@@ -353,7 +371,9 @@ func dispose_item(bin_type: String):
 			var interface = $"../lives"
 			interface.update_lives()
 			print("Total lives left: ", Global.lives)
-
+			print("Total correct so far: ", correct_count, "/", total_wastes)
+			print("You lost")
+			
 			correct_spr.hide()
 			wrong_spr.show()
 			wrong_spr.play("wrong")
@@ -361,6 +381,7 @@ func dispose_item(bin_type: String):
 
 			await get_tree().create_timer(1.0).timeout
 			wrong_spr.hide()
+
 
 func restart_game():
 	Global.lives = 5
@@ -371,10 +392,12 @@ func restart_game():
 	else:
 		print("NO HERE")
 
+
 func _on_pickup_range_area_entered(area: Area2D):
 	if area.is_in_group("item_drop"):
 		items_in_range.append(area)
 		print(items_in_range)
+
 
 func _on_pickup_range_area_exited(area: Area2D):
 	if area.is_in_group("item_drop"):
