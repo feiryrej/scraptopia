@@ -34,6 +34,7 @@ position = Vector2(-7, 82)
 scale = Vector2(0.825, 0.825)
 
 [node name="OptionsContainer" type="Node2D" parent="UI/MarginContainer/CenterContainer/MainContainer"]
+visible = false
 
 [node name="PanelContainer" type="MarginContainer" parent="UI/MarginContainer/CenterContainer/MainContainer/OptionsContainer"]
 custom_minimum_size = Vector2(350, 50)
