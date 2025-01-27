@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://dblr1dh73wudr"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_al54c"]
+[ext_resource type="Theme" uid="uid://83edle7dd1l6" path="res://assets/ui/menu.tres" id="1_h530c"]
+[ext_resource type="Texture2D" uid="uid://cn18y3gup782t" path="res://assets/ui/landing.png" id="1_ucynf"]
+[ext_resource type="FontFile" uid="uid://dsu17fcxqtm7t" path="res://assets/font/Pixelmania.ttf" id="3_8wshc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ntw8a"]
+texture = ExtResource("1_ucynf")
+modulate_color = Color(0.404511, 0.404511, 0.404511, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eptn7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j6ubg"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_al54c")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ntw8a")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -153.0
+offset_top = 35.0
+offset_right = 153.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_h530c")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxTexture_eptn7")
+text = "PLAY"
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_h530c")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxTexture_j6ubg")
+text = "EXIT
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -579.0
+offset_top = -198.0
+offset_right = 579.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9967, 0.900155, 0.807331, 1)
+theme_override_colors/font_shadow_color = Color(0.059126, 0.0591259, 0.0591259, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_fonts/font = ExtResource("3_8wshc")
+theme_override_font_sizes/font_size = 50
+text = "SCRAPTOPIA"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
