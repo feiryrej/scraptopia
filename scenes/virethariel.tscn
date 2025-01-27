@@ -4,19 +4,19 @@
 [ext_resource type="Script" path="res://scripts/bins_spawner.gd" id="2_oyc11"]
 [ext_resource type="PackedScene" path="res://scenes/npc_luxanna.tscn" id="3_k57n8"]
 [ext_resource type="PackedScene" uid="uid://df7bue7ges4vq" path="res://scenes/player.tscn" id="3_nd4xc"]
-[ext_resource type="PackedScene" uid="uid://bl130gk6pq7y1" path="res://scenes/npc_ixiol.tscn" id="3_p37um"]
+[ext_resource type="PackedScene" path="res://scenes/npc_ixiol.tscn" id="3_p37um"]
 [ext_resource type="PackedScene" uid="uid://c4o2w5cg8uvd8" path="res://scenes/npc_avalciel.tscn" id="5_p5p18"]
-[ext_resource type="PackedScene" uid="uid://bnho4u0p6slhv" path="res://scenes/npc_tsuchiruz.tscn" id="6_a8cew"]
-[ext_resource type="PackedScene" uid="uid://djr66j8u3w1ry" path="res://scenes/npc_ignis.tscn" id="7_mwx23"]
+[ext_resource type="PackedScene" path="res://scenes/npc_tsuchiruz.tscn" id="6_a8cew"]
+[ext_resource type="PackedScene" path="res://scenes/npc_ignis.tscn" id="7_mwx23"]
 [ext_resource type="PackedScene" uid="uid://btie6i06sguat" path="res://scenes/bin.tscn" id="8_yhddt"]
-[ext_resource type="PackedScene" uid="uid://drcticolub6en" path="res://scenes/lives.tscn" id="10_c134h"]
-[ext_resource type="PackedScene" uid="uid://dlduotq7sqyck" path="res://npc.tscn" id="11_53e0u"]
-[ext_resource type="PackedScene" uid="uid://ciy7tco6egwyl" path="res://scenes/menu.tscn" id="11_aqgrx"]
-[ext_resource type="PackedScene" uid="uid://byt6tiititreo" path="res://scenes/settings_panel.tscn" id="12_kdj48"]
+[ext_resource type="PackedScene" uid="uid://bxbyvqdv0trur" path="res://scenes/lives.tscn" id="10_c134h"]
+[ext_resource type="PackedScene" path="res://npc.tscn" id="11_53e0u"]
+[ext_resource type="PackedScene" path="res://scenes/menu.tscn" id="11_aqgrx"]
+[ext_resource type="PackedScene" path="res://scenes/settings_panel.tscn" id="12_kdj48"]
 [ext_resource type="AudioStream" uid="uid://bp6gki32bprl3" path="res://assets/Adventures RJ Pasin.mp3" id="13_mj8la"]
-[ext_resource type="PackedScene" uid="uid://cpvw58guaooqi" path="res://scenes/almanac.tscn" id="14_omlly"]
-[ext_resource type="PackedScene" uid="uid://dg1h0lk5v7n4y" path="res://scenes/introduction.tscn" id="15_6x31l"]
-[ext_resource type="PackedScene" uid="uid://defbj4ktqph7f" path="res://scenes/ending.tscn" id="16_34l1n"]
+[ext_resource type="PackedScene" path="res://scenes/almanac.tscn" id="14_omlly"]
+[ext_resource type="PackedScene" uid="uid://d1uq8g60si406" path="res://scenes/introduction.tscn" id="15_6x31l"]
+[ext_resource type="PackedScene" path="res://scenes/ending.tscn" id="16_34l1n"]
 
 [node name="map" type="Node2D"]
 y_sort_enabled = true
@@ -64,7 +64,7 @@ script = ExtResource("2_oyc11")
 bin_scene = ExtResource("8_yhddt")
 
 [node name="player" parent="." instance=ExtResource("3_nd4xc")]
-position = Vector2(849, 654)
+position = Vector2(903, 651)
 
 [node name="ixiol" parent="." instance=ExtResource("3_p37um")]
 position = Vector2(13, -258)
@@ -86,7 +86,6 @@ z_index = 1
 position = Vector2(1117, 115)
 
 [node name="npc" parent="." instance=ExtResource("11_53e0u")]
-visible = false
 position = Vector2(917, 606)
 
 [node name="collisions" type="StaticBody2D" parent="."]
@@ -97,8 +96,10 @@ polygon = PackedVector2Array(-283, -408, 1433, -412, 1437, 824, -283, 832, -283,
 [node name="lives" parent="." instance=ExtResource("10_c134h")]
 
 [node name="Ending" parent="." instance=ExtResource("16_34l1n")]
+visible = false
 
 [node name="Introduction" parent="." instance=ExtResource("15_6x31l")]
+visible = false
 
 [node name="Almanac Canvas" type="CanvasLayer" parent="."]
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://df7bue7ges4vq"]
+[gd_scene load_steps=16 format=3 uid="uid://df7bue7ges4vq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1ovfa"]
 [ext_resource type="SpriteFrames" uid="uid://cjwrm1swmjr24" path="res://frames/male_arms_up.tres" id="2_3ha0h"]
 [ext_resource type="Texture2D" uid="uid://berwtqi8fpko8" path="res://assets/character/shadow.png" id="2_4ybkx"]
 [ext_resource type="Texture2D" uid="uid://c7j3fhp5syusf" path="res://assets/bins and wastes/wastes-spritesheet.png" id="3_p88wk"]
 [ext_resource type="AudioStream" uid="uid://cpcgiflvffaeu" path="res://sounds/boink.mp3" id="5_6kj76"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="5_8txyk"]
 [ext_resource type="AudioStream" uid="uid://1fwqbx2fo8k1" path="res://sounds/ahhh.mp3" id="6_mi1no"]
 [ext_resource type="AudioStream" uid="uid://d4spre0oui0k" path="res://sounds/correct.mp3" id="7_00xxj"]
 [ext_resource type="AudioStream" uid="uid://cjfdhk5t8b5ew" path="res://sounds/wrong.mp3" id="8_sfptr"]
@@ -13,8 +14,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2cb0"]
 radius = 6.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pvu5g"]
-size = Vector2(10, 10)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tatmo"]
+size = Vector2(16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jer07"]
 atlas = ExtResource("9_5eek2")
@@ -71,8 +72,8 @@ shape = SubResource("CircleShape2D_g2cb0")
 [node name="pickup_range" type="Area2D" parent="." groups=["item_drop"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pickup_range"]
-position = Vector2(7, 3)
-shape = SubResource("RectangleShape2D_pvu5g")
+position = Vector2(7, 6)
+shape = SubResource("RectangleShape2D_tatmo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(7, 0)
@@ -83,6 +84,9 @@ limit_right = 909
 limit_bottom = 760
 limit_smoothed = true
 position_smoothing_enabled = true
+script = ExtResource("5_8txyk")
+
+[node name="Timer" type="Timer" parent="Camera2D"]
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_6kj76")
@@ -112,3 +116,4 @@ animation = &"correct"
 
 [connection signal="area_entered" from="pickup_range" to="." method="_on_pickup_range_area_entered"]
 [connection signal="area_exited" from="pickup_range" to="." method="_on_pickup_range_area_exited"]
+[connection signal="timeout" from="Camera2D/Timer" to="Camera2D" method="_on_timer_timeout"]

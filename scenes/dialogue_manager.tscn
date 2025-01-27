@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bk2k02o450ka3"]
 
 [ext_resource type="Script" path="res://scripts/dialogue_manager.gd" id="1_y0rk7"]
-[ext_resource type="PackedScene" uid="uid://cglsgn0cl2omg" path="res://scenes/next_dialogue.tscn" id="2_roqyp"]
+[ext_resource type="PackedScene" path="res://scenes/next_dialogue.tscn" id="2_roqyp"]
 [ext_resource type="Texture2D" uid="uid://ddspni4gef6v6" path="res://assets/character/npc/luxanna/luxanna_mod.png" id="3_gklcp"]
 [ext_resource type="FontFile" uid="uid://coqneoienhrf" path="res://fonts/ChiKareGo2.ttf" id="3_h25w3"]
 [ext_resource type="Texture2D" uid="uid://hy7em5w25vbf" path="res://assets/dialogue-box.png" id="5_ffw4i"]

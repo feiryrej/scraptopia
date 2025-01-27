@@ -5,3 +5,5 @@ var lives = 5
 
 var is_near_bin : bool = false
 var near_bin_type = null
+
+var camera : Camera2D
