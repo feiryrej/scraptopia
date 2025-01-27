@@ -94,7 +94,7 @@ func _on_direction_timer_timeout():
 	var directions = [Vector2.UP, Vector2.DOWN, Vector2.LEFT, Vector2.RIGHT]
 	dir = directions[randi() % directions.size()]
 
-	print("Tsuchiruz Idle Direction: ", dir)  # Debugging: Log randomized direction
+	#print("Tsuchiruz Idle Direction: ", dir)  # Debugging: Log randomized direction
 
 	# Reset the timer's wait time if needed to simulate slowing down effect
 	direction_timer.wait_time = randf_range(7.0, 15.0)  # Change wait time to vary the interval randomly (3 to 7 seconds)

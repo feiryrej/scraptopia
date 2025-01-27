@@ -50,6 +50,7 @@ func _ready():
 	var timer = get_tree().create_timer(2.0)
 	timer.timeout.connect(Callable(self, "_on_timer_timeout"))
 	
+	
 	# wastes list     |     position   |      frame      |     scale
 	spawn_item(Vector2(984, 615), Vector2i(0, 7), Vector2(0.62, 0.62), "BIO")          # banana
 	spawn_item(Vector2(983, 455), Vector2i(2, 0), Vector2(0.62, 0.62), "BIO")          # pencil
@@ -273,45 +274,20 @@ func pickup_item(item: Area2D):
 
 func drop_item():
 	item_spr.hide()
-
 	var item = item_drop.instantiate()
-	if item == null:
-		print("Error: Item instantiation failed.")
-		return
 
-	print("Item instantiated successfully.")
-
-	# adjust player position relative to parent node
 	var adjusted_position = global_position - get_parent().position
 	var player_tile_position = adjusted_position / tile_size
 	var drop_tile_position = player_tile_position.floor() + dir
 	var original_drop_position = (player_tile_position + dir) * tile_size + Vector2(tile_size / 2, tile_size / 2)
+	item.position = original_drop_position
 
-	# snapping logic based on direction
-	var estimated_tile_position = player_tile_position.round()  # rounding the tile position to nearest grid
-	var snapped_drop_tile_position = estimated_tile_position + dir
 
-	var final_position = snapped_drop_tile_position * tile_size + Vector2(tile_size / 2, tile_size / 2)
-	item.position = final_position
-
-	# for debugging purposes
-	print("Player global position: ", global_position)
-	print("Parent position: ", get_parent().position)
-	print("Adjusted player position: ", adjusted_position)
-	print("Direction vector (dir): ", dir)
-	print("Player tile position: ", player_tile_position)
-	print("Estimated drop tile position (rounded): ", estimated_tile_position)
-	print("Snapped drop tile position (final): ", snapped_drop_tile_position)
-	print("Original drop position: ", original_drop_position)
-	print("Final adjusted position: ", final_position)
-
-	# retrieves the metadata from item_spr
 	if item_spr.has_meta("frame_coords"):
 		item.frame_coords = item_spr.get_meta("frame_coords")
 	else:
 		print("No frame_coords metadata found") # for debugging purposes
 
-	# should supposedly get the scale from item_spr metadata
 	if item_spr.has_meta("original_scale"):
 		item.scale = item_spr.get_meta("original_scale")
 	else:
@@ -364,6 +340,7 @@ func dispose_item(bin_type: String):
 			
 		else:		
 			Global.lives -= 1
+			Global.camera.shake(0.2, 1)
 			
 			if Global.lives <= 0:
 				restart_game()

@@ -72,7 +72,7 @@ func move(delta):
 		elif direction_to_target.y < 0:
 			$human_spr.play("n-walk")  # North (up)
 			
-		print("Ignis position:", position)
+		#print("Ignis position:", position)
 
 		# If we're close to the target, switch to the next point in the path
 		if position.distance_to(target_pos) < 5:  # Adjust threshold as needed
