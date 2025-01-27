@@ -64,7 +64,7 @@ script = ExtResource("2_oyc11")
 bin_scene = ExtResource("8_yhddt")
 
 [node name="player" parent="." instance=ExtResource("3_nd4xc")]
-position = Vector2(903, 651)
+position = Vector2(1013, 633)
 
 [node name="ixiol" parent="." instance=ExtResource("3_p37um")]
 position = Vector2(13, -258)
@@ -96,10 +96,8 @@ polygon = PackedVector2Array(-283, -408, 1433, -412, 1437, 824, -283, 832, -283,
 [node name="lives" parent="." instance=ExtResource("10_c134h")]
 
 [node name="Ending" parent="." instance=ExtResource("16_34l1n")]
-visible = false
 
 [node name="Introduction" parent="." instance=ExtResource("15_6x31l")]
-visible = false
 
 [node name="Almanac Canvas" type="CanvasLayer" parent="."]
 

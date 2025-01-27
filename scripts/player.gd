@@ -335,7 +335,7 @@ func dispose_item(bin_type: String):
 			add_child(timer)  # Add Timer to the scene
 			timer.start(2.0)  # Start the timer for 2 seconds
 			timer.timeout.connect(Callable(self, "_on_timer_timeout"))
-		#	await get_tree().create_timer(2.0).timeout
+			await get_tree().create_timer(2.0).timeout
 			correct_spr.hide()
 			
 		else:		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cglsgn0cl2omg"]
+[gd_scene load_steps=3 format=3 uid="uid://bnelk5j26y8j4"]
 
 [ext_resource type="FontFile" uid="uid://coqneoienhrf" path="res://fonts/ChiKareGo2.ttf" id="1_0rdhn"]
 [ext_resource type="Script" path="res://scripts/next_dialogue.gd" id="1_u43n7"]
