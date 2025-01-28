@@ -1,22 +1,25 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2q0lr77owjh"]
+[gd_scene load_steps=16 format=3 uid="uid://b2q0lr77owjh"]
 
 [ext_resource type="TileSet" uid="uid://gwoav7cvderm" path="res://assets/environment/Virethariel/virethariel.tres" id="1_3cj6b"]
-[ext_resource type="Script" path="res://scripts/bins_spawner.gd" id="2_oyc11"]
-[ext_resource type="PackedScene" uid="uid://dbww74p66mexa" path="res://scenes/npc_luxanna.tscn" id="3_k57n8"]
+[ext_resource type="PackedScene" uid="uid://jkjlj8aw1ejo" path="res://scenes/bins_spawner.tscn" id="2_3ym0m"]
+[ext_resource type="PackedScene" path="res://scenes/npc_luxanna.tscn" id="3_k57n8"]
 [ext_resource type="PackedScene" uid="uid://df7bue7ges4vq" path="res://scenes/player.tscn" id="3_nd4xc"]
 [ext_resource type="PackedScene" path="res://scenes/npc_ixiol.tscn" id="3_p37um"]
 [ext_resource type="PackedScene" uid="uid://c4o2w5cg8uvd8" path="res://scenes/npc_avalciel.tscn" id="5_p5p18"]
 [ext_resource type="PackedScene" path="res://scenes/npc_tsuchiruz.tscn" id="6_a8cew"]
 [ext_resource type="PackedScene" path="res://scenes/npc_ignis.tscn" id="7_mwx23"]
-[ext_resource type="PackedScene" uid="uid://btie6i06sguat" path="res://scenes/bin.tscn" id="8_yhddt"]
 [ext_resource type="PackedScene" uid="uid://bxbyvqdv0trur" path="res://scenes/lives.tscn" id="10_c134h"]
-[ext_resource type="PackedScene" path="res://npc.tscn" id="11_53e0u"]
 [ext_resource type="PackedScene" path="res://scenes/menu.tscn" id="11_aqgrx"]
-[ext_resource type="PackedScene" path="res://scenes/settings_panel.tscn" id="12_kdj48"]
+[ext_resource type="PackedScene" uid="uid://2hxyctfipmhv" path="res://scenes/settings_panel.tscn" id="12_kdj48"]
 [ext_resource type="AudioStream" uid="uid://bp6gki32bprl3" path="res://assets/Adventures RJ Pasin.mp3" id="13_mj8la"]
 [ext_resource type="PackedScene" path="res://scenes/almanac.tscn" id="14_omlly"]
-[ext_resource type="PackedScene" uid="uid://d1uq8g60si406" path="res://scenes/introduction.tscn" id="15_6x31l"]
-[ext_resource type="PackedScene" path="res://scenes/ending.tscn" id="16_34l1n"]
+[ext_resource type="PackedScene" uid="uid://cweu2q4fwxm74" path="res://scenes/fog.tscn" id="17_mxfa1"]
+
+[sub_resource type="Environment" id="Environment_0dhia"]
+fog_mode = 1
+fog_light_energy = 6.53
+fog_density = 1.0
+volumetric_fog_density = 0.4803
 
 [node name="map" type="Node2D"]
 y_sort_enabled = true
@@ -57,11 +60,7 @@ layer_10/tile_data = PackedInt32Array(-786404, 917523, 10, -327655, 1179667, 10,
 
 [node name="waste_spawner" type="Node2D" parent="."]
 
-[node name="bins_spawner" type="Node2D" parent="."]
-z_index = 1
-y_sort_enabled = true
-script = ExtResource("2_oyc11")
-bin_scene = ExtResource("8_yhddt")
+[node name="bins_spawner" parent="." instance=ExtResource("2_3ym0m")]
 
 [node name="player" parent="." instance=ExtResource("3_nd4xc")]
 position = Vector2(1013, 633)
@@ -85,30 +84,25 @@ position = Vector2(1005, -263)
 z_index = 1
 position = Vector2(1117, 115)
 
-[node name="npc" parent="." instance=ExtResource("11_53e0u")]
-position = Vector2(917, 606)
-
 [node name="collisions" type="StaticBody2D" parent="."]
 
 [node name="limit" type="CollisionPolygon2D" parent="collisions"]
 polygon = PackedVector2Array(-283, -408, 1433, -412, 1437, 824, -283, 832, -283, -358, -401, -325, -503, 103, -539, 1078, 1711, 1105, 1700, -585, -524, -555, -402, -325, -283, -358)
 
-[node name="lives" parent="." instance=ExtResource("10_c134h")]
-
-[node name="Ending" parent="." instance=ExtResource("16_34l1n")]
-
-[node name="Introduction" parent="." instance=ExtResource("15_6x31l")]
-
 [node name="Almanac Canvas" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Almanac" parent="Almanac Canvas" instance=ExtResource("14_omlly")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Menu" parent="CanvasLayer" instance=ExtResource("11_aqgrx")]
+visible = false
 offset_bottom = -2.0
 
 [node name="SettingsPanel" parent="CanvasLayer" instance=ExtResource("12_kdj48")]
+visible = false
 offset_left = 3.0
 offset_top = -1.0
 offset_right = -2.0
@@ -118,3 +112,11 @@ offset_bottom = -1.0
 stream = ExtResource("13_mj8la")
 volume_db = -10.0
 autoplay = true
+
+[node name="Fog" parent="." instance=ExtResource("17_mxfa1")]
+visible = false
+
+[node name="lives" parent="." instance=ExtResource("10_c134h")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0dhia")

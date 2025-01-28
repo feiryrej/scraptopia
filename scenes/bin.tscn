@@ -1,11 +1,66 @@
-[gd_scene load_steps=6 format=3 uid="uid://btie6i06sguat"]
+[gd_scene load_steps=11 format=3 uid="uid://btie6i06sguat"]
 
 [ext_resource type="Texture2D" uid="uid://dxrn4go7w8pux" path="res://assets/bins and wastes/bins.png" id="1_8hm5s"]
 [ext_resource type="Script" path="res://scripts/bin.gd" id="1_70bll"]
 [ext_resource type="Texture2D" uid="uid://berwtqi8fpko8" path="res://assets/character/shadow.png" id="1_ku5rp"]
+[ext_resource type="Shader" path="res://shaders/boink.gdshader" id="3_ty6pa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dcrwt"]
 radius = 26.0192
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bd3p4"]
+shader = ExtResource("3_ty6pa")
+shader_parameter/squash_stretch_amount = 1.0
+shader_parameter/time = 0.0
+
+[sub_resource type="Animation" id="Animation_vu1ks"]
+resource_name = "boink"
+length = 1.2535
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.4, 0.666667, 1.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 0.89), Vector2(0.9, 1.1), Vector2(1.1, 0.9), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_uhumb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xkocv"]
+_data = {
+"RESET": SubResource("Animation_uhumb"),
+"boink": SubResource("Animation_vu1ks")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m0iyw"]
 radius = 9.0
@@ -25,8 +80,16 @@ scale = Vector2(2.3125, 1.78125)
 texture = ExtResource("1_ku5rp")
 
 [node name="bins_spr" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_bd3p4")
+position = Vector2(0, 14.98)
 texture = ExtResource("1_8hm5s")
+offset = Vector2(0, -15.43)
 hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bins_spr"]
+libraries = {
+"": SubResource("AnimationLibrary_xkocv")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)

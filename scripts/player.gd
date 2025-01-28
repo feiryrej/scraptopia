@@ -309,7 +309,7 @@ func drop_item():
 
 
 
-func dispose_item(bin_type: String):
+func dispose_item(bin_type: String, bin: Node2D):
 	if carrying_item:
 		if bin_type == curr_waste_type:
 			carrying_item = false
