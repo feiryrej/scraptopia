@@ -27,7 +27,7 @@ var carrying_item = false
 var drop_pos: Vector2
 var items_in_range: Array = []
 var bins_in_range = []
-var correct_count = 0
+var correct_count = 42
 const total_wastes = 43
 
 var small_scale = Vector2(0.62, 0.62)
@@ -327,7 +327,7 @@ func dispose_item(bin_type: String, bin: Node2D):
 			else:
 				Global.lives += 1
 				
-			var interface = $"../ui container/lives"
+			var interface = $"../lives"
 			interface.update_lives()
 			trash_sound.play()
 			
@@ -357,7 +357,7 @@ func dispose_item(bin_type: String, bin: Node2D):
 			if Global.lives <= 0:
 				restart_game()
 			
-			var interface = $"../ui container/lives"
+			var interface = $"../lives"
 			interface.update_lives()
 			
 			correct_spr.hide()

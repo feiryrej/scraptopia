@@ -116,16 +116,17 @@ position = Vector2(1117, 115)
 [node name="limit" type="CollisionPolygon2D" parent="collisions"]
 polygon = PackedVector2Array(-283, -408, 1433, -412, 1437, 824, -283, 832, -283, -358, -401, -325, -503, 103, -539, 1078, 1711, 1105, 1700, -585, -524, -555, -402, -325, -283, -358)
 
-[node name="ui container" type="CanvasLayer" parent="."]
-
-[node name="Almanac Canvas" type="CanvasLayer" parent="ui container"]
-
-[node name="Almanac" parent="ui container/Almanac Canvas" instance=ExtResource("14_omlly")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="ui container"]
+[node name="lives" parent="." instance=ExtResource("10_c134h")]
 layer = 100
 
-[node name="settings_btn" type="TextureButton" parent="ui container/CanvasLayer"]
+[node name="Almanac Canvas" type="CanvasLayer" parent="."]
+
+[node name="Almanac" parent="Almanac Canvas" instance=ExtResource("14_omlly")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="settings_btn" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -133,6 +134,7 @@ offset_left = -89.0
 offset_top = 11.0
 offset_right = -41.0
 offset_bottom = 59.0
+grow_horizontal = 0
 scale = Vector2(1.68123, 1.68123)
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -140,19 +142,16 @@ texture_normal = ExtResource("10_n785n")
 texture_pressed = ExtResource("11_vgcuw")
 stretch_mode = 0
 
-[node name="menu_panel" parent="ui container/CanvasLayer" instance=ExtResource("11_aqgrx")]
+[node name="menu_panel" parent="CanvasLayer" instance=ExtResource("11_aqgrx")]
 visible = false
 offset_bottom = -2.0
 
-[node name="settings_panel" parent="ui container/CanvasLayer" instance=ExtResource("12_kdj48")]
+[node name="settings_panel" parent="CanvasLayer" instance=ExtResource("12_kdj48")]
 visible = false
 offset_left = 3.0
 offset_top = -1.0
 offset_right = -2.0
 offset_bottom = -1.0
-
-[node name="lives" parent="ui container" instance=ExtResource("10_c134h")]
-layer = 100
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_42wps")
@@ -161,10 +160,12 @@ autoplay = true
 parameters/looping = true
 
 [node name="Fog" parent="." instance=ExtResource("17_mxfa1")]
+visible = false
 scale = Vector2(1.135, 1.135)
 transform = Transform2D(1.135, 0, 0, 1.135, 0, 0)
 
 [node name="Vignette" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Vignette"]
 material = SubResource("ShaderMaterial_6io6r")
@@ -177,3 +178,5 @@ color = Color(0, 0, 0, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0dhia")
+
+[connection signal="pressed" from="CanvasLayer/settings_btn" to="CanvasLayer/menu_panel" method="_on_settings_btn_pressed"]

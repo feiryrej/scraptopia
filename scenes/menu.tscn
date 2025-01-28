@@ -14,7 +14,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CenterContainer/Node2D/ColorRect:material:shader_parameter/lod")
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,7 +26,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CenterContainer/Node2D/ColorRect2:modulate")
+tracks/1/path = NodePath("ColorRect2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -42,7 +42,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CenterContainer/Node2D/ColorRect:material:shader_parameter/lod")
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -58,7 +58,7 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CenterContainer/Node2D/ColorRect2:modulate")
+tracks/0/path = NodePath("ColorRect2:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -83,7 +83,39 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_v1uht")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_0xwvj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -905.255
+offset_bottom = -459.83
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.86962, 3.51757)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.01605, 1.04968)
+color = Color(0, 0, 0, 1)
+
+[node name="Blur" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7bhgq")
+}
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -97,24 +129,6 @@ grow_vertical = 2
 
 [node name="Node2D" type="Node2D" parent="CenterContainer"]
 position = Vector2(-569, -312)
-
-[node name="ColorRect" type="ColorRect" parent="CenterContainer/Node2D"]
-material = SubResource("ShaderMaterial_0xwvj")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -15.0
-offset_top = -16.0
-offset_right = 24.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect2" type="ColorRect" parent="CenterContainer/Node2D"]
-modulate = Color(1, 1, 1, 0)
-offset_right = 1149.0
-offset_bottom = 648.0
-color = Color(0, 0, 0, 1)
 
 [node name="SettingMenuWithoutText" type="Sprite2D" parent="CenterContainer/Node2D"]
 position = Vector2(572, 307)
@@ -163,12 +177,6 @@ offset_right = 689.0
 offset_bottom = 471.884
 theme = ExtResource("4_so1m0")
 text = "Quit"
-
-[node name="Blur" type="AnimationPlayer" parent="CenterContainer/Node2D"]
-root_node = NodePath("../../..")
-libraries = {
-"": SubResource("AnimationLibrary_7bhgq")
-}
 
 [connection signal="pressed" from="CenterContainer/Node2D/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="CenterContainer/Node2D/Restart" to="." method="_on_restart_pressed"]

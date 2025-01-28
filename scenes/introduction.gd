@@ -22,6 +22,8 @@ enum State {
 
 var current_state = State.READY
 var text_queue = []
+var max_text = 4
+var curr_text = 0
 
 
 func _ready():
@@ -135,7 +137,7 @@ func _on_label_2_visibility_changed() -> void:
 			print("Stop")
 			visibility_timer.stop()
 			visibility_timer = null
-#			hide_enter_label()
+			
 
 
 func _show_enter_label() -> void:
@@ -155,4 +157,10 @@ func hide_enter_label():
 		enter_label.visible = false
 		enter_label.z_index = 100 
 		print("Enter label is now hidden")
+	curr_text += 1
+	print("curr_text: ", curr_text)
+	if curr_text == max_text:
+		get_tree().change_scene_to_file("res://scenes/virethariel.tscn")
+	else:
+		pass
 	

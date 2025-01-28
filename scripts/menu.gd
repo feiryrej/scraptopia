@@ -10,21 +10,21 @@ func _ready():
 	add_child(settings_instance)
 	add_child(almanac_instance)
 	visible = false
-	$CenterContainer/Node2D/Blur.play("RESET")
+	$Blur.play("RESET")
 
 func resume():
 	get_tree().paused = false
 	visible = false
 	almanac_instance.visible = false
-	$CenterContainer/Node2D/Blur.play("RESET")
+	$Blur.play("RESET")
 
 func pause():
 	settings_instance.visible = false
 	almanac_instance.visible = false
 	get_tree().paused = true
 	visible = true
-	$CenterContainer/Node2D/Blur.stop() 
-	$CenterContainer/Node2D/Blur.play("blur")
+	$Blur.stop() 
+	$Blur.play("blur")
 	
 func _input(event):
 	if event.is_action_pressed("escape"):
@@ -54,3 +54,11 @@ func _on_settings_pressed() -> void:
 func _process(delta: float) -> void:
 	if visible:
 		almanac_instance.visible = false
+
+
+func _on_settings_btn_pressed() -> void:
+	if get_tree().paused:
+		resume()
+	else:
+		pause()
+			
