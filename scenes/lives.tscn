@@ -1,21 +1,103 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxbyvqdv0trur"]
+[gd_scene load_steps=12 format=3 uid="uid://bxbyvqdv0trur"]
 
 [ext_resource type="Script" path="res://scripts/lives.gd" id="1_44t8l"]
 [ext_resource type="Texture2D" uid="uid://ch537u07wbdgx" path="res://assets/ui/ui_pack.png" id="2_gu3fk"]
+[ext_resource type="Texture2D" uid="uid://dwlt0aynwd6cu" path="res://scenes/player icon.png" id="3_3c0tw"]
+[ext_resource type="Texture2D" uid="uid://dlgplg2m31cl4" path="res://assets/ui/gui/gui3.png" id="4_lvuyq"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b18u4"]
-atlas = ExtResource("2_gu3fk")
-region = Rect2(608, 80, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2uen"]
+atlas = ExtResource("3_3c0tw")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v62k8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkq1g"]
+atlas = ExtResource("3_3c0tw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r2yh"]
+atlas = ExtResource("3_3c0tw")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yw6uj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2uen")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkq1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r2yh")
+}],
+"loop": true,
+"name": &"blinking",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urk1m"]
 atlas = ExtResource("2_gu3fk")
-region = Rect2(576, 80, 16, 16)
+region = Rect2(609, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8y26"]
+atlas = ExtResource("2_gu3fk")
+region = Rect2(577, 112, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j7dbp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b18u4")
+"texture": SubResource("AtlasTexture_urk1m")
 }],
 "loop": true,
 "name": &"dead",
@@ -23,7 +105,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v62k8")
+"texture": SubResource("AtlasTexture_q8y26")
 }],
 "loop": true,
 "name": &"full",
@@ -34,35 +116,113 @@ animations = [{
 script = ExtResource("1_44t8l")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node2D" type="Node2D" parent="HBoxContainer"]
+position = Vector2(60, 49)
+scale = Vector2(1.93, 1.93)
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="HBoxContainer/Node2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.3782
+offset_top = -34.1969
+offset_right = 9.62176
+offset_bottom = 14.8031
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.59402, 1.59402)
+texture = ExtResource("4_lvuyq")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="player_icon" type="AnimatedSprite2D" parent="HBoxContainer/Node2D"]
+texture_filter = 1
+position = Vector2(0.518135, 4.14508)
+scale = Vector2(1.39249, 1.39249)
+sprite_frames = SubResource("SpriteFrames_yw6uj")
+animation = &"blinking"
+frame_progress = 0.202921
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"should_round_fps": true,
+"slice": "",
+"source": "res://assets/ui/gui/player icon.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "1ecea751f18d8e4110aee8bb4543f492"
+
+[node name="Node2D2" type="Node2D" parent="HBoxContainer"]
+
+[node name="Node2D" type="Node2D" parent="HBoxContainer/Node2D2"]
+position = Vector2(159, 20)
+scale = Vector2(1.97732, 1.97732)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HBoxContainer/Node2D2/Node2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = -18.0
+offset_right = 47.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.59402, 1.59402)
+texture = ExtResource("4_lvuyq")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Node2D2"]
+offset_left = 98.0
+offset_right = 138.0
 offset_bottom = 40.0
 
-[node name="Heart" type="AnimatedSprite2D" parent="HBoxContainer"]
-position = Vector2(54.2, 54.2)
-scale = Vector2(6.725, 6.725)
+[node name="Heart" type="AnimatedSprite2D" parent="HBoxContainer/Node2D2/HBoxContainer"]
+position = Vector2(50, 50)
+scale = Vector2(2.925, 2.925)
 sprite_frames = SubResource("SpriteFrames_j7dbp")
 animation = &"full"
 
-[node name="Heart2" type="AnimatedSprite2D" parent="HBoxContainer"]
-position = Vector2(131, 54.2)
-scale = Vector2(6.725, 6.725)
+[node name="Heart2" type="AnimatedSprite2D" parent="HBoxContainer/Node2D2/HBoxContainer"]
+position = Vector2(85, 50)
+scale = Vector2(2.925, 2.925)
 sprite_frames = SubResource("SpriteFrames_j7dbp")
 animation = &"full"
 
-[node name="Heart3" type="AnimatedSprite2D" parent="HBoxContainer"]
-position = Vector2(207, 54.2)
-scale = Vector2(6.725, 6.725)
+[node name="Heart3" type="AnimatedSprite2D" parent="HBoxContainer/Node2D2/HBoxContainer"]
+position = Vector2(120, 50)
+scale = Vector2(2.925, 2.925)
 sprite_frames = SubResource("SpriteFrames_j7dbp")
 animation = &"full"
 
-[node name="Heart4" type="AnimatedSprite2D" parent="HBoxContainer"]
-position = Vector2(281, 54.2)
-scale = Vector2(6.725, 6.725)
+[node name="Heart4" type="AnimatedSprite2D" parent="HBoxContainer/Node2D2/HBoxContainer"]
+position = Vector2(154, 50)
+scale = Vector2(2.925, 2.925)
 sprite_frames = SubResource("SpriteFrames_j7dbp")
 animation = &"full"
 
-[node name="Heart5" type="AnimatedSprite2D" parent="HBoxContainer"]
-position = Vector2(354, 54.2)
-scale = Vector2(6.725, 6.725)
+[node name="Heart5" type="AnimatedSprite2D" parent="HBoxContainer/Node2D2/HBoxContainer"]
+position = Vector2(188, 50)
+scale = Vector2(2.925, 2.925)
 sprite_frames = SubResource("SpriteFrames_j7dbp")
 animation = &"full"

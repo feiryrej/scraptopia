@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://df7bue7ges4vq"]
+[gd_scene load_steps=17 format=3 uid="uid://df7bue7ges4vq"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_1ovfa"]
 [ext_resource type="SpriteFrames" uid="uid://cjwrm1swmjr24" path="res://frames/male_arms_up.tres" id="2_3ha0h"]
@@ -8,8 +8,9 @@
 [ext_resource type="Script" path="res://scripts/camera.gd" id="5_8txyk"]
 [ext_resource type="AudioStream" uid="uid://1fwqbx2fo8k1" path="res://sounds/ahhh.mp3" id="6_mi1no"]
 [ext_resource type="AudioStream" uid="uid://d4spre0oui0k" path="res://sounds/correct.mp3" id="7_00xxj"]
-[ext_resource type="AudioStream" uid="uid://cjfdhk5t8b5ew" path="res://sounds/wrong.mp3" id="8_sfptr"]
+[ext_resource type="AudioStream" uid="uid://vgaqta3yg04b" path="res://sounds/trash.mp3" id="8_wudlb"]
 [ext_resource type="Texture2D" uid="uid://ch537u07wbdgx" path="res://assets/ui/ui_pack.png" id="9_5eek2"]
+[ext_resource type="AudioStream" uid="uid://b1xh2e4ytoqka" path="res://sounds/error.mp3" id="9_uqruo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2cb0"]
 radius = 6.0
@@ -94,11 +95,14 @@ stream = ExtResource("5_6kj76")
 [node name="DropSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_mi1no")
 
+[node name="TrashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_wudlb")
+
 [node name="CorrectSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_00xxj")
 
 [node name="WrongSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_sfptr")
+stream = ExtResource("9_uqruo")
 
 [node name="correct_spr" type="AnimatedSprite2D" parent="."]
 visible = false

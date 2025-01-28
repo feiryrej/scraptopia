@@ -1,22 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://djr66j8u3w1ry"]
+[gd_scene load_steps=20 format=3 uid="uid://dj0eb31tnv3l4"]
 
 [ext_resource type="Texture2D" uid="uid://bqekb6645nxgy" path="res://assets/character/npc/ignis/ignis.png" id="1_en0km"]
 [ext_resource type="Texture2D" uid="uid://berwtqi8fpko8" path="res://assets/character/shadow.png" id="1_ig8ww"]
 [ext_resource type="Script" path="res://scripts/npc_ignis.gd" id="1_vbu5a"]
 [ext_resource type="Resource" uid="uid://do7v5inoceq74" path="res://dialogues/ignis/0.tres" id="2_eyaqw"]
 [ext_resource type="PackedScene" uid="uid://bdbgr61wtj4l7" path="res://scenes/interaction.tscn" id="3_3xy1b"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mmi41"]
-atlas = ExtResource("1_en0km")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fexmx"]
-atlas = ExtResource("1_en0km")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yiffi"]
-atlas = ExtResource("1_en0km")
-region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7tux"]
 atlas = ExtResource("1_en0km")
@@ -33,6 +21,18 @@ region = Rect2(128, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hygc"]
 atlas = ExtResource("1_en0km")
 region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmi41"]
+atlas = ExtResource("1_en0km")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fexmx"]
+atlas = ExtResource("1_en0km")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yiffi"]
+atlas = ExtResource("1_en0km")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jhaw1"]
 atlas = ExtResource("1_en0km")
@@ -54,20 +54,6 @@ region = Rect2(32, 32, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mmi41")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fexmx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yiffi")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_f7tux")
 }, {
 "duration": 1.0,
@@ -82,6 +68,20 @@ animations = [{
 "loop": true,
 "name": &"n-walk",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmi41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fexmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yiffi")
+}],
+"loop": true,
+"name": &"s-idle",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -119,7 +119,8 @@ texture = ExtResource("1_ig8ww")
 [node name="human_spr" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_4iyso")
-animation = &"idle"
+animation = &"s-idle"
+frame_progress = 0.211956
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": true,
 "pending_changes": {}

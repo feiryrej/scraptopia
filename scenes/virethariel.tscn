@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b2q0lr77owjh"]
+[gd_scene load_steps=20 format=3 uid="uid://b2q0lr77owjh"]
 
 [ext_resource type="TileSet" uid="uid://gwoav7cvderm" path="res://assets/environment/Virethariel/virethariel.tres" id="1_3cj6b"]
 [ext_resource type="PackedScene" uid="uid://jkjlj8aw1ejo" path="res://scenes/bins_spawner.tscn" id="2_3ym0m"]
@@ -7,19 +7,43 @@
 [ext_resource type="PackedScene" path="res://scenes/npc_ixiol.tscn" id="3_p37um"]
 [ext_resource type="PackedScene" uid="uid://c4o2w5cg8uvd8" path="res://scenes/npc_avalciel.tscn" id="5_p5p18"]
 [ext_resource type="PackedScene" path="res://scenes/npc_tsuchiruz.tscn" id="6_a8cew"]
-[ext_resource type="PackedScene" path="res://scenes/npc_ignis.tscn" id="7_mwx23"]
+[ext_resource type="PackedScene" uid="uid://dj0eb31tnv3l4" path="res://scenes/npc_ignis.tscn" id="7_mwx23"]
 [ext_resource type="PackedScene" uid="uid://bxbyvqdv0trur" path="res://scenes/lives.tscn" id="10_c134h"]
-[ext_resource type="PackedScene" path="res://scenes/menu.tscn" id="11_aqgrx"]
+[ext_resource type="Texture2D" uid="uid://df68js607fj3p" path="res://assets/ui/buttons/settings-normal-btn.png" id="10_n785n"]
+[ext_resource type="PackedScene" uid="uid://brgc4drr37pp3" path="res://scenes/menu.tscn" id="11_aqgrx"]
+[ext_resource type="Texture2D" uid="uid://c8iq3gumnfkpr" path="res://assets/ui/buttons/settings-pressed-btn.png" id="11_vgcuw"]
 [ext_resource type="PackedScene" uid="uid://2hxyctfipmhv" path="res://scenes/settings_panel.tscn" id="12_kdj48"]
-[ext_resource type="AudioStream" uid="uid://bp6gki32bprl3" path="res://assets/Adventures RJ Pasin.mp3" id="13_mj8la"]
+[ext_resource type="AudioStream" uid="uid://cgym8k822i5c4" path="res://sounds/music.mp3" id="13_42wps"]
 [ext_resource type="PackedScene" path="res://scenes/almanac.tscn" id="14_omlly"]
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="15_l3pbb"]
 [ext_resource type="PackedScene" uid="uid://cweu2q4fwxm74" path="res://scenes/fog.tscn" id="17_mxfa1"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6io6r"]
+shader = ExtResource("15_l3pbb")
+shader_parameter/inner_radius = 0.1
+shader_parameter/outer_radius = 1.0
+shader_parameter/vignette_strength = 1.0
+shader_parameter/dither_strength = 0.03
+shader_parameter/vignette_color = null
+
 [sub_resource type="Environment" id="Environment_0dhia"]
+background_mode = 3
 fog_mode = 1
-fog_light_energy = 6.53
-fog_density = 1.0
-volumetric_fog_density = 0.4803
+fog_light_energy = 10.41
+fog_sun_scatter = 0.44
+fog_density = 1.016
+fog_height = 58.8
+fog_height_density = 0.132
+fog_depth_begin = 140.5
+fog_depth_end = 178.0
+volumetric_fog_density = 0.6864
+volumetric_fog_emission_energy = 94.5
+volumetric_fog_gi_inject = 2.7
+volumetric_fog_anisotropy = 0.9
+volumetric_fog_length = 81.4
+volumetric_fog_ambient_inject = 0.87
+adjustment_enabled = true
+adjustment_saturation = 0.7
 
 [node name="map" type="Node2D"]
 y_sort_enabled = true
@@ -59,26 +83,29 @@ layer_10/enabled = false
 layer_10/tile_data = PackedInt32Array(-786404, 917523, 10, -327655, 1179667, 10, 458783, 655379, 10, 262214, 393235, 0, 655434, 1441811, 10, 1114179, 131091, 0, 1572936, 1179667, 0, 2490429, 19, 14, 2621490, 393235, 14, -1114040, 917523, 12, -1376196, 786451, 12, -851921, 262163, 12, -786365, 393235, 12, 2621444, 393235, 8, 2228235, 1572883, 8, -1179644, 19, 2, -458748, 917523, 2, -786438, 1179667, 4, 917506, 19, 4, 1703953, 786451, 6, 2031643, 262163, 6, 2424854, 131091, 2, 65578, 1441811, 8, 2818119, 131091, 14, -327618, 1310739, 8, 2686971, 19, 1610612744, 2162685, 524307, 1342177288, 1310715, 1441811, 4, 458758, 917523, 4, 262139, 1572883, 4, 1179674, 1048595, 6, -327642, 786451, 10, 1835069, 262163, 0, 196661, 524307, 0, -65503, 1310739, 10, 589888, 131091, 10, -1179566, 524307, 12, -1048521, 19, 12, 720965, 131091, 4, 1441858, 1048595, 8, 131136, 917523, 0, 589822, 262163, 4, 1703927, 524307, 1342177284, -1245189, 1179667, 2)
 
 [node name="waste_spawner" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="bins_spawner" parent="." instance=ExtResource("2_3ym0m")]
+z_index = 1
+y_sort_enabled = true
 
 [node name="player" parent="." instance=ExtResource("3_nd4xc")]
-position = Vector2(1013, 633)
+position = Vector2(1033, 606)
 
 [node name="ixiol" parent="." instance=ExtResource("3_p37um")]
-position = Vector2(13, -258)
+position = Vector2(1126, 247)
 
 [node name="luxanna" parent="." instance=ExtResource("3_k57n8")]
 z_index = 1
-position = Vector2(528, -51)
+position = Vector2(1168, 208)
 
 [node name="avalciel" parent="." instance=ExtResource("5_p5p18")]
 z_index = 1
-position = Vector2(6, 173)
+position = Vector2(1103, 185)
 
 [node name="tsuchiruz" parent="." instance=ExtResource("6_a8cew")]
 z_index = 1
-position = Vector2(1005, -263)
+position = Vector2(1154, 148)
 
 [node name="ignis" parent="." instance=ExtResource("7_mwx23")]
 z_index = 1
@@ -89,34 +116,60 @@ position = Vector2(1117, 115)
 [node name="limit" type="CollisionPolygon2D" parent="collisions"]
 polygon = PackedVector2Array(-283, -408, 1433, -412, 1437, 824, -283, 832, -283, -358, -401, -325, -503, 103, -539, 1078, 1711, 1105, 1700, -585, -524, -555, -402, -325, -283, -358)
 
-[node name="Almanac Canvas" type="CanvasLayer" parent="."]
+[node name="ui container" type="CanvasLayer" parent="."]
+
+[node name="Almanac Canvas" type="CanvasLayer" parent="ui container"]
+
+[node name="Almanac" parent="ui container/Almanac Canvas" instance=ExtResource("14_omlly")]
 visible = false
 
-[node name="Almanac" parent="Almanac Canvas" instance=ExtResource("14_omlly")]
+[node name="CanvasLayer" type="CanvasLayer" parent="ui container"]
+layer = 100
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
+[node name="TextureButton" type="TextureButton" parent="ui container/CanvasLayer"]
+offset_left = 1063.0
+offset_top = 11.0
+offset_right = 1111.0
+offset_bottom = 59.0
+scale = Vector2(1.68123, 1.68123)
+texture_normal = ExtResource("10_n785n")
+texture_pressed = ExtResource("11_vgcuw")
+stretch_mode = 0
 
-[node name="Menu" parent="CanvasLayer" instance=ExtResource("11_aqgrx")]
+[node name="Menu" parent="ui container/CanvasLayer" instance=ExtResource("11_aqgrx")]
 visible = false
 offset_bottom = -2.0
 
-[node name="SettingsPanel" parent="CanvasLayer" instance=ExtResource("12_kdj48")]
+[node name="SettingsPanel" parent="ui container/CanvasLayer" instance=ExtResource("12_kdj48")]
 visible = false
 offset_left = 3.0
 offset_top = -1.0
 offset_right = -2.0
 offset_bottom = -1.0
 
+[node name="lives" parent="ui container" instance=ExtResource("10_c134h")]
+layer = 100
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_mj8la")
+stream = ExtResource("13_42wps")
 volume_db = -10.0
 autoplay = true
+parameters/looping = true
 
 [node name="Fog" parent="." instance=ExtResource("17_mxfa1")]
-visible = false
+scale = Vector2(1.135, 1.135)
+transform = Transform2D(1.135, 0, 0, 1.135, 0, 0)
 
-[node name="lives" parent="." instance=ExtResource("10_c134h")]
+[node name="Vignette" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Vignette"]
+material = SubResource("ShaderMaterial_6io6r")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0dhia")

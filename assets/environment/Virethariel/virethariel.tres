@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=43 format=3 uid="uid://gwoav7cvderm"]
+[gd_resource type="TileSet" load_steps=45 format=3 uid="uid://gwoav7cvderm"]
 
 [ext_resource type="Texture2D" uid="uid://b5dcyuilahswr" path="res://assets/environment/Virethariel/Barrels and crates/spr_crate4.png" id="1_31ats"]
 [ext_resource type="Texture2D" uid="uid://dkyide77xlubo" path="res://assets/environment/Virethariel/Chest/spr_small_chest.png" id="1_m7ja5"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bib634jwwofk2" path="res://assets/bins and wastes/bins-spritesheet.png" id="10_jb0b5"]
 [ext_resource type="Texture2D" uid="uid://c7j3fhp5syusf" path="res://assets/bins and wastes/wastes-spritesheet.png" id="12_4emsx"]
 [ext_resource type="Texture2D" uid="uid://cpscugml4n3k3" path="res://assets/environment/Virethariel/Objects.png" id="12_wkoyy"]
+[ext_resource type="Shader" path="res://shaders/swayingTree.gdshader" id="15_5veco"]
 [ext_resource type="Texture2D" uid="uid://cugr5bpuwej4v" path="res://assets/environment/Virethariel/Chest/spr_chest.png" id="15_akjbb"]
 [ext_resource type="Texture2D" uid="uid://ddnasem8unpqt" path="res://assets/environment/Virethariel/TX Props.png" id="15_ikr0t"]
 [ext_resource type="Texture2D" uid="uid://tl51apfl3s1j" path="res://assets/environment/Virethariel/Collective-1.png" id="16_dt5rs"]
@@ -688,12 +689,14 @@ texture = ExtResource("10_d0bst")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.00905, 0.918739, 6.96015, 0.94658, 6.96015, 3.9812, 6.01357, 3.9812, 5.98573, 4.98347, 5.01131, 5.01131, 5.01131, 5.98573, 3.00678, 6.01357, 3.03462, 6.98799, -1.00226, 6.98799, -1.00226, 6.01357, -2.03236, 6.01357, -2.03236, 5.01131, -3.03462, 5.01131, -3.03462, 4.00904, -4.00905, 3.9812)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5o08a"]
+shader = ExtResource("15_5veco")
+shader_parameter/shake_intensity = 2.0
+shader_parameter/shake_speed = 0.8
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mmjt5"]
 texture = ExtResource("12_wkoyy")
-0:0/size_in_atlas = Vector2i(5, 10)
-0:0/0 = 0
-0:0/0/y_sort_origin = 32
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.92722, 40.3493, -11.3137, 43.8406, -15.3796, 45.9619, -11.6673, 46.1387, -11.3137, 48.26, -15.5563, 51.9724, -14.1421, 53.5633, -10.7834, 51.9724, -9.89949, 53.2098, -7.24784, 52.5027, -7.07107, 49.4975, -3.18198, 53.3866, -0.353554, 50.9117, 0.176781, 54.8008, 1.94455, 54.0937, 3.35876, 55.5079, 6.01041, 55.5079, 2.2981, 49.3207, 1.94455, 46.8458, 5.12653, 49.1439, 2.2981, 43.4871, 2.91682, 39.6422)
+use_texture_padding = false
 5:8/size_in_atlas = Vector2i(3, 2)
 5:8/0 = 0
 5:8/0/y_sort_origin = -3
@@ -732,6 +735,11 @@ texture = ExtResource("12_wkoyy")
 12:3/size_in_atlas = Vector2i(2, 2)
 12:3/0 = 0
 12:3/0/texture_origin = Vector2i(3, 0)
+0:0/size_in_atlas = Vector2i(5, 10)
+0:0/0 = 0
+0:0/0/material = SubResource("ShaderMaterial_5o08a")
+0:0/0/y_sort_origin = 32
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.92722, 40.3493, -11.3137, 43.8406, -15.3796, 45.9619, -11.6673, 46.1387, -11.3137, 48.26, -15.5563, 51.9724, -14.1421, 53.5633, -10.7834, 51.9724, -9.89949, 53.2098, -7.24784, 52.5027, -7.07107, 49.4975, -3.18198, 53.3866, -0.353554, 50.9117, 0.176781, 54.8008, 1.94455, 54.0937, 3.35876, 55.5079, 6.01041, 55.5079, 2.2981, 49.3207, 1.94455, 46.8458, 5.12653, 49.1439, 2.2981, 43.4871, 2.91682, 39.6422)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gp4u6"]
 texture = ExtResource("15_ikr0t")

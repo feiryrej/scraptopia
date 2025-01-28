@@ -28,10 +28,10 @@ func _on_dropping_range_body_entered(body: Node2D):
 	if body.has_method("dispose_item"):
 		Global.is_near_bin = true 
 		Global.near_bin_type = bin_type_names.get(bin_type)
+		Global.near_bin_node = self
 
 func _on_dropping_range_body_exited(body: Node2D):
 	if body.has_method("dispose_item"):
 		Global.is_near_bin = false 
 		Global.near_bin_type = null
-		
-		body.dispose_item(bin_type_names.get(bin_type), self)
+		Global.near_bin_node = null

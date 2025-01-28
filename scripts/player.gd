@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var drop_sound: AudioStreamPlayer2D = $DropSound
 @onready var correct_sound: AudioStreamPlayer2D = $CorrectSound
 @onready var wrong_sound: AudioStreamPlayer2D = $WrongSound
+@onready var trash_sound: AudioStreamPlayer2D = $TrashSound
 
 # Variables
 var speed = 100
@@ -94,7 +95,7 @@ func _ready():
 	spawn_item(Vector2(1144, 696), Vector2i(1, 7), Vector2(0.62, 0.62), "HAZARD")      # facemask
 	spawn_item(Vector2(1079, 280), Vector2i(1, 0), Vector2(1, 1), "HAZARD")            # mechanical component
 	spawn_item(Vector2(1111, 183), Vector2i(1, 2), Vector2(0.62, 0.62), "HAZARD")      # battery
-	spawn_item(Vector2(1192, 169), Vector2i(6, 0), Vector2(1, 1), "HAZARD")            # uranium fuel rod
+	spawn_item(Vector2(1160, 169), Vector2i(6, 0), Vector2(1, 1), "HAZARD")            # uranium fuel rod
 	spawn_item(Vector2(887, -246), Vector2i(0, 6), Vector2(0.62, 0.62), "HAZARD")      # ritual oil jar
 	spawn_item(Vector2(72, 652), Vector2i(3, 4), Vector2(1, 1), "HAZARD")              # black barrel
 	spawn_item(Vector2(-138, 408), Vector2i(4, 2), Vector2(0.62, 0.62), "HAZARD")      # syringe
@@ -203,7 +204,7 @@ func _input(event):
 			
 			# checks if player is within the bin's range
 			if Global.is_near_bin and Global.near_bin_type != null: 
-				dispose_item(Global.near_bin_type)
+				dispose_item(Global.near_bin_type, Global.near_bin_node)
 			else:
 				drop_item()
 		else:
@@ -321,6 +322,17 @@ func dispose_item(bin_type: String, bin: Node2D):
 			correct_spr.play("correct")
 			correct_sound.play()
 			correct_count += 1
+			if Global.lives == 5:
+				Global.lives = 5
+			else:
+				Global.lives += 1
+				
+			var interface = $"../ui container/lives"
+			interface.update_lives()
+			trash_sound.play()
+			
+			bin.play_boink_animation()
+			
 			print("Correctly placed item in bin: ", bin_type)
 			print("Total correct so far: ", correct_count, "/", total_wastes)
 			
@@ -345,11 +357,8 @@ func dispose_item(bin_type: String, bin: Node2D):
 			if Global.lives <= 0:
 				restart_game()
 			
-			var interface = $"../lives"
+			var interface = $"../ui container/lives"
 			interface.update_lives()
-			print("Total lives left: ", Global.lives)
-			print("Total correct so far: ", correct_count, "/", total_wastes)
-			print("You lost")
 			
 			correct_spr.hide()
 			wrong_spr.show()

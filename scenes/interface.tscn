@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://csklf8v8fh11n"]
+
+[ext_resource type="PackedScene" uid="uid://brgc4drr37pp3" path="res://scenes/menu.tscn" id="1_k6606"]
+[ext_resource type="PackedScene" uid="uid://2hxyctfipmhv" path="res://scenes/settings_panel.tscn" id="2_6lrrr"]
+
+[node name="interface" type="CanvasLayer"]
+
+[node name="Menu" parent="." instance=ExtResource("1_k6606")]
+
+[node name="SettingsPanel" parent="." instance=ExtResource("2_6lrrr")]
+scale = Vector2(1.00127, 1)

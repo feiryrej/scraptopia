@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://d1uq8g60si406"]
 
 [ext_resource type="Script" path="res://scenes/introduction.gd" id="1_j07vu"]
-[ext_resource type="Theme" uid="uid://d3y1fl31hgvkx" path="res://assets/ui/intro.tres" id="1_wg1wv"]
+[ext_resource type="Theme" uid="uid://d3y1fl31hgvkx" path="res://assets/ui/random/intro.tres" id="1_wg1wv"]
 [ext_resource type="FontFile" uid="uid://delmcjbdhoyya" path="res://assets/font/ChiKareGo2.ttf" id="2_p7dmt"]
 [ext_resource type="FontFile" uid="uid://us2eemuwiy4w" path="res://assets/font/Poco.ttf" id="4_yl1ev"]
 
