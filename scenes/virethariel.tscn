@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://gwoav7cvderm" path="res://assets/environment/Virethariel/virethariel.tres" id="1_3cj6b"]
 [ext_resource type="Script" path="res://scripts/bins_spawner.gd" id="2_oyc11"]
-[ext_resource type="PackedScene" path="res://scenes/npc_luxanna.tscn" id="3_k57n8"]
+[ext_resource type="PackedScene" uid="uid://dbww74p66mexa" path="res://scenes/npc_luxanna.tscn" id="3_k57n8"]
 [ext_resource type="PackedScene" uid="uid://df7bue7ges4vq" path="res://scenes/player.tscn" id="3_nd4xc"]
 [ext_resource type="PackedScene" path="res://scenes/npc_ixiol.tscn" id="3_p37um"]
 [ext_resource type="PackedScene" uid="uid://c4o2w5cg8uvd8" path="res://scenes/npc_avalciel.tscn" id="5_p5p18"]
