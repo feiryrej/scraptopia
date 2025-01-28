@@ -151,7 +151,7 @@ position = Vector2(0.518135, 4.14508)
 scale = Vector2(1.39249, 1.39249)
 sprite_frames = SubResource("SpriteFrames_yw6uj")
 animation = &"blinking"
-frame_progress = 0.202921
+frame_progress = 0.576256
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }

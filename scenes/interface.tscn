@@ -1,11 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://csklf8v8fh11n"]
+[gd_scene load_steps=6 format=3 uid="uid://csklf8v8fh11n"]
 
+[ext_resource type="PackedScene" uid="uid://bxbyvqdv0trur" path="res://scenes/lives.tscn" id="1_0qoa3"]
 [ext_resource type="PackedScene" uid="uid://brgc4drr37pp3" path="res://scenes/menu.tscn" id="1_k6606"]
 [ext_resource type="PackedScene" uid="uid://2hxyctfipmhv" path="res://scenes/settings_panel.tscn" id="2_6lrrr"]
+[ext_resource type="Texture2D" uid="uid://df68js607fj3p" path="res://assets/ui/buttons/settings-normal-btn.png" id="4_85dcm"]
+[ext_resource type="Texture2D" uid="uid://c8iq3gumnfkpr" path="res://assets/ui/buttons/settings-pressed-btn.png" id="5_rnshx"]
 
 [node name="interface" type="CanvasLayer"]
 
-[node name="Menu" parent="." instance=ExtResource("1_k6606")]
+[node name="lives" parent="." instance=ExtResource("1_0qoa3")]
 
-[node name="SettingsPanel" parent="." instance=ExtResource("2_6lrrr")]
+[node name="settings_btn" type="TextureButton" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
+offset_top = 11.0
+offset_right = -41.0
+offset_bottom = 59.0
+scale = Vector2(1.68123, 1.68123)
+size_flags_horizontal = 8
+size_flags_vertical = 0
+texture_normal = ExtResource("4_85dcm")
+texture_pressed = ExtResource("5_rnshx")
+stretch_mode = 0
+
+[node name="menu_panel" parent="." instance=ExtResource("1_k6606")]
+
+[node name="settings_panel" parent="." instance=ExtResource("2_6lrrr")]
 scale = Vector2(1.00127, 1)

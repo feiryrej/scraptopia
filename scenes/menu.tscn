@@ -14,7 +14,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/path = NodePath("CenterContainer/Node2D/ColorRect:material:shader_parameter/lod")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,7 +26,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect2:modulate")
+tracks/1/path = NodePath("CenterContainer/Node2D/ColorRect2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -42,7 +42,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/path = NodePath("CenterContainer/Node2D/ColorRect:material:shader_parameter/lod")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -58,7 +58,7 @@ length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect2:modulate")
+tracks/0/path = NodePath("CenterContainer/Node2D/ColorRect2:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -85,9 +85,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v1uht")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_0xwvj")
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Node2D" type="Node2D" parent="CenterContainer"]
+position = Vector2(-569, -312)
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/Node2D"]
+material = SubResource("ShaderMaterial_0xwvj")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -98,18 +110,18 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="CenterContainer/Node2D"]
 modulate = Color(1, 1, 1, 0)
 offset_right = 1149.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
-[node name="SettingMenuWithoutText" type="Sprite2D" parent="."]
+[node name="SettingMenuWithoutText" type="Sprite2D" parent="CenterContainer/Node2D"]
 position = Vector2(572, 307)
 scale = Vector2(3.34921, 3.30556)
 texture = ExtResource("3_82vri")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="CenterContainer/Node2D"]
 offset_left = 484.0
 offset_top = 139.0
 offset_right = 646.0
@@ -120,27 +132,23 @@ theme_override_font_sizes/font_size = 72
 text = "Menu"
 horizontal_alignment = 1
 
-[node name="Resume" type="Button" parent="."]
+[node name="Resume" type="Button" parent="CenterContainer/Node2D"]
 offset_left = 445.0
 offset_top = 224.884
 offset_right = 690.0
 offset_bottom = 280.884
-grow_horizontal = 2
-grow_vertical = 2
 theme = ExtResource("4_so1m0")
 text = "Resume"
 
-[node name="Restart" type="Button" parent="."]
+[node name="Restart" type="Button" parent="CenterContainer/Node2D"]
 offset_left = 446.0
 offset_top = 287.884
 offset_right = 690.0
 offset_bottom = 343.884
-grow_horizontal = 2
-grow_vertical = 2
 theme = ExtResource("4_so1m0")
 text = "Restart"
 
-[node name="Settings" type="Button" parent="."]
+[node name="Settings" type="Button" parent="CenterContainer/Node2D"]
 offset_left = 446.0
 offset_top = 353.884
 offset_right = 689.0
@@ -148,22 +156,21 @@ offset_bottom = 405.884
 theme = ExtResource("4_so1m0")
 text = "Settings"
 
-[node name="Quit" type="Button" parent="."]
+[node name="Quit" type="Button" parent="CenterContainer/Node2D"]
 offset_left = 445.0
 offset_top = 414.884
 offset_right = 689.0
 offset_bottom = 471.884
-grow_horizontal = 2
-grow_vertical = 2
 theme = ExtResource("4_so1m0")
 text = "Quit"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="Blur" type="AnimationPlayer" parent="CenterContainer/Node2D"]
+root_node = NodePath("../../..")
 libraries = {
 "": SubResource("AnimationLibrary_7bhgq")
 }
 
-[connection signal="pressed" from="Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CenterContainer/Node2D/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CenterContainer/Node2D/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="CenterContainer/Node2D/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="CenterContainer/Node2D/Quit" to="." method="_on_quit_pressed"]

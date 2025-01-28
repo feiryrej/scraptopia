@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://2hxyctfipmhv"]
+[gd_scene load_steps=9 format=3 uid="uid://2hxyctfipmhv"]
 
 [ext_resource type="Script" path="res://scripts/settings.gd" id="1_bfi4b"]
-[ext_resource type="Texture2D" uid="uid://b45j3k2khfljf" path="res://assets/ui/random/Setting menu without text.png" id="2_f6o70"]
+[ext_resource type="Texture2D" uid="uid://dlgplg2m31cl4" path="res://assets/ui/gui/gui3.png" id="2_cc0mv"]
 [ext_resource type="Theme" uid="uid://83edle7dd1l6" path="res://assets/ui/random/menu.tres" id="2_unbf6"]
 [ext_resource type="Texture2D" uid="uid://ddmhrtjmjmry8" path="res://assets/ui/Sprite sheets/Sprite sheet for Basic Pack.png" id="4_usank"]
+[ext_resource type="Texture2D" uid="uid://df68js607fj3p" path="res://assets/ui/buttons/settings-normal-btn.png" id="5_xg251"]
+[ext_resource type="Texture2D" uid="uid://c8iq3gumnfkpr" path="res://assets/ui/buttons/settings-pressed-btn.png" id="6_0543q"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a3psm"]
 texture = ExtResource("4_usank")
@@ -39,53 +41,123 @@ offset_right = 135.0
 offset_bottom = 130.5
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="SettingMenuWithoutText" type="Sprite2D" parent="CenterContainer"]
-position = Vector2(156, 123.5)
-scale = Vector2(4.96429, 3.47569)
-texture = ExtResource("2_f6o70")
+[node name="Node2D2" type="Node2D" parent="CenterContainer"]
+position = Vector2(137, 122.5)
+scale = Vector2(3.455, 3.455)
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer/Node2D2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -68.0
+offset_right = 83.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_cc0mv")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Container" type="CenterContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer"]
-layout_mode = 2
+[node name="Node2D" type="Node2D" parent="CenterContainer"]
+position = Vector2(-407, -193.5)
 
-[node name="Settings Label" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Button" type="Button" parent="CenterContainer/Node2D"]
+visible = false
+offset_left = 760.0
+offset_top = 70.0
+offset_right = 839.0
+offset_bottom = 149.0
+theme = ExtResource("2_unbf6")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_a3psm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_0cyw6")
+
+[node name="settings_btn" type="TextureButton" parent="CenterContainer/Node2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 741.0
+offset_top = 88.0
+offset_right = 789.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.68123, 1.68123)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+texture_normal = ExtResource("5_xg251")
+texture_pressed = ExtResource("6_0543q")
+stretch_mode = 0
+
+[node name="Node2D3" type="Node2D" parent="CenterContainer"]
+
+[node name="Settings Label" type="Label" parent="CenterContainer/Node2D3"]
+offset_left = -45.0
+offset_top = -36.5
+offset_right = 333.0
+offset_bottom = 38.5
 theme = ExtResource("2_unbf6")
 theme_override_colors/font_color = Color(0.219101, 0.0385997, 0.0364447, 1)
 theme_override_font_sizes/font_size = 80
 text = "Settings"
 horizontal_alignment = 1
 
-[node name="Volume_Label" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Volume_Label" type="Label" parent="CenterContainer/Node2D3"]
+offset_left = -43.0
+offset_top = 58.5
+offset_right = 335.0
+offset_bottom = 87.5
 theme = ExtResource("2_unbf6")
 theme_override_font_sizes/font_size = 30
 text = "Volume"
 
-[node name="Volume" type="HSlider" parent="CenterContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Volume" type="HSlider" parent="CenterContainer/Node2D3"]
+offset_left = -43.0
+offset_top = 97.5
+offset_right = 335.0
+offset_bottom = 113.5
 theme = ExtResource("2_unbf6")
 
-[node name="Mute_Label" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Mute_Label" type="Label" parent="CenterContainer/Node2D3"]
+offset_left = -43.0
+offset_top = 123.5
+offset_right = 335.0
+offset_bottom = 152.5
 theme = ExtResource("2_unbf6")
 theme_override_font_sizes/font_size = 30
 text = "Mute"
 
-[node name="Mute" type="CheckBox" parent="CenterContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Mute" type="CheckBox" parent="CenterContainer/Node2D3"]
+offset_left = -43.0
+offset_top = 162.5
+offset_right = 335.0
+offset_bottom = 186.5
 
-[node name="Resolution_Label" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Resolution_Label" type="Label" parent="CenterContainer/Node2D3"]
+offset_left = -43.0
+offset_top = 196.5
+offset_right = 335.0
+offset_bottom = 225.5
 theme = ExtResource("2_unbf6")
 theme_override_font_sizes/font_size = 30
 text = "Resolution"
 
-[node name="Resolutions" type="OptionButton" parent="CenterContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Resolutions" type="OptionButton" parent="CenterContainer/Node2D3"]
+offset_left = -43.0
+offset_top = 235.5
+offset_right = 335.0
+offset_bottom = 271.124
 theme = ExtResource("2_unbf6")
 theme_override_font_sizes/font_size = 25
 alignment = 1
@@ -99,19 +171,8 @@ popup/item_2/id = 2
 popup/item_3/text = "1280x720"
 popup/item_3/id = 3
 
-[node name="Node2D" type="Node2D" parent="CenterContainer"]
-position = Vector2(-407, -193.5)
-
-[node name="Button" type="Button" parent="CenterContainer/Node2D"]
-offset_left = 760.0
-offset_top = 70.0
-offset_right = 839.0
-offset_bottom = 149.0
-theme = ExtResource("2_unbf6")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxTexture_a3psm")
-theme_override_styles/normal = SubResource("StyleBoxTexture_0cyw6")
-
-[connection signal="value_changed" from="CenterContainer/MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_value_changed"]
-[connection signal="toggled" from="CenterContainer/MarginContainer/VBoxContainer/Mute" to="." method="_on_mute_toggled"]
-[connection signal="item_selected" from="CenterContainer/MarginContainer/VBoxContainer/Resolutions" to="." method="_on_resolutions_item_selected"]
 [connection signal="pressed" from="CenterContainer/Node2D/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CenterContainer/Node2D/settings_btn" to="." method="_on_settings_btn_pressed"]
+[connection signal="value_changed" from="CenterContainer/Node2D3/Volume" to="." method="_on_volume_value_changed"]
+[connection signal="toggled" from="CenterContainer/Node2D3/Mute" to="." method="_on_mute_toggled"]
+[connection signal="item_selected" from="CenterContainer/Node2D3/Resolutions" to="." method="_on_resolutions_item_selected"]

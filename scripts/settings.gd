@@ -22,6 +22,7 @@ func _on_resolutions_item_selected(index: int) -> void:
 		3:
 			DisplayServer.window_set_size(Vector2i(1280,720))
 
-func _on_button_pressed() -> void:
+
+func _on_settings_btn_pressed() -> void:
 	print("Exiting Settings")
 	visible = false

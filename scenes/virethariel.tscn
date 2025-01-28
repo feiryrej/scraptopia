@@ -121,26 +121,30 @@ polygon = PackedVector2Array(-283, -408, 1433, -412, 1437, 824, -283, 832, -283,
 [node name="Almanac Canvas" type="CanvasLayer" parent="ui container"]
 
 [node name="Almanac" parent="ui container/Almanac Canvas" instance=ExtResource("14_omlly")]
-visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="ui container"]
 layer = 100
 
-[node name="TextureButton" type="TextureButton" parent="ui container/CanvasLayer"]
-offset_left = 1063.0
+[node name="settings_btn" type="TextureButton" parent="ui container/CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
 offset_top = 11.0
-offset_right = 1111.0
+offset_right = -41.0
 offset_bottom = 59.0
 scale = Vector2(1.68123, 1.68123)
+size_flags_horizontal = 8
+size_flags_vertical = 0
 texture_normal = ExtResource("10_n785n")
 texture_pressed = ExtResource("11_vgcuw")
 stretch_mode = 0
 
-[node name="Menu" parent="ui container/CanvasLayer" instance=ExtResource("11_aqgrx")]
+[node name="menu_panel" parent="ui container/CanvasLayer" instance=ExtResource("11_aqgrx")]
 visible = false
 offset_bottom = -2.0
 
-[node name="SettingsPanel" parent="ui container/CanvasLayer" instance=ExtResource("12_kdj48")]
+[node name="settings_panel" parent="ui container/CanvasLayer" instance=ExtResource("12_kdj48")]
 visible = false
 offset_left = 3.0
 offset_top = -1.0
