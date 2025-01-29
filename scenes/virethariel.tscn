@@ -236,23 +236,19 @@ z_index = 1
 position = Vector2(1027, -267)
 
 [node name="ignis" parent="." instance=ExtResource("7_mwx23")]
-visible = false
 z_index = 1
 position = Vector2(1117, 115)
 
 [node name="collisions" type="StaticBody2D" parent="."]
-visible = false
 
 [node name="limit" type="CollisionPolygon2D" parent="collisions"]
 polygon = PackedVector2Array(-283, -408, 1433, -412, 1370, 740, 1302, 838, 1135, 914, 1052, 898, 831, 785, -283, 832, -283, -358, -401, -325, -503, 103, -539, 1078, 1711, 1105, 1700, -585, -524, -555, -402, -325, -283, -358)
 
 [node name="lives" parent="." instance=ExtResource("10_c134h")]
 layer = 100
-visible = false
 
 [node name="Objectives Canvas" type="CanvasLayer" parent="."]
 layer = 100
-visible = false
 script = ExtResource("17_434sl")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Objectives Canvas"]
@@ -321,7 +317,6 @@ text = "waste left"
 
 [node name="Almanac Canvas" type="CanvasLayer" parent="."]
 layer = 100
-visible = false
 
 [node name="Almanac" parent="Almanac Canvas" instance=ExtResource("14_omlly")]
 
@@ -344,7 +339,6 @@ stretch_mode = 0
 [node name="Settings Canvas" type="CanvasLayer" parent="."]
 process_mode = 3
 layer = 100
-visible = false
 
 [node name="settings_btn" type="TextureButton" parent="Settings Canvas"]
 anchors_preset = 1
@@ -373,12 +367,10 @@ offset_bottom = -1.0
 
 [node name="Fog" parent="." instance=ExtResource("17_mxfa1")]
 unique_name_in_owner = true
-visible = false
 scale = Vector2(1.135, 1.135)
 transform = Transform2D(1.135, 0, 0, 1.135, 0, 0)
 
 [node name="Vignette" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Vignette"]
 material = SubResource("ShaderMaterial_6io6r")
@@ -407,7 +399,6 @@ unique_name_in_owner = true
 environment = SubResource("Environment_0dhia")
 
 [node name="Tutorial" type="Node2D" parent="."]
-visible = false
 script = ExtResource("20_7g44g")
 
 [node name="Area2D" type="Area2D" parent="Tutorial"]
@@ -430,7 +421,6 @@ text = "Pick Me! (E)"
 [node name="Transition" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 layer = 100
-visible = false
 script = ExtResource("22_t2wal")
 
 [node name="MarginContainer" type="MarginContainer" parent="Transition"]
