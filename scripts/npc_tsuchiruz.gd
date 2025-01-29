@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var dialogue : Dialogue
 
+@onready var start_dialogue: AudioStreamPlayer2D = $StartDialogue
+
 const speed = 30
 var current_state = SIDE_LEFT
 
@@ -55,6 +57,7 @@ func _process(delta):
 	# 			move(delta)
 
 	if Input.is_action_just_pressed("interact"):
+
 		is_roaming = false
 		is_chatting = true
 		$human_spr.play("s-idle")
@@ -70,6 +73,7 @@ func choose(array):
 
 
 func interact():
+	
 	DialogueManager.dialogue = dialogue
 	DialogueManager.show_dialogue()
 

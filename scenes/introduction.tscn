@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1uq8g60si406"]
+[gd_scene load_steps=7 format=3 uid="uid://d1uq8g60si406"]
 
 [ext_resource type="Script" path="res://scenes/introduction.gd" id="1_j07vu"]
 [ext_resource type="Theme" uid="uid://d3y1fl31hgvkx" path="res://assets/ui/random/intro.tres" id="1_wg1wv"]
 [ext_resource type="FontFile" uid="uid://delmcjbdhoyya" path="res://assets/font/ChiKareGo2.ttf" id="2_p7dmt"]
 [ext_resource type="FontFile" uid="uid://us2eemuwiy4w" path="res://assets/font/Poco.ttf" id="4_yl1ev"]
+[ext_resource type="AudioStream" uid="uid://b6hxhmht3to7q" path="res://scenes/beep_sing.mp3" id="5_ucm82"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bykjy"]
 
@@ -97,6 +98,14 @@ theme_override_font_sizes/font_size = 34
 text = "..."
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ucm82")
+volume_db = -17.829
+autoplay = true
+stream_paused = true
+bus = &"Sfx"
+parameters/looping = true
 
 [connection signal="visibility_changed" from="Label2" to="." method="_on_label_2_visibility_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

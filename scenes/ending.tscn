@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://defbj4ktqph7f"]
+[gd_scene load_steps=5 format=3 uid="uid://cwrm5mlfso0h7"]
 
 [ext_resource type="Script" path="res://ending.gd" id="1_yg3ec"]
-[ext_resource type="Theme" uid="uid://d3y1fl31hgvkx" path="res://assets/ui/intro.tres" id="2_u11qw"]
+[ext_resource type="Theme" uid="uid://d3y1fl31hgvkx" path="res://assets/ui/random/intro.tres" id="2_u11qw"]
 [ext_resource type="FontFile" uid="uid://delmcjbdhoyya" path="res://assets/font/ChiKareGo2.ttf" id="3_7hvvj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bykjy"]
@@ -10,8 +10,11 @@
 script = ExtResource("1_yg3ec")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1154.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.0313726, 0.0313726, 0.0313726, 1)
 
 [node name="IntroContainer" type="MarginContainer" parent="."]

@@ -1,13 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnelk5j26y8j4"]
+[gd_scene load_steps=5 format=3 uid="uid://bnelk5j26y8j4"]
 
 [ext_resource type="FontFile" uid="uid://coqneoienhrf" path="res://fonts/ChiKareGo2.ttf" id="1_0rdhn"]
+[ext_resource type="Theme" uid="uid://83edle7dd1l6" path="res://assets/ui/random/menu.tres" id="1_rw0bp"]
 [ext_resource type="Script" path="res://scripts/next_dialogue.gd" id="1_u43n7"]
+[ext_resource type="AudioStream" uid="uid://bf3gvucx06dua" path="res://sounds/next_dialogue.mp3" id="4_wcg5a"]
 
 [node name="NextDialogue" type="Button"]
-offset_right = 14.0
-offset_bottom = 13.0
+custom_minimum_size = Vector2(0, 53.885)
+offset_right = 161.0
+offset_bottom = 37.0
+pivot_offset = Vector2(-37, -56)
+theme = ExtResource("1_rw0bp")
 theme_override_fonts/font = ExtResource("1_0rdhn")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
+text = "dsasdsdasdasds"
 script = ExtResource("1_u43n7")
+
+[node name="NextDialogue" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_wcg5a")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

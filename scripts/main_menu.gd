@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 # Go to introduction on play
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/virethariel.tscn")
+	get_tree().change_scene_to_file("res://scenes/introduction.tscn")
 
 
 # Then exit the game on exit

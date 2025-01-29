@@ -8,6 +8,7 @@ const CHAR_READ_RATE = 0.05
 @onready var label = $IntroContainer/MarginContainer/HBoxContainer/Label
 @onready var dark_overlay = $ColorRect
 @onready var enter_label = $Label2
+@onready var beeping = $AudioStreamPlayer2D
 
 var text_to_display = ""
 var current_text = ""
@@ -29,6 +30,7 @@ var curr_text = 0
 func _ready():
 	print("Starting state: State.READY")
 	enter_label.visible = false
+	beeping.stream_paused = false
 	print("Enter label exists: ", enter_label != null)
 	hide_textbox()
 	hide_enter_label()
@@ -42,9 +44,11 @@ func _process(delta):
 		State.READY:
 			if !text_queue.is_empty():
 				display_text()
+				beeping.stream_paused = false
 				_on_label_2_visibility_changed()
 		State.READING:
 			if Input.is_action_just_pressed("ui_accept"):
+				beeping.stream_paused = true
 				label.text = text_to_display
 				current_text = text_to_display  
 				if timer:
@@ -54,6 +58,7 @@ func _process(delta):
 		State.FINISHED:
 			if Input.is_action_just_pressed("ui_accept"):
 				change_state(State.READY)
+				beeping.stream_paused = true
 				hide_textbox()
 				hide_enter_label()
 

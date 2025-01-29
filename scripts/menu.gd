@@ -6,6 +6,10 @@ extends Control
 @onready var settings_instance = settings.instantiate()
 @onready var almanac_instance = almanac.instantiate()
 
+@onready var escape_sound: AudioStreamPlayer2D = $EscSound
+@onready var cancel_sound: AudioStreamPlayer2D = $CancelSound
+@onready var select_sound: AudioStreamPlayer2D = $SelectSound
+
 func _ready():
 	add_child(settings_instance)
 	add_child(almanac_instance)
@@ -29,24 +33,30 @@ func pause():
 func _input(event):
 	if event.is_action_pressed("escape"):
 		if get_tree().paused:
+			$CancelSound.play()
 			resume()
 		else:
+			$EscSound.play()
 			pause()
 			
 
 func _on_resume_pressed():
+	$SelectSound.play()
 	resume()
 	
 func _on_restart_pressed():
 	get_tree().paused = false
+	Global.total_waste = Global.all_waste
 	visible = false
 	await get_tree().process_frame
 	get_tree().reload_current_scene()
+	$SelectSound.play()
 
 func _on_quit_pressed():
 	get_tree().quit()
 
 func _on_settings_pressed() -> void:
+	$SelectSound.play()
 	settings_instance.visible = true
 	print("settings pressed")
 	
@@ -60,5 +70,6 @@ func _on_settings_btn_pressed() -> void:
 	if get_tree().paused:
 		resume()
 	else:
+		$EscSound.play()
 		pause()
 			

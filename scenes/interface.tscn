@@ -9,6 +9,7 @@
 [node name="interface" type="CanvasLayer"]
 
 [node name="lives" parent="." instance=ExtResource("1_0qoa3")]
+layer = 5
 
 [node name="settings_btn" type="TextureButton" parent="."]
 anchors_preset = 1

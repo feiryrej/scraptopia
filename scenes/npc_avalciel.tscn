@@ -1,10 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://c4o2w5cg8uvd8"]
+[gd_scene load_steps=30 format=3 uid="uid://c4o2w5cg8uvd8"]
 
 [ext_resource type="Texture2D" uid="uid://berwtqi8fpko8" path="res://assets/character/shadow.png" id="1_605y4"]
 [ext_resource type="Texture2D" uid="uid://8dardddkwgyo" path="res://assets/character/npc/avalciel/avalciel.png" id="1_fwcvo"]
 [ext_resource type="Script" path="res://scenes/npc_avalciel.gd" id="1_w6lx0"]
 [ext_resource type="Resource" uid="uid://bqhl8my8k6ia5" path="res://dialogues/avalciel/0.tres" id="2_7mgg5"]
 [ext_resource type="PackedScene" uid="uid://bdbgr61wtj4l7" path="res://scenes/interaction.tscn" id="4_nma6k"]
+[ext_resource type="AudioStream" uid="uid://ceflrud0o3drm" path="res://sounds/start_dialogue.mp3" id="6_op6nq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ki6g"]
 atlas = ExtResource("1_fwcvo")
@@ -229,9 +230,9 @@ radius = 30.0
 script = ExtResource("1_w6lx0")
 dialogue = ExtResource("2_7mgg5")
 
-[node name="shadow_spr" type="Sprite2D" parent="."]
-position = Vector2(0, 1)
-scale = Vector2(1.51116, 0.9375)
+[node name="shadow_spr2" type="Sprite2D" parent="."]
+position = Vector2(1, 5.96046e-08)
+scale = Vector2(2.10268, 1.0625)
 texture = ExtResource("1_605y4")
 
 [node name="human_spr" type="AnimatedSprite2D" parent="."]
@@ -269,6 +270,9 @@ shape = SubResource("CircleShape2D_nhlhl")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="StartDialogue" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_op6nq")
 
 [connection signal="body_entered" from="dialogue_detection_area" to="." method="_on_dialogue_detection_area_body_entered"]
 [connection signal="body_exited" from="dialogue_detection_area" to="." method="_on_dialogue_detection_area_body_exited"]

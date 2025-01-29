@@ -8,10 +8,10 @@ func _ready():
 
 func spawn_bins():
 	var positions = [
-		Vector2(983, 540),  # position of NONBIO bin
-		Vector2(1078, 540),  # position of BIO bin
-		Vector2(981, 618),   # position of RECYCLABLE bin
-		Vector2(1088, 624)   # position of HAZARD bin
+		Vector2(882, 568),  # position of NONBIO bin
+		Vector2(924, 548),  # position of BIO bin
+		Vector2(969, 532),   # position of RECYCLABLE bin
+		Vector2(1011, 513)   # position of HAZARD bin
 	]
 	
 	var bin_types = [

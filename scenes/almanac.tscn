@@ -1,16 +1,20 @@
-[gd_scene load_steps=18 format=3 uid="uid://cpvw58guaooqi"]
+[gd_scene load_steps=22 format=3 uid="uid://dklndsd64laaj"]
 
-[ext_resource type="Texture2D" uid="uid://bk6rumbg3b85c" path="res://assets/ui/frame.png" id="1_mdvln"]
+[ext_resource type="Texture2D" uid="uid://bk6rumbg3b85c" path="res://assets/ui/random/frame.png" id="1_mdvln"]
 [ext_resource type="Script" path="res://scripts/almanac.gd" id="1_oso01"]
 [ext_resource type="Shader" path="res://menu.gdshader" id="2_bb85a"]
-[ext_resource type="Theme" uid="uid://83edle7dd1l6" path="res://assets/ui/menu.tres" id="2_mm1yp"]
-[ext_resource type="Texture2D" uid="uid://45eye3jrw2cs" path="res://assets/ui/Button.png" id="4_xraqr"]
+[ext_resource type="Theme" uid="uid://83edle7dd1l6" path="res://assets/ui/random/menu.tres" id="2_mm1yp"]
+[ext_resource type="Texture2D" uid="uid://45eye3jrw2cs" path="res://assets/ui/random/Button.png" id="4_xraqr"]
 [ext_resource type="Texture2D" uid="uid://ch537u07wbdgx" path="res://assets/ui/ui_pack.png" id="5_ofbnf"]
 [ext_resource type="Texture2D" uid="uid://cs68acbbpd58o" path="res://assets/bins/orange.png" id="6_mhe4t"]
 [ext_resource type="Texture2D" uid="uid://c68wpnwofl8mv" path="res://assets/bins/red.png" id="7_yk3pu"]
 [ext_resource type="Texture2D" uid="uid://dlhuekr1x1uhr" path="res://assets/bins/blue.png" id="8_nl56t"]
 [ext_resource type="Texture2D" uid="uid://bkctunhl6qtj3" path="res://assets/bins/green.png" id="9_hnjvu"]
 [ext_resource type="Texture2D" uid="uid://c7j3fhp5syusf" path="res://assets/bins and wastes/wastes-spritesheet.png" id="10_yff6k"]
+[ext_resource type="AudioStream" uid="uid://b5ofqexyib5b5" path="res://sounds/big_select.mp3" id="12_gdlr6"]
+[ext_resource type="AudioStream" uid="uid://btjqhjgnofpts" path="res://sounds/page.mp3" id="13_a8qhx"]
+[ext_resource type="AudioStream" uid="uid://dryo2hnidqa3p" path="res://sounds/big_deselect.mp3" id="13_fl0db"]
+[ext_resource type="AudioStream" uid="uid://mawjyfsauf4f" path="res://sounds/small_select.mp3" id="14_5ka8q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yr5u5"]
 shader = ExtResource("2_bb85a")
@@ -116,23 +120,26 @@ grow_vertical = 2
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_right = 1149.0
+layout_mode = 0
+offset_left = 18.0
+offset_right = 1167.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
-[node name="Panel" type="NinePatchRect" parent="."]
+[node name="Almanac_NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -146.0
-offset_top = -182.0
-offset_right = 146.0
-offset_bottom = 178.0
+offset_left = -151.0
+offset_top = -214.0
+offset_right = 141.0
+offset_bottom = 146.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.17208, 1.17208)
 theme = ExtResource("2_mm1yp")
 texture = ExtResource("1_mdvln")
 region_rect = Rect2(0, 0, 48.2428, 48.0586)
@@ -141,7 +148,7 @@ patch_margin_top = 17
 patch_margin_right = 17
 patch_margin_bottom = 17
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Panel"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Almanac_NinePatchRect"]
 layout_mode = 0
 offset_left = 30.0
 offset_top = 27.0
@@ -154,7 +161,7 @@ patch_margin_top = 7
 patch_margin_right = 8
 patch_margin_bottom = 10
 
-[node name="Label2" type="Label" parent="Panel"]
+[node name="Label2" type="Label" parent="Almanac_NinePatchRect"]
 layout_mode = 0
 offset_left = 26.0
 offset_top = 77.0
@@ -165,7 +172,7 @@ text = "Explore and learn more about the different types of trashes in Virethari
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Label3" type="Label" parent="Panel"]
+[node name="Label3" type="Label" parent="Almanac_NinePatchRect"]
 layout_mode = 0
 offset_left = 71.0
 offset_top = 29.0
@@ -178,14 +185,14 @@ text = "ALMANAC"
 horizontal_alignment = 1
 uppercase = true
 
-[node name="Biodegradable2" type="Control" parent="Panel"]
+[node name="Biodegradable2" type="Control" parent="Almanac_NinePatchRect"]
 anchors_preset = 0
 offset_left = -453.0
 offset_top = -121.0
 offset_right = -413.0
 offset_bottom = -81.0
 
-[node name="Button2" type="Button" parent="Panel/Biodegradable2"]
+[node name="Button2" type="Button" parent="Almanac_NinePatchRect/Biodegradable2"]
 layout_mode = 2
 offset_left = 492.0
 offset_top = 244.0
@@ -193,12 +200,13 @@ offset_right = 592.0
 offset_bottom = 344.0
 theme = ExtResource("2_mm1yp")
 
-[node name="Recyclable" type="Sprite2D" parent="Panel/Biodegradable2"]
+[node name="Recyclable" type="Sprite2D" parent="Almanac_NinePatchRect/Biodegradable2"]
 position = Vector2(542, 287)
 scale = Vector2(1.57813, 1.57813)
 texture = ExtResource("6_mhe4t")
 
-[node name="Label" type="Label" parent="Panel/Biodegradable2"]
+[node name="Label" type="Label" parent="Almanac_NinePatchRect/Biodegradable2"]
+layout_mode = 0
 offset_left = 502.0
 offset_top = 319.0
 offset_right = 586.0
@@ -208,24 +216,26 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 14
 text = "Biodegradable"
 
-[node name="Hazardous" type="Control" parent="Panel"]
+[node name="Hazardous" type="Control" parent="Almanac_NinePatchRect"]
 anchors_preset = 0
 offset_left = 154.0
 offset_top = 122.0
 offset_right = 194.0
 offset_bottom = 162.0
 
-[node name="Button3" type="Button" parent="Panel/Hazardous"]
+[node name="Button3" type="Button" parent="Almanac_NinePatchRect/Hazardous"]
+layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
 theme = ExtResource("2_mm1yp")
 
-[node name="Nonbiodegradeable" type="Sprite2D" parent="Panel/Hazardous"]
+[node name="Nonbiodegradeable" type="Sprite2D" parent="Almanac_NinePatchRect/Hazardous"]
 position = Vector2(49, 45.5)
 scale = Vector2(1.65625, 1.65625)
 texture = ExtResource("7_yk3pu")
 
-[node name="Label" type="Label" parent="Panel/Hazardous"]
+[node name="Label" type="Label" parent="Almanac_NinePatchRect/Hazardous"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 74.0
 offset_right = 86.0
@@ -236,24 +246,26 @@ theme_override_font_sizes/font_size = 16
 text = "Hazardous"
 horizontal_alignment = 1
 
-[node name="Non-Biodegradable" type="Control" parent="Panel"]
+[node name="Non-Biodegradable" type="Control" parent="Almanac_NinePatchRect"]
 anchors_preset = 0
 offset_left = 39.0
 offset_top = 231.0
 offset_right = 79.0
 offset_bottom = 271.0
 
-[node name="Button4" type="Button" parent="Panel/Non-Biodegradable"]
+[node name="Button4" type="Button" parent="Almanac_NinePatchRect/Non-Biodegradable"]
+layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
 theme = ExtResource("2_mm1yp")
 
-[node name="Blue" type="Sprite2D" parent="Panel/Non-Biodegradable"]
+[node name="Blue" type="Sprite2D" parent="Almanac_NinePatchRect/Non-Biodegradable"]
 position = Vector2(49.75, 43)
 scale = Vector2(1.64063, 1.64063)
 texture = ExtResource("8_nl56t")
 
-[node name="Label" type="Label" parent="Panel/Non-Biodegradable"]
+[node name="Label" type="Label" parent="Almanac_NinePatchRect/Non-Biodegradable"]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 70.0
 offset_right = 92.0
@@ -266,24 +278,26 @@ text = "Non
 Biodegradable"
 horizontal_alignment = 1
 
-[node name="Recyclable" type="Control" parent="Panel"]
+[node name="Recyclable" type="Control" parent="Almanac_NinePatchRect"]
 anchors_preset = 0
 offset_left = 154.0
 offset_top = 230.0
 offset_right = 194.0
 offset_bottom = 270.0
 
-[node name="Button5" type="Button" parent="Panel/Recyclable"]
+[node name="Button5" type="Button" parent="Almanac_NinePatchRect/Recyclable"]
+layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
 theme = ExtResource("2_mm1yp")
 
-[node name="Biodegradable" type="Sprite2D" parent="Panel/Recyclable"]
+[node name="Biodegradable" type="Sprite2D" parent="Almanac_NinePatchRect/Recyclable"]
 position = Vector2(49, 45.5)
 scale = Vector2(1.65625, 1.65625)
 texture = ExtResource("9_hnjvu")
 
-[node name="Label" type="Label" parent="Panel/Recyclable"]
+[node name="Label" type="Label" parent="Almanac_NinePatchRect/Recyclable"]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 77.0
 offset_right = 99.0
@@ -294,7 +308,7 @@ theme_override_font_sizes/font_size = 14
 text = "Recyclable"
 horizontal_alignment = 1
 
-[node name="Exit_Button" type="Button" parent="Panel"]
+[node name="Exit_Button" type="Button" parent="Almanac_NinePatchRect"]
 layout_mode = 0
 offset_left = 259.0
 offset_top = 2.0
@@ -304,17 +318,16 @@ theme = ExtResource("2_mm1yp")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t6g4u")
 
 [node name="Biodegradable_NinePatchRect" type="NinePatchRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -355.0
-offset_top = -220.0
-offset_right = 318.0
-offset_bottom = 191.0
+offset_left = -319.0
+offset_top = -208.0
+offset_right = 354.0
+offset_bottom = 203.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_mm1yp")
@@ -647,6 +660,7 @@ offset_right = 636.0
 offset_bottom = 384.0
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="Biodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 147.0
 offset_top = 12.0
 offset_right = 206.0
@@ -655,6 +669,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(69, 4, 22, 22)
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="Biodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 273.0
 offset_top = 12.0
 offset_right = 332.0
@@ -663,6 +678,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(290, 1, 29, 30)
 
 [node name="NinePatchRect4" type="NinePatchRect" parent="Biodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 397.0
 offset_top = 12.0
 offset_right = 456.0
@@ -671,6 +687,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(321, 131, 28, 26)
 
 [node name="NinePatchRect5" type="NinePatchRect" parent="Biodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 514.0
 offset_top = 12.0
 offset_right = 573.0
@@ -679,6 +696,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(353, 133, 28, 23)
 
 [node name="NinePatchRect6" type="NinePatchRect" parent="Biodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 16.0
 offset_top = 7.0
 offset_right = 89.0
@@ -688,6 +706,7 @@ region_rect = Rect2(0.735218, 224.89, 31.8021, 30.9541)
 patch_margin_right = 1
 
 [node name="NinePatchRect7" type="NinePatchRect" parent="Biodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 23.0
 offset_top = 109.0
 offset_right = 79.0
@@ -697,6 +716,7 @@ region_rect = Rect2(323, 161, 25, 30)
 patch_margin_right = 1
 
 [node name="NinePatchRect8" type="NinePatchRect" parent="Biodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 155.0
 offset_top = 103.0
 offset_right = 200.0
@@ -706,6 +726,7 @@ region_rect = Rect2(293, 161, 23, 31)
 patch_margin_right = 1
 
 [node name="NinePatchRect9" type="NinePatchRect" parent="Biodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 271.0
 offset_top = 106.0
 offset_right = 326.0
@@ -715,6 +736,7 @@ region_rect = Rect2(67, 196, 25, 26)
 patch_margin_right = 1
 
 [node name="NinePatchRect10" type="NinePatchRect" parent="Biodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 393.0
 offset_top = 107.0
 offset_right = 449.0
@@ -724,6 +746,7 @@ region_rect = Rect2(66, 98, 28, 28)
 patch_margin_right = 1
 
 [node name="NinePatchRect11" type="NinePatchRect" parent="Biodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 509.0
 offset_top = 105.0
 offset_right = 588.0
@@ -733,6 +756,7 @@ region_rect = Rect2(33, 36, 31, 23)
 patch_margin_right = 1
 
 [node name="NinePatchRect12" type="NinePatchRect" parent="Biodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 12.0
 offset_top = 205.0
 offset_right = 91.0
@@ -742,6 +766,7 @@ region_rect = Rect2(353, 68, 30, 24)
 patch_margin_right = 1
 
 [node name="NinePatchRect13" type="NinePatchRect" parent="Biodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 147.0
 offset_top = 204.0
 offset_right = 209.0
@@ -751,6 +776,7 @@ region_rect = Rect2(226, 33, 29, 29)
 patch_margin_right = 1
 
 [node name="NinePatchRect14" type="NinePatchRect" parent="Biodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 262.0
 offset_top = 203.0
 offset_right = 339.0
@@ -760,6 +786,7 @@ region_rect = Rect2(1, 38, 29, 22)
 patch_margin_right = 1
 
 [node name="NinePatchRect15" type="NinePatchRect" parent="Biodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 397.0
 offset_top = 203.0
 offset_right = 458.0
@@ -769,6 +796,7 @@ region_rect = Rect2(193, 194, 30, 28)
 patch_margin_right = 1
 
 [node name="NinePatchRect16" type="NinePatchRect" parent="Biodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 522.0
 offset_top = 203.0
 offset_right = 573.0
@@ -797,6 +825,7 @@ text = "Banana"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Biodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 159.0
 offset_top = 69.0
 offset_right = 207.0
@@ -808,6 +837,7 @@ text = "Pencil
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Biodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 254.0
 offset_top = 69.0
 offset_right = 363.0
@@ -818,6 +848,7 @@ text = "Withered Planks"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="Biodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 376.0
 offset_top = 69.0
 offset_right = 485.0
@@ -828,6 +859,7 @@ text = "Ship Wood"
 horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="Biodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 500.0
 offset_top = 69.0
 offset_right = 609.0
@@ -838,6 +870,7 @@ text = "Watermelon"
 horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="Biodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 165.0
 offset_right = 114.0
@@ -848,6 +881,7 @@ text = "Wilted Feather"
 horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="Biodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 129.0
 offset_top = 160.0
 offset_right = 238.0
@@ -860,6 +894,7 @@ text = "withered rose
 horizontal_alignment = 1
 
 [node name="Label8" type="Label" parent="Biodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 254.0
 offset_top = 165.0
 offset_right = 363.0
@@ -870,6 +905,7 @@ text = "Broken Clay Pots"
 horizontal_alignment = 1
 
 [node name="Label9" type="Label" parent="Biodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 378.0
 offset_top = 165.0
 offset_right = 487.0
@@ -880,6 +916,7 @@ text = "Dead Maple Leaf"
 horizontal_alignment = 1
 
 [node name="Label10" type="Label" parent="Biodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 500.0
 offset_top = 165.0
 offset_right = 609.0
@@ -890,6 +927,7 @@ text = "Rotten Fruits"
 horizontal_alignment = 1
 
 [node name="Label11" type="Label" parent="Biodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 7.0
 offset_top = 264.0
 offset_right = 116.0
@@ -900,6 +938,7 @@ text = "Rope"
 horizontal_alignment = 1
 
 [node name="Label12" type="Label" parent="Biodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 131.0
 offset_top = 264.0
 offset_right = 240.0
@@ -910,6 +949,7 @@ text = "Leather"
 horizontal_alignment = 1
 
 [node name="Label13" type="Label" parent="Biodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 250.0
 offset_top = 264.0
 offset_right = 359.0
@@ -920,6 +960,7 @@ text = "Animal Bone"
 horizontal_alignment = 1
 
 [node name="Label14" type="Label" parent="Biodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 376.0
 offset_top = 264.0
 offset_right = 485.0
@@ -930,6 +971,7 @@ text = "Palm Leaf Fan"
 horizontal_alignment = 1
 
 [node name="Label15" type="Label" parent="Biodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 497.0
 offset_top = 264.0
 offset_right = 606.0
@@ -940,6 +982,7 @@ text = "Log"
 horizontal_alignment = 1
 
 [node name="Biodegradable_Exit" type="Button" parent="Biodegradable_NinePatchRect"]
+layout_mode = 0
 offset_left = 623.0
 offset_right = 671.0
 offset_bottom = 48.0
@@ -947,17 +990,16 @@ theme = ExtResource("2_mm1yp")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t6g4u")
 
 [node name="Hazardous_NinePatchRect" type="NinePatchRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -355.0
-offset_top = -220.0
-offset_right = 318.0
-offset_bottom = 191.0
+offset_left = -320.0
+offset_top = -208.0
+offset_right = 353.0
+offset_bottom = 203.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_mm1yp")
@@ -1147,6 +1189,7 @@ offset_right = 636.0
 offset_bottom = 384.0
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="Hazardous_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 187.0
 offset_top = 22.0
 offset_right = 262.0
@@ -1155,6 +1198,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(34, 3, 28, 27)
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="Hazardous_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 353.0
 offset_top = 19.0
 offset_right = 408.0
@@ -1163,6 +1207,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(49, 68, 10, 24)
 
 [node name="NinePatchRect4" type="NinePatchRect" parent="Hazardous_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 504.0
 offset_top = 20.0
 offset_right = 570.0
@@ -1171,6 +1216,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(198, 2, 20, 29)
 
 [node name="NinePatchRect5" type="NinePatchRect" parent="Hazardous_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 115.0
 offset_top = 157.0
 offset_right = 174.0
@@ -1179,6 +1225,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(6, 193, 19, 28)
 
 [node name="NinePatchRect6" type="NinePatchRect" parent="Hazardous_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 17.0
 offset_top = 27.0
 offset_right = 120.0
@@ -1188,6 +1235,7 @@ region_rect = Rect2(32.1583, 231.607, 32.9154, 20.2796)
 patch_margin_right = 1
 
 [node name="NinePatchRect7" type="NinePatchRect" parent="Hazardous_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 263.0
 offset_top = 158.0
 offset_right = 331.0
@@ -1197,6 +1245,7 @@ region_rect = Rect2(97, 131, 30, 28)
 patch_margin_right = 1
 
 [node name="NinePatchRect8" type="NinePatchRect" parent="Hazardous_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 431.0
 offset_top = 158.0
 offset_right = 475.0
@@ -1225,6 +1274,7 @@ text = "Face Mask"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Hazardous_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 162.0
 offset_top = 94.0
 offset_right = 293.0
@@ -1237,6 +1287,7 @@ Component"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Hazardous_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 331.0
 offset_top = 105.0
 offset_right = 440.0
@@ -1247,6 +1298,7 @@ text = "Battery"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="Hazardous_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 486.0
 offset_top = 107.0
 offset_right = 595.0
@@ -1257,6 +1309,7 @@ text = "Uranium Core"
 horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="Hazardous_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 96.0
 offset_top = 250.0
 offset_right = 205.0
@@ -1267,6 +1320,7 @@ text = "Ritual Oil Jar"
 horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="Hazardous_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 251.0
 offset_top = 250.0
 offset_right = 360.0
@@ -1277,6 +1331,7 @@ text = "Black Barrel"
 horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="Hazardous_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 404.0
 offset_top = 248.0
 offset_right = 513.0
@@ -1288,6 +1343,7 @@ text = "Syringe"
 horizontal_alignment = 1
 
 [node name="Hazardous_Exit" type="Button" parent="Hazardous_NinePatchRect"]
+layout_mode = 0
 offset_left = 623.0
 offset_right = 671.0
 offset_bottom = 48.0
@@ -1295,17 +1351,16 @@ theme = ExtResource("2_mm1yp")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t6g4u")
 
 [node name="Nonbiodegradable_NinePatchRect" type="NinePatchRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -355.0
-offset_top = -220.0
-offset_right = 318.0
-offset_bottom = 191.0
+offset_left = -320.0
+offset_top = -208.0
+offset_right = 353.0
+offset_bottom = 203.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_mm1yp")
@@ -1550,6 +1605,7 @@ offset_right = 636.0
 offset_bottom = 384.0
 
 [node name="NinePatchRect6" type="NinePatchRect" parent="Nonbiodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 69.0
 offset_top = 8.0
 offset_right = 119.0
@@ -1559,6 +1615,7 @@ region_rect = Rect2(99, 225, 25, 30)
 patch_margin_right = 1
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="Nonbiodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 195.0
 offset_top = 9.0
 offset_right = 252.0
@@ -1567,6 +1624,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(293, 198, 22, 20)
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="Nonbiodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 330.0
 offset_top = 10.0
 offset_right = 382.0
@@ -1575,6 +1633,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(194, 161, 28.2473, 31)
 
 [node name="NinePatchRect4" type="NinePatchRect" parent="Nonbiodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 452.0
 offset_top = 8.0
 offset_right = 511.0
@@ -1583,6 +1642,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(223.524, 161, 31.4764, 31)
 
 [node name="NinePatchRect5" type="NinePatchRect" parent="Nonbiodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 62.0
 offset_top = 108.0
 offset_right = 121.0
@@ -1591,6 +1651,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(160, 161, 31, 29)
 
 [node name="NinePatchRect7" type="NinePatchRect" parent="Nonbiodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 196.0
 offset_top = 104.0
 offset_right = 254.0
@@ -1599,6 +1660,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(100, 194, 25, 27)
 
 [node name="NinePatchRect8" type="NinePatchRect" parent="Nonbiodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 326.0
 offset_top = 107.0
 offset_right = 381.0
@@ -1608,6 +1670,7 @@ region_rect = Rect2(130, 194, 29, 26)
 patch_margin_right = 1
 
 [node name="NinePatchRect9" type="NinePatchRect" parent="Nonbiodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 439.0
 offset_top = 106.0
 offset_right = 519.0
@@ -1617,6 +1680,7 @@ region_rect = Rect2(-0.373878, 65.4735, 29.3739, 26.5265)
 patch_margin_right = 1
 
 [node name="NinePatchRect10" type="NinePatchRect" parent="Nonbiodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 70.0
 offset_top = 205.0
 offset_right = 127.0
@@ -1625,6 +1689,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(388, 66, 24, 27)
 
 [node name="NinePatchRect11" type="NinePatchRect" parent="Nonbiodegradable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 195.0
 offset_top = 205.0
 offset_right = 258.0
@@ -1653,6 +1718,7 @@ text = "Plastic Bag"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Nonbiodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 187.0
 offset_top = 69.0
 offset_right = 271.0
@@ -1663,6 +1729,7 @@ text = "Rusty Nail"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Nonbiodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 304.0
 offset_top = 65.0
 offset_right = 413.0
@@ -1675,6 +1742,7 @@ Watch"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="Nonbiodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 433.0
 offset_top = 65.0
 offset_right = 542.0
@@ -1687,6 +1755,7 @@ Gears"
 horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="Nonbiodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 47.0
 offset_top = 159.0
 offset_right = 156.0
@@ -1699,6 +1768,7 @@ Straps"
 horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="Nonbiodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 176.0
 offset_top = 163.0
 offset_right = 285.0
@@ -1709,6 +1779,7 @@ text = "Obsidian Shard"
 horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="Nonbiodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 305.0
 offset_top = 161.0
 offset_right = 414.0
@@ -1721,6 +1792,7 @@ Temple Tile"
 horizontal_alignment = 1
 
 [node name="Label8" type="Label" parent="Nonbiodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 439.0
 offset_top = 165.0
 offset_right = 548.0
@@ -1731,6 +1803,7 @@ text = "Boots"
 horizontal_alignment = 1
 
 [node name="Label9" type="Label" parent="Nonbiodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 48.0
 offset_top = 264.0
 offset_right = 157.0
@@ -1741,6 +1814,7 @@ text = "Gloves"
 horizontal_alignment = 1
 
 [node name="Label10" type="Label" parent="Nonbiodegradable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 179.0
 offset_top = 263.0
 offset_right = 288.0
@@ -1751,6 +1825,7 @@ text = "Satellite"
 horizontal_alignment = 1
 
 [node name="Nonbiodegradable_Exit" type="Button" parent="Nonbiodegradable_NinePatchRect"]
+layout_mode = 0
 offset_left = 623.0
 offset_right = 671.0
 offset_bottom = 48.0
@@ -1758,17 +1833,16 @@ theme = ExtResource("2_mm1yp")
 theme_override_styles/normal = SubResource("StyleBoxTexture_t6g4u")
 
 [node name="Recyclable_NinePatchRect" type="NinePatchRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -355.0
-offset_top = -220.0
-offset_right = 318.0
-offset_bottom = 191.0
+offset_left = -320.0
+offset_top = -208.0
+offset_right = 353.0
+offset_bottom = 203.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_mm1yp")
@@ -2030,6 +2104,7 @@ offset_right = 636.0
 offset_bottom = 384.0
 
 [node name="NinePatchRect6" type="NinePatchRect" parent="Recyclable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 8.0
 offset_right = 124.0
@@ -2039,6 +2114,7 @@ region_rect = Rect2(36, 163, 24, 27)
 patch_margin_right = 1
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="Recyclable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 195.0
 offset_top = 9.0
 offset_right = 254.0
@@ -2047,6 +2123,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(98, 3, 29, 28)
 
 [node name="NinePatchRect3" type="NinePatchRect" parent="Recyclable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 323.0
 offset_top = 10.0
 offset_right = 382.0
@@ -2055,6 +2132,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(129, 5, 30, 22)
 
 [node name="NinePatchRect4" type="NinePatchRect" parent="Recyclable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 455.0
 offset_top = 7.0
 offset_right = 514.0
@@ -2063,6 +2141,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(225, 197, 30, 22)
 
 [node name="NinePatchRect5" type="NinePatchRect" parent="Recyclable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 62.0
 offset_top = 108.0
 offset_right = 121.0
@@ -2071,6 +2150,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(257, 97, 30, 30)
 
 [node name="NinePatchRect7" type="NinePatchRect" parent="Recyclable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 202.0
 offset_top = 108.0
 offset_right = 245.0
@@ -2079,6 +2159,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(201, 97, 15, 30)
 
 [node name="NinePatchRect8" type="NinePatchRect" parent="Recyclable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 326.0
 offset_top = 107.0
 offset_right = 381.0
@@ -2088,6 +2169,7 @@ region_rect = Rect2(386, 131, 28, 26)
 patch_margin_right = 1
 
 [node name="NinePatchRect9" type="NinePatchRect" parent="Recyclable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 458.0
 offset_top = 106.0
 offset_right = 505.0
@@ -2097,6 +2179,7 @@ region_rect = Rect2(7, 129, 18, 30)
 patch_margin_right = 1
 
 [node name="NinePatchRect10" type="NinePatchRect" parent="Recyclable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 80.0
 offset_top = 205.0
 offset_right = 111.0
@@ -2105,6 +2188,7 @@ texture = ExtResource("10_yff6k")
 region_rect = Rect2(138, 130, 12, 28)
 
 [node name="NinePatchRect11" type="NinePatchRect" parent="Recyclable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 195.0
 offset_top = 205.0
 offset_right = 258.0
@@ -2114,6 +2198,7 @@ region_rect = Rect2(131, 161, 27, 30)
 patch_margin_right = 1
 
 [node name="NinePatchRect12" type="NinePatchRect" parent="Recyclable_NinePatchRect/Trashes"]
+layout_mode = 0
 offset_left = 327.0
 offset_top = 204.0
 offset_right = 380.0
@@ -2142,6 +2227,7 @@ text = "Silk Parasol"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Recyclable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 187.0
 offset_top = 69.0
 offset_right = 271.0
@@ -2152,6 +2238,7 @@ text = "Glass Shards"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="Recyclable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 305.0
 offset_top = 70.0
 offset_right = 414.0
@@ -2162,6 +2249,7 @@ text = "Stainless Steel"
 horizontal_alignment = 1
 
 [node name="Label4" type="Label" parent="Recyclable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 433.0
 offset_top = 65.0
 offset_right = 542.0
@@ -2174,6 +2262,7 @@ Fragment"
 horizontal_alignment = 1
 
 [node name="Label5" type="Label" parent="Recyclable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 43.0
 offset_top = 164.0
 offset_right = 152.0
@@ -2184,6 +2273,7 @@ text = "Pizza Box"
 horizontal_alignment = 1
 
 [node name="Label6" type="Label" parent="Recyclable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 176.0
 offset_top = 163.0
 offset_right = 285.0
@@ -2194,6 +2284,7 @@ text = "Metal Can"
 horizontal_alignment = 1
 
 [node name="Label7" type="Label" parent="Recyclable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 305.0
 offset_top = 161.0
 offset_right = 414.0
@@ -2205,6 +2296,7 @@ text = "Map"
 horizontal_alignment = 1
 
 [node name="Label8" type="Label" parent="Recyclable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 439.0
 offset_top = 165.0
 offset_right = 548.0
@@ -2215,6 +2307,7 @@ text = "Broken Bottle"
 horizontal_alignment = 1
 
 [node name="Label9" type="Label" parent="Recyclable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 48.0
 offset_top = 264.0
 offset_right = 157.0
@@ -2225,6 +2318,7 @@ text = "Plastic Bottle"
 horizontal_alignment = 1
 
 [node name="Label10" type="Label" parent="Recyclable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 179.0
 offset_top = 263.0
 offset_right = 288.0
@@ -2235,6 +2329,7 @@ text = "Copper"
 horizontal_alignment = 1
 
 [node name="Label11" type="Label" parent="Recyclable_NinePatchRect/Label"]
+layout_mode = 0
 offset_left = 307.0
 offset_top = 263.0
 offset_right = 416.0
@@ -2245,6 +2340,7 @@ text = "Glass Flask"
 horizontal_alignment = 1
 
 [node name="Recyclable_Exit" type="Button" parent="Recyclable_NinePatchRect"]
+layout_mode = 0
 offset_left = 623.0
 offset_right = 671.0
 offset_bottom = 48.0
@@ -2256,11 +2352,23 @@ libraries = {
 "": SubResource("AnimationLibrary_7bhgq")
 }
 
-[connection signal="pressed" from="Panel/Biodegradable2/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Panel/Hazardous/Button3" to="." method="_on_button_3_pressed"]
-[connection signal="pressed" from="Panel/Non-Biodegradable/Button4" to="." method="_on_button_4_pressed"]
-[connection signal="pressed" from="Panel/Recyclable/Button5" to="." method="_on_button_5_pressed"]
-[connection signal="pressed" from="Panel/Exit_Button" to="." method="_on_button_pressed"]
+[node name="EscSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_gdlr6")
+
+[node name="PaperSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_a8qhx")
+
+[node name="CancelSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_fl0db")
+
+[node name="SelectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_5ka8q")
+
+[connection signal="pressed" from="Almanac_NinePatchRect/Biodegradable2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Almanac_NinePatchRect/Hazardous/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Almanac_NinePatchRect/Non-Biodegradable/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Almanac_NinePatchRect/Recyclable/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Almanac_NinePatchRect/Exit_Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Biodegradable_NinePatchRect/Biodegradable_Exit" to="." method="_on_biodegradable_exit_pressed"]
 [connection signal="pressed" from="Hazardous_NinePatchRect/Hazardous_Exit" to="." method="_on_hazardous_exit_pressed"]
 [connection signal="pressed" from="Nonbiodegradable_NinePatchRect/Nonbiodegradable_Exit" to="." method="_on_nonbiodegradable_exit_pressed"]
