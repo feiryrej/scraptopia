@@ -1,9 +1,11 @@
 extends CanvasLayer
 
 var hearts_list: Array[AnimatedSprite2D]
+@onready var player_icon = $player_icon
 
 func _ready():
-	var hearts_parent = $HBoxContainer
+	var hearts_parent = $HBoxContainer/Node2D2/HBoxContainer
+
 	for child in hearts_parent.get_children():
 		hearts_list.append(child)
 

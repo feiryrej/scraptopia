@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://jkjlj8aw1ejo"]
+
+[ext_resource type="Script" path="res://scripts/bins_spawner.gd" id="1_1de4x"]
+[ext_resource type="PackedScene" uid="uid://btie6i06sguat" path="res://scenes/bin.tscn" id="2_t4gd2"]
+
+[node name="bins_spawner" type="Node2D"]
+script = ExtResource("1_1de4x")
+bin_scene = ExtResource("2_t4gd2")

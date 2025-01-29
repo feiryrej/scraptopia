@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0q7xdefq1323"
-path="res://.godot/imported/mouse icon.png-91313eba4c25f71a1b7d7c58e99655cb.ctex"
+uid="uid://cigyvsnfp0j6c"
+path="res://.godot/imported/Setting menu.png-cc86cdf88acc93eb4267a5737a407a3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/mouse icon.png"
-dest_files=["res://.godot/imported/mouse icon.png-91313eba4c25f71a1b7d7c58e99655cb.ctex"]
+source_file="res://assets/ui/random/Setting menu.png"
+dest_files=["res://.godot/imported/Setting menu.png-cc86cdf88acc93eb4267a5737a407a3c.ctex"]
 
 [params]
 

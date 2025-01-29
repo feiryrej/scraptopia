@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bk2k02o450ka3"]
 
 [ext_resource type="Script" path="res://scripts/dialogue_manager.gd" id="1_y0rk7"]
-[ext_resource type="PackedScene" uid="uid://cglsgn0cl2omg" path="res://scenes/next_dialogue.tscn" id="2_roqyp"]
+[ext_resource type="PackedScene" uid="uid://bnelk5j26y8j4" path="res://scenes/next_dialogue.tscn" id="2_roqyp"]
 [ext_resource type="Texture2D" uid="uid://ddspni4gef6v6" path="res://assets/character/npc/luxanna/luxanna_mod.png" id="3_gklcp"]
 [ext_resource type="FontFile" uid="uid://coqneoienhrf" path="res://fonts/ChiKareGo2.ttf" id="3_h25w3"]
 [ext_resource type="Texture2D" uid="uid://hy7em5w25vbf" path="res://assets/dialogue-box.png" id="5_ffw4i"]
@@ -12,6 +12,7 @@ next_button = ExtResource("2_roqyp")
 
 [node name="UI" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+layer = 100
 visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
@@ -56,19 +57,26 @@ custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="CharacterContainer" type="Node2D" parent="UI/MarginContainer/CenterContainer/MainContainer"]
-
-[node name="Icon" type="TextureRect" parent="UI/MarginContainer/CenterContainer/MainContainer/CharacterContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(135.05, 162.68)
-anchors_preset = 2
-anchor_top = 1.0
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/CenterContainer/MainContainer"]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -587.879
-offset_top = -221.818
-offset_right = -78.8788
-offset_bottom = 396.182
-grow_vertical = 0
+offset_left = -618.0
+offset_top = -361.0
+offset_right = -427.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.22148, 3.22148)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Icon" type="TextureRect" parent="UI/MarginContainer/CenterContainer/MainContainer/MarginContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(135.05, 100)
+layout_mode = 2
 size_flags_vertical = 8
 texture = ExtResource("3_gklcp")
 expand_mode = 4
@@ -97,15 +105,18 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_h25w3")
 theme_override_font_sizes/font_size = 48
+text = "Avalciel"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Dialogue" type="Label" parent="UI/MarginContainer/CenterContainer/MainContainer/DialogueContainer"]
 unique_name_in_owner = true
-offset_left = -344.0
-offset_top = 127.0
-offset_right = 340.0
-offset_bottom = 312.0
+offset_left = -352.0
+offset_top = 122.0
+offset_right = 81.0
+offset_bottom = 235.0
+scale = Vector2(1.60901, 1.60901)
 theme_override_fonts/font = ExtResource("3_h25w3")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 16
+text = "sdasdasdadasdasda"
 autowrap_mode = 2

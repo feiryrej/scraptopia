@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dl3xhvbuv44eq"]
+
+[ext_resource type="Texture2D" uid="uid://ddmhrtjmjmry8" path="res://assets/ui/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_c4qhn"]
+
+[resource]
+texture = ExtResource("1_c4qhn")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 6.62414
+region_rect = Rect2(163, 178, 90, 27)

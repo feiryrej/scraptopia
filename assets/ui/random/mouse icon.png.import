@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b45j3k2khfljf"
-path="res://.godot/imported/Setting menu without text.png-75016b3c9336ca40f3334aff9f60a182.ctex"
+uid="uid://b0q7xdefq1323"
+path="res://.godot/imported/mouse icon.png-0f3b6d5956c40b09ead0c91ebadad75d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/Setting menu without text.png"
-dest_files=["res://.godot/imported/Setting menu without text.png-75016b3c9336ca40f3334aff9f60a182.ctex"]
+source_file="res://assets/ui/random/mouse icon.png"
+dest_files=["res://.godot/imported/mouse icon.png-0f3b6d5956c40b09ead0c91ebadad75d.ctex"]
 
 [params]
 

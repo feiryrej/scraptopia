@@ -8,10 +8,13 @@ extends CharacterBody2D
 @onready var correct_spr = $correct_spr
 @onready var wrong_spr = $wrong_spr
 
+@onready var sense: AnimatedSprite2D = $"%Sense"
 @onready var pickup_sound: AudioStreamPlayer2D = $PickupSound
 @onready var drop_sound: AudioStreamPlayer2D = $DropSound
 @onready var correct_sound: AudioStreamPlayer2D = $CorrectSound
 @onready var wrong_sound: AudioStreamPlayer2D = $WrongSound
+@onready var trash_sound: AudioStreamPlayer2D = $TrashSound
+@onready var footstep_sound: AudioStreamPlayer2D = $FootstepSound
 
 # Variables
 var speed = 100
@@ -22,6 +25,7 @@ var movement_speed = 120
 var is_moving = false
 var movement_queue = Vector2.ZERO
 
+var ending_triggered = false
 var carrying_item = false
 var drop_pos: Vector2
 var items_in_range: Array = []
@@ -35,7 +39,7 @@ var male_arms_up_frames = preload("res://frames/male_arms_up.tres")
 var female_arms_down_frames = preload("res://frames/female_arms_down.tres")
 var female_arms_up_frames = preload("res://frames/female_arms_up.tres")
 
-enum Gender { MALE, FEMALE}
+enum Gender { MALE, FEMALE }
 var curr_gender = Gender.MALE
 
 enum States { IDLE, MOVE }
@@ -45,6 +49,9 @@ var current_state = States.IDLE
 func _ready():
 	item_spr.hide()
 	update_spritesheet()
+	var timer = get_tree().create_timer(2.0)
+	timer.timeout.connect(Callable(self, "_on_timer_timeout"))
+	
 	
 	# wastes list     |     position   |      frame      |     scale
 	spawn_item(Vector2(984, 615), Vector2i(0, 7), Vector2(0.62, 0.62), "BIO")          # banana
@@ -86,10 +93,10 @@ func _ready():
 	spawn_item(Vector2(99, 119), Vector2i(7, 2), Vector2(0.62, 0.62), "RECYCLABLE")    # copper
 	spawn_item(Vector2(-88, -197), Vector2i(9, 2), Vector2(0.62, 0.62), "RECYCLABLE")  # glass flask
 	
-	spawn_item(Vector2(1144, 696), Vector2i(1, 7), Vector2(0.62, 0.62), "HAZARD")      # facemask
+	spawn_item(Vector2(1065, 775), Vector2i(1, 7), Vector2(0.62, 0.62), "HAZARD")      # facemask
 	spawn_item(Vector2(1079, 280), Vector2i(1, 0), Vector2(1, 1), "HAZARD")            # mechanical component
 	spawn_item(Vector2(1111, 183), Vector2i(1, 2), Vector2(0.62, 0.62), "HAZARD")      # battery
-	spawn_item(Vector2(1192, 169), Vector2i(6, 0), Vector2(1, 1), "HAZARD")            # uranium fuel rod
+	spawn_item(Vector2(1160, 169), Vector2i(6, 0), Vector2(1, 1), "HAZARD")            # uranium fuel rod
 	spawn_item(Vector2(887, -246), Vector2i(0, 6), Vector2(0.62, 0.62), "HAZARD")      # ritual oil jar
 	spawn_item(Vector2(72, 652), Vector2i(3, 4), Vector2(1, 1), "HAZARD")              # black barrel
 	spawn_item(Vector2(-138, 408), Vector2i(4, 2), Vector2(0.62, 0.62), "HAZARD")      # syringe
@@ -115,26 +122,30 @@ func spawn_item(position: Vector2, frame_coords: Vector2i, scale_factor: Vector2
 
 	print("Item added to parent at position: ", new_item.position)
 
-
 	
 func _physics_process(delta):
 	handle_state_transitions()
 	perform_state_actions(delta)
 	move_and_slide()
-
-
-
+	
+	 
 func handle_state_transitions():
 	if Input.is_action_pressed("left") or Input.is_action_pressed("right") or Input.is_action_pressed("up") or Input.is_action_pressed("down"):
 		current_state = States.MOVE
+		is_moving = true
 	else:
 		current_state = States.IDLE
+		is_moving = false
 
 
 
 func perform_state_actions(delta):
 		match current_state:
 			States.MOVE:
+				if $FootstepTimer.time_left <=0:
+					$FootstepSound.pitch_scale = randf_range(0.8, 1.2)
+					$FootstepSound.play()
+					$FootstepTimer.start(0.25)
 				var horizontal_input = Input.get_axis("left", "right")
 				var vertical_input = Input.get_axis("up", "down")
 				
@@ -164,8 +175,6 @@ func perform_state_actions(delta):
 					human_spr.play("e-idle")
 				elif dir.x < 0:
 					human_spr.play("w-idle")
-
-
 
 func update_spritesheet():
 	if curr_gender == Gender.MALE:
@@ -198,7 +207,7 @@ func _input(event):
 			
 			# checks if player is within the bin's range
 			if Global.is_near_bin and Global.near_bin_type != null: 
-				dispose_item(Global.near_bin_type)
+				dispose_item(Global.near_bin_type, Global.near_bin_node)
 			else:
 				drop_item()
 		else:
@@ -269,45 +278,20 @@ func pickup_item(item: Area2D):
 
 func drop_item():
 	item_spr.hide()
-
 	var item = item_drop.instantiate()
-	if item == null:
-		print("Error: Item instantiation failed.")
-		return
 
-	print("Item instantiated successfully.")
-
-	# adjust player position relative to parent node
 	var adjusted_position = global_position - get_parent().position
 	var player_tile_position = adjusted_position / tile_size
 	var drop_tile_position = player_tile_position.floor() + dir
 	var original_drop_position = (player_tile_position + dir) * tile_size + Vector2(tile_size / 2, tile_size / 2)
+	item.position = original_drop_position
 
-	# snapping logic based on direction
-	var estimated_tile_position = player_tile_position.round()  # rounding the tile position to nearest grid
-	var snapped_drop_tile_position = estimated_tile_position + dir
 
-	var final_position = snapped_drop_tile_position * tile_size + Vector2(tile_size / 2, tile_size / 2)
-	item.position = final_position
-
-	# for debugging purposes
-	print("Player global position: ", global_position)
-	print("Parent position: ", get_parent().position)
-	print("Adjusted player position: ", adjusted_position)
-	print("Direction vector (dir): ", dir)
-	print("Player tile position: ", player_tile_position)
-	print("Estimated drop tile position (rounded): ", estimated_tile_position)
-	print("Snapped drop tile position (final): ", snapped_drop_tile_position)
-	print("Original drop position: ", original_drop_position)
-	print("Final adjusted position: ", final_position)
-
-	# retrieves the metadata from item_spr
 	if item_spr.has_meta("frame_coords"):
 		item.frame_coords = item_spr.get_meta("frame_coords")
 	else:
 		print("No frame_coords metadata found") # for debugging purposes
 
-	# should supposedly get the scale from item_spr metadata
 	if item_spr.has_meta("original_scale"):
 		item.scale = item_spr.get_meta("original_scale")
 	else:
@@ -329,7 +313,7 @@ func drop_item():
 
 
 
-func dispose_item(bin_type: String):
+func dispose_item(bin_type: String, bin: Node2D):
 	if carrying_item:
 		if bin_type == curr_waste_type:
 			carrying_item = false
@@ -341,19 +325,41 @@ func dispose_item(bin_type: String):
 			correct_spr.play("correct")
 			correct_sound.play()
 			
-			await get_tree().create_timer(2.0).timeout
-			correct_spr.hide()
+			Global.total_waste -= 1
+			
+			if Global.lives == 5:
+				Global.lives = 5
+			else:
+				Global.lives += 1
+				
+			var interface = $"../lives"
+			interface.update_lives()
+			trash_sound.play()
+			
+			bin.play_boink_animation()
+			print("Correctly placed item in bin: ", bin_type)
+			
+			if correct_spr.visible:				
+				await get_tree().create_timer(2.0).timeout
+				correct_spr.hide()
+			
+			if Global.total_waste == 0 and not ending_triggered:
+				ending_triggered = true 
+				await get_tree().create_timer(0.5).timeout 
+				call_deferred("end_scene") 
+			else:
+				print("Keep going!")
 			
 		else:		
 			Global.lives -= 1
+			Global.camera.shake(0.2, 1)
 			
 			if Global.lives <= 0:
 				restart_game()
 			
 			var interface = $"../lives"
 			interface.update_lives()
-			print("Total lives left: ", Global.lives)
-
+			
 			correct_spr.hide()
 			wrong_spr.show()
 			wrong_spr.play("wrong")
@@ -362,8 +368,32 @@ func dispose_item(bin_type: String):
 			await get_tree().create_timer(1.0).timeout
 			wrong_spr.hide()
 
+func end_scene():
+	# Add a guard clause at the start
+	if get_tree().root.has_node("ending"):
+		return
+		
+	var ending_scene = load("res://scenes/ending.tscn").instantiate()
+	get_tree().root.add_child(ending_scene)
+	if ending_scene is CanvasLayer:
+		ending_scene.layer = 200
+	
+	var fog = get_tree().get_current_scene().get_node_or_null("%Fog")
+	var env = get_tree().get_current_scene().get_node_or_null("%EnvFilter")
+	var bg_music1 = get_tree().get_current_scene().get_node_or_null("bgmusic1")
+	var bg_music2 = get_tree().get_current_scene().get_node_or_null("bgmusic2")
+	
+
+	fog.hide()
+	env.environment.adjustment_saturation = 1
+	bg_music1.stop()
+	bg_music2.play()
+
+
+
 func restart_game():
 	Global.lives = 5
+	Global.total_waste = Global.all_waste
 	var menu_instance = menu.instantiate()
 	add_child(menu_instance)
 	if menu:
@@ -371,12 +401,16 @@ func restart_game():
 	else:
 		print("NO HERE")
 
+
 func _on_pickup_range_area_entered(area: Area2D):
 	if area.is_in_group("item_drop"):
+		sense.show()
 		items_in_range.append(area)
 		print(items_in_range)
 
+
 func _on_pickup_range_area_exited(area: Area2D):
 	if area.is_in_group("item_drop"):
+		sense.hide()
 		items_in_range.erase(area)
 		print(items_in_range)
