@@ -13,7 +13,7 @@ var near_bin_node: Node2D = null
 
 var camera : Camera2D
 
-var total_waste: int = 2:
+var total_waste: int = 43:
 	set(value):
 		total_waste = value
 		emit_signal("total_waste_updated", total_waste)
