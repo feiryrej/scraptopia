@@ -106,6 +106,7 @@ func _on_timer_timeout() -> void:
 #		print("Displaying text: ", current_text)
 	else:
 		end_symbol.text = "..."
+		beeping.stream_paused = true
 		change_state(State.FINISHED)
 		timer.stop()  # Stop the timer when all text is revealed.
 
