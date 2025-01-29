@@ -14,7 +14,8 @@ config/name="Scraptopia"
 run/main_scene="res://scenes/game_intro.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 run/max_fps=60
-config/icon="res://icon.svg"
+config/icon="res://Scraptopia.png"
+config/windows_native_icon="res://Scraptopia.ico"
 
 [autoload]
 
