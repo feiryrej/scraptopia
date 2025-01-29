@@ -103,7 +103,6 @@ text = "..."
 stream = ExtResource("5_ucm82")
 volume_db = -17.829
 autoplay = true
-stream_paused = true
 bus = &"Sfx"
 parameters/looping = true
 
