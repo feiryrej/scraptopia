@@ -149,7 +149,7 @@ Scraptopia utilizes a variety of technologies to bring an immersive and engaging
         <td>Syruz Ken Domingo</td>
         <td><img src="https://github.com/user-attachments/assets/960ec026-d43b-4046-b901-5545377bd079" alt="" style="border-radius: 50%; width: 50px;"></td>
         <td><a href="https://github.com/sykeruzn">sykeruzn</a></td>
-        <td>Developer: is responsible for implementing collision polygons, ensuring objects and characters interact correctly within the game world. 
+        <td>Backend Developer: is responsible for implementing collision polygons, ensuring objects and characters interact correctly within the game world. 
           Syke is also in charge of sorting (z-index), managing layering to prevent overlapping issues and maintain visual clarity. 
           Additionally, Syke will work on identification, likely involving distinguishing objects, entities, or areas within the game.
         </td>
@@ -166,8 +166,8 @@ Scraptopia utilizes a variety of technologies to bring an immersive and engaging
         <td>Duane Kyros Marzan</td>
         <td><img src="https://github.com/user-attachments/assets/fa4ebb00-5289-4bad-bb7a-7b09e998f0d1" alt="" style="border-radius: 50%; width: 50px;"></td>
         <td><a href="https://github.com/kyrariii">kyrariii</a></td>
-        <td>Designer: is responsible for adding sound effects to enhance the game's audio experience. He is also responsible for creating Ixiol, Luxanna and Avalciel, 
-          contributing to their design and implementation in the game.
+        <td>Developer, Designer: is responsible for adding sound effects to enhance the game's audio experience. He is also responsible for creating Ixiol, Luxanna and Avalciel, 
+          contributing to their design and implementation in the game. He also created the map of the game.
         </td>
       </tr>
       <tr>
