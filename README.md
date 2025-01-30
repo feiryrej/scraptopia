@@ -118,6 +118,80 @@ Scraptopia utilizes a variety of technologies to bring an immersive and engaging
 **Avalciel**
 ![Screenshot 2025-01-30 155720](https://github.com/user-attachments/assets/a898bbe7-9ab5-46c9-b6ac-84a4c110c3a1)
 
+<!-- Contributor's Table -->
+### Contributors
+  <table style="width: 100%; text-align: center;">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Avatar</th>
+        <th>GitHub</th>
+        <th>Contributions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Regina Bonifacio</td>
+        <td><img src="https://github.com/user-attachments/assets/65c07938-3cf3-445f-9d28-d50aaf5439b7" alt="" style="border-radius: 50%; width: 50px;"></td>
+        <td><a href="https://github.com/feiryrej">feiryrej</a></td>
+        <td>Leader/Scrum Master: is responsible for fixing the pick up and drop mechanics, ensuring that objects can be properly collected and placed as needed. 
+          Regina is also responsible for creating the environment for the game, creating the initial map, and for assigning tasks.</td>
+      </tr>
+      <tr>
+        <td>Henry James Carlos</td>
+        <td><img src="https://github.com/user-attachments/assets/3f352172-aa52-49f1-addc-58f68efcbed6" alt="" style="border-radius: 50%; width: 50px;"></td>
+        <td><a href="https://github.com/hjcarlos">hjcarlos</a></td>
+        <td>Lead Developer, Lead Designer: is responsible for the distribution of garbage, ensuring proper placement and mechanics for waste management in the game. 
+          Henry is also tasked with the placement of characters, handling their positioning and ensuring they align correctly with the environment. He is also the creator of the main character, Ignis and     
+          Tsuchiruz.</td>
+      </tr>
+      <tr>
+        <td>Syruz Ken Domingo</td>
+        <td><img src="https://github.com/user-attachments/assets/960ec026-d43b-4046-b901-5545377bd079" alt="" style="border-radius: 50%; width: 50px;"></td>
+        <td><a href="https://github.com/sykeruzn">sykeruzn</a></td>
+        <td>Developer: is responsible for implementing collision polygons, ensuring objects and characters interact correctly within the game world. 
+          Syke is also in charge of sorting (z-index), managing layering to prevent overlapping issues and maintain visual clarity. 
+          Additionally, Syke will work on identification, likely involving distinguishing objects, entities, or areas within the game.
+        </td>
+      </tr>
+      <tr>
+        <td>Fervicmar Lagman</td>
+        <td><img src="https://github.com/user-attachments/assets/dbbc242b-b924-45fc-98eb-e968aa63cffe" alt="" style="border-radius: 50%; width: 50px;"></td>
+        <td><a href="https://github.com/perbik">perbik</a></td>
+        <td>Developer, Designer: is responsible for character interactions, such as dialogues, ensuring engaging and dynamic conversations within the game. 
+          Fervicmar is also in charge of developing the storyline, shaping the narrative experience for players. He is also responsible for drawing the sprites of waste.
+        </td>
+      </tr>
+      <tr>
+        <td>Duane Kyros Marzan</td>
+        <td><img src="https://github.com/user-attachments/assets/fa4ebb00-5289-4bad-bb7a-7b09e998f0d1" alt="" style="border-radius: 50%; width: 50px;"></td>
+        <td><a href="https://github.com/kyrariii">kyrariii</a></td>
+        <td>Designer: is responsible for adding sound effects to enhance the game's audio experience. He is also responsible for creating Ixiol, Luxanna and Avalciel, 
+          contributing to their design and implementation in the game.
+        </td>
+      </tr>
+      <tr>
+        <td>Hans Christian Queja</td>
+        <td><img src="https://github.com/user-attachments/assets/fdc1dedb-0eb9-44d3-a7fc-0da8e636448f" alt="" style="border-radius: 50%; width: 50px;"></td>
+        <td><a href="https://github.com/HansQueja">HansQueja</a></td>
+        <td>Developer, Designer: is responsible for implementing the restart system when the player dies, ensuring a smooth transition back into gameplay. 
+           Hans also work on the settings menu, which includes pause and resume functionality, sound effect options, and the almanac section, 
+          providing players with useful game-related information. He is also responsible for drawing the sprites of waste. 
+        </td>
+      </tr>
+      <tr>
+        <td>Acelle Krislette Rosales</td>
+        <td><img src="https://github.com/user-attachments/assets/2ee1c523-6939-47da-9fba-2ac1e770b7a7" alt="" style="border-radius: 50%; width: 50px;"></td>
+        <td><a href="https://github.com/krislette">krislette</a></td>
+        <td>Lead Developer: is responsible for camera panning, ensuring smooth movement and navigation across the game world.
+          Acelle is also in charge of defining map limits, preventing the player from going beyond the intended boundaries. 
+          Furthermore, Acelle handled the landing page/main menu, creating an intuitive and visually appealing entry point for the game.
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
 ## License
 
 Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License. See [LICENSE](LICENSE) for more information.
