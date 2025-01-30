@@ -9,7 +9,6 @@
 
   <h1 align="center">Scraptopia</h1>
   <p align="center">
-    Your Commuting Buddy
     <br />
     <a href="#demo"><strong>View Demo »</strong></a>
     <br />
