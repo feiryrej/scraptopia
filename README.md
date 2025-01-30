@@ -119,3 +119,8 @@ Scraptopia utilizes a variety of technologies to bring an immersive and engaging
 **Avalciel**
 ![Screenshot 2025-01-30 155720](https://github.com/user-attachments/assets/a898bbe7-9ab5-46c9-b6ac-84a4c110c3a1)
 
+## License
+
+Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License. See [LICENSE](LICENSE) for more information.
+
+<p align="right">[<a href="#readme-top">Back to top</a>]</p>
