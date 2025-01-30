@@ -320,6 +320,8 @@ func dispose_item(bin_type: String, bin: Node2D):
 			item_spr.hide()
 			update_spritesheet()
 			
+			get_parent().get_node("Tutorial2").hide()
+			
 			wrong_spr.hide()
 			correct_spr.show()
 			correct_spr.play("correct")
@@ -349,6 +351,7 @@ func dispose_item(bin_type: String, bin: Node2D):
 				call_deferred("end_scene") 
 			else:
 				print("Keep going!")
+				
 			
 		else:		
 			Global.lives -= 1

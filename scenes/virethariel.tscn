@@ -218,7 +218,7 @@ z_index = 1
 y_sort_enabled = true
 
 [node name="player" parent="." instance=ExtResource("3_nd4xc")]
-position = Vector2(1095, 812)
+position = Vector2(1097, 812)
 
 [node name="ixiol" parent="." instance=ExtResource("3_p37um")]
 position = Vector2(533, -57)
@@ -399,6 +399,7 @@ unique_name_in_owner = true
 environment = SubResource("Environment_0dhia")
 
 [node name="Tutorial" type="Node2D" parent="."]
+z_index = 2
 script = ExtResource("20_7g44g")
 
 [node name="Area2D" type="Area2D" parent="Tutorial"]
@@ -417,6 +418,29 @@ scale = Vector2(0.55311, 0.55311)
 theme_override_fonts/font = ExtResource("9_iaw3j")
 theme_override_font_sizes/font_size = 16
 text = "Pick Me! (E)"
+
+[node name="Tutorial2" type="Node2D" parent="."]
+z_index = 3
+position = Vector2(-55, -257)
+script = ExtResource("20_7g44g")
+
+[node name="Area2D" type="Area2D" parent="Tutorial2"]
+position = Vector2(1065, 775)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tutorial2/Area2D"]
+position = Vector2(1, -3)
+shape = SubResource("CircleShape2D_aw8n6")
+
+[node name="Tutorial2" type="Label" parent="Tutorial2/Area2D"]
+offset_left = -26.0
+offset_top = -36.0
+offset_right = 76.0
+offset_bottom = -13.0
+scale = Vector2(0.55311, 0.55311)
+theme_override_fonts/font = ExtResource("9_iaw3j")
+theme_override_font_sizes/font_size = 16
+text = "Throw Here (E)
+"
 
 [node name="Transition" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -445,3 +469,5 @@ libraries = {
 [connection signal="pressed" from="Settings Canvas/settings_btn" to="Settings Canvas/menu_panel" method="_on_settings_btn_pressed"]
 [connection signal="body_entered" from="Tutorial/Area2D" to="Tutorial" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Tutorial/Area2D" to="Tutorial" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Tutorial2/Area2D" to="Tutorial2" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Tutorial2/Area2D" to="Tutorial2" method="_on_area_2d_body_exited"]
