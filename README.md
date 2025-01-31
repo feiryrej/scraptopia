@@ -42,6 +42,7 @@ The game combines environmental education with puzzle-solving mechanics, making 
       <li><a href="#table-of-contents">Table Of Contents</a></li>
       <li><a href="#features">Features</a></li>
       <li><a href="#technologies">Technologies Used</a></li>
+      <li><a href="#getting-started">How to Play</a></li>
     </ul>
   </li>
   <li>
@@ -88,7 +89,7 @@ The game combines environmental education with puzzle-solving mechanics, making 
   - In-game dialogues enhancing player interactions  
 
 <!-- TECHNOLOGIES -->
-### Technologies  
+## Technologies  
 
 Scraptopia utilizes a variety of technologies to bring an immersive and engaging gameplay experience:  
 
@@ -96,10 +97,72 @@ Scraptopia utilizes a variety of technologies to bring an immersive and engaging
 - **[GDScript](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html)**: A high-level, dynamically typed programming language used for scripting in Godot.  
 - **[Aseprite](https://www.aseprite.org/)**: A pixel art tool used for creating sprites, animations, and visual assets.  
 - **[Tilemaps](https://docs.godotengine.org/en/stable/tutorials/2d/using_tilemaps.html)**: Used for building complex game environments efficiently.  
-- **[Physics Engine](https://docs.godotengine.org/en/stable/tutorials/physics/index.html)**: Implements collision detection and rigid body physics for realistic interactions.  
+- **[Physics Engine](https://docs.godotengine.org/en/stable/tutorials/physics/index.html)**: Implements collision detection and rigid body physics for realistic interactions.
+
+<!--HOW TO PLAY-->
+## Getting Started
+
+1. **Launch the game** and wait for the loading screen.
+2. From the **main menu**, select **"Play"** to begin.
+3. You'll be introduced to the world of **"Scraptopia"** through dialogue sequences.
+   - Press **ENTER** to advance through dialogue.
+   - You can press **ENTER** while text is still appearing to instantly display all text.
+
+### Movement
+
+Use **ARROW KEYS** or **WASD** to move your character:
+
+- **UP/W**: Move up
+- **DOWN/S**: Move down
+- **LEFT/A**: Move left
+- **RIGHT/D**: Move right
+
+### Core Actions
+
+- Press **E** to pick up trash.
+- Press **E** again when near bins to dispose of trash.
+- Use the **mouse cursor** to interact with interface elements.
+
+### The Almanac
+
+The **Almanac** contains essential information about different types of trash:
+
+- Biodegradable waste
+- Hazardous waste
+- Non-biodegradable waste
+- Recyclable waste
+
+To close the Almanac:
+
+- Click the **exit button**, or
+- Press **Q**.
+
+### Menu Options
+
+Access the menu by clicking the **gear icon** or pressing **ESC**. Available options:
+
+- **Resume**  
+  Returns to gameplay. Unpauses the game.
+- **Restart**  
+  Resets the game from the beginning. Useful if you get stuck or want to start fresh.
+- **Settings**  
+  - Music volume control
+  - Mute toggle
+  - Resolution settings
+- **Exit**  
+  Returns to the main menu.
+
+### Tips for New Players
+
+- Familiarize yourself with the **Almanac** before starting to learn about different trash types.
+- Keep an eye on your **health hearts** during gameplay.
+- Use the **trash counter** to track your progress.
+- If you get stuck, don't hesitate to use the **restart option**.
+
+Enjoy your adventure in **Scraptopia**! 🌍🗑️
 
 <!-- APPLICATION SNAPSHOTS -->
-### Application Snapshots
+## Application Snapshots
 **Bins**
 ![Screenshot 2025-01-30 155527](https://github.com/user-attachments/assets/6955ad74-ff66-4964-9456-2b1c68457238)
 
@@ -119,7 +182,7 @@ Scraptopia utilizes a variety of technologies to bring an immersive and engaging
 ![Screenshot 2025-01-30 155720](https://github.com/user-attachments/assets/a898bbe7-9ab5-46c9-b6ac-84a4c110c3a1)
 
 <!-- Contributor's Table -->
-### Contributors
+## Contributors
   <table style="width: 100%; text-align: center;">
     <thead>
       <tr>
